@@ -1,0 +1,21 @@
+{
+  "name": "sorting-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "quicksort.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-connect": "^2.3.1",
+    "mocha": "^2.3.4"
+  }
+}
