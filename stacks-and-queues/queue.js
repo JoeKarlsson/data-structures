@@ -16,7 +16,7 @@ const queueGenerator = () => {
       back.next = newNode;
       back = newNode;
     }
-  }
+  };
 
   const _dequeue = () => {
     if ( front ) {
@@ -25,13 +25,23 @@ const queueGenerator = () => {
       return value;
     }
     return null;
-  }
+  };
+
+  const _isEmpty = () => {
+    if (front) {
+      return true;
+    }
+    return false;
+  };
 
   return {
     enqueue: _enqueue,
     dequeue: _dequeue,
+    isEmpty: _isEmpty,
   }
-}
+};
+
+module.exports = queueGenerator;
 
 var queue = queueGenerator();
 queue.enqueue('first');
