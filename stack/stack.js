@@ -4,7 +4,7 @@ const stackGenerator = () => {
   let top = null;
 
   const _push = ( value ) => {
-    let newNode = {
+    const newNode = {
       value,
       next: top,
     }
@@ -12,8 +12,8 @@ const stackGenerator = () => {
   }
 
   const _pop = () => {
-    if ( top !== null ) {
-      let value = top.value;
+    if ( !top ) {
+      const value = top.value;
       top = top.next;
       return value;
     }
@@ -26,7 +26,7 @@ const stackGenerator = () => {
   }
 }
 
-var stack = stackGenerator();
+const stack = stackGenerator();
 stack.push('first');
 stack.push('second');
 stack.push('third');
