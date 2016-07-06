@@ -1,18 +1,20 @@
 'use strict';
 
-var bubbleModule = module.exports = (function() {
+const bubbleModule = module.exports = (function() {
 
-  /* Bubble sort works in a nature similar to its name, the lesser - or lighter - values
-  *  will 'bubble' to the beginning of the array, and the heavier values will 'sink'
-  *  to the bottom.
+  /*
+  * Bubble sort works in a nature similar to its name,
+  * the lesser - or lighter - values
+  * will 'bubble' to the beginning of the array,
+  * and the heavier values will 'sink'
+  * to the bottom.
   */
   return {
-
-    bubbleSort : function (array) {
+    bubbleSort : (array) => {
 
       //create variables for swapping and our while loop condition
-      var prev;
-      var swapped = true;
+      let prev;
+      let swapped = true;
 
       //Continue making passes until we have a clean pass with no swaps.
       while (swapped) {
@@ -21,7 +23,7 @@ var bubbleModule = module.exports = (function() {
         swapped = false;
 
         //loop through our array
-        for (var i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
 
           //at each position, compare this element with the previous
           //if this one is greater than our previous one swap it and
@@ -39,19 +41,15 @@ var bubbleModule = module.exports = (function() {
 
             //flag our conditional to continue looping
             swapped = true;
-
           }
         }
       }
       //return our sorted array
       return array;
     }
-
   }
-
 });
 
-var arr = [5,1,4,2,8];
-var bubbleModule = bubbleModule();
-console.log(bubbleModule);
-console.log(bubbleModule.bubbleSort(arr));
+const arr = [5,1,4,2,8];
+const bubbleSort = bubbleModule();
+console.log(bubbleSort.bubbleSort(arr));

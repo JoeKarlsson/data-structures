@@ -86,7 +86,6 @@ var quickModule = module.exports = (function() {
 
         //sort from pivot + 1 to high
         this.quickSort(array, nextPivot + 1, high);
-
       }
 
       //return the sorted array
@@ -96,6 +95,6 @@ var quickModule = module.exports = (function() {
 
 });
 
-var arr = [5, 1, 4, 2, 8];
+var arr = [5, 1, 4, 2, 8, 7, 9, 9, 2, 4, 5, 6];
 var quick = quickModule();
 console.log(quick.quickSort(arr));
