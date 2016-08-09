@@ -4,7 +4,7 @@ This repo is a collection of common data structures, and alogirthims you might e
 
 * [Binary Search Trees](https://github.com/JoeKarlsson1/data-structures/tree/master/binary-search-tree)
 * [Linked Lists](/tree/master/linked-list)
-* [Search/Traversing Algorithms]()
+* [Graph Traversing Algorithms]()
   * [Breadth First Search]()
   * [Depth First Search]()
 * [Stack/Queues]()
