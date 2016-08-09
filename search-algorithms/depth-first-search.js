@@ -1,6 +1,6 @@
 'use strict';
 
-const Node = require('../data-structure/treeNode');
+const Node = require('../tree/treeNode');
 
 /*
   1  procedure DFS(G,v):

@@ -1,7 +1,7 @@
 'use strict';
 
-const Node = require('../data-structure/treeNode');
-const queueGenerator = require('../stacks-and-queues/queue');
+const Node = require('../tree/treeNode');
+const queueGenerator = require('../queue/queue');
 
  /*
    * Performs a breadth-first search on a graph

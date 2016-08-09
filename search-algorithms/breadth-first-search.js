@@ -1,6 +1,6 @@
 'use strict';
 
-const Node = require('../data-structure/graphNode.js');
+const Node = require('../graph/graphNode.js');
 
 /*
   In a breadth first search you will start at the root node.
