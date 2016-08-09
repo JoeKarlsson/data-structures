@@ -2,20 +2,20 @@
 
 This repo is a collection of common data structures, and alogirthims you might encounter in an interview. This repo covers the following topics:
 
-* Binary Search Trees
-* Linked Lists
-* Search/Traversing Algorithms
-  * Breadth First Search
-  * Depth First Search
-* Stack/Queues
-* Graphs
-* Trees
-* Sorting Algorithms
-  * Bubble Sort
-  * Insertion Sort
-  * Merge Sort
-  * Quick Sort (duh)
-  * Selection Sort
+* [Binary Search Trees](https://github.com/JoeKarlsson1/data-structures/tree/master/binary-search-tree)
+* [Linked Lists](/tree/master/linked-list)
+* [Search/Traversing Algorithms]()
+  * [Breadth First Search]()
+  * [Depth First Search]()
+* [Stack/Queues]()
+* [Graphs]()
+* [Trees]()
+* [Sorting Algorithms]()
+  * [Bubble Sort]()
+  * [Insertion Sort]()
+  * [Merge Sort]()
+  * [Quick Sort (duh)]()
+  * [Selection Sort]()
 
 An algorithm is a self-contained step-by-step set of operations to be performed. Algorithms perform calculation, data processing, and/or automated reasoning tasks.
 
