@@ -67,3 +67,26 @@ procedure DFS(G,v):
         if vertex w is not labeled as discovered then
             recursively call DFS(G,w)
 ```
+
+# Additional Resources
+
+#### Graph - Wikipedia
+- Link: [Graph (Abstract Data Type) - Wikipedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type))
+- Concepts: *Graph Node*, *Graph theory*, *search* and *depth first search*
+
+#### Depth First Search - Wikipedia
+- Link: [Depth First Search - Wikipedia](https://en.wikipedia.org/wiki/Depth-first_search)
+- Concepts: *Graph Node*, *Graph theory*, *search* and *depth first search*
+
+#### Breadth First Search - Wikipedia
+- Link: [Breadth First Search - Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
+- Concepts: *Graph Node*, *Graph theory*, *search* and *breadth first search*
+
+#### The breadth-first search algorithm - Khan Academy
+- Link: [The breadth-first search algorithm - Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms/breadth-first-search/a/the-breadth-first-search-algorithm)
+- Concepts: *Trees*, *Data Structures*
+
+#### Labyrinth Algorithms DFS and BFS Visulaization
+- Link: [Labyrinth Algorithms DFS and BFS Visulaization](http://bryukh.com/labyrinth-algorithms/)
+- Concepts: *Graph Node*, *Graph theory*, *search* and *depth first search*
+- Notes: Great site that visualizes BFS and DFS
