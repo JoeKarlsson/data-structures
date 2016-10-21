@@ -11,17 +11,17 @@ function linkedListGenerator() {
   let tail = null;
 
   //points to our head
-  function _getHead() {
+  const _getHead = () => {
     return head;
   }
 
   //points to our tail
-  function _getTail() {
+  const _getTail = () => {
     return tail;
   }
 
   //takes a new node and adds it to our linked list
-  function _add( value ) {
+  const _add = ( value ) => {
     const node = {value: value, next: null};
     if( _getHead() === null ) {
       head = node;
@@ -37,7 +37,7 @@ function linkedListGenerator() {
    * @param  {[type]} index [description]
    * @return {[type]}       [description]
    */
-  function _get( index ) {
+  const _get = ( index ) => {
     let curNode = _getHead();
     let position =  0;
 
@@ -56,7 +56,7 @@ function linkedListGenerator() {
    * @param  {[type]} index [description]
    * @return {[type]}       [description]
    */
-  function _remove( index ) {
+  const _remove = ( index ) => {
     let curNode = _get(index);
     let prevNode = _get(index - 1);
 
@@ -82,7 +82,7 @@ function linkedListGenerator() {
    * @param  {[type]} index [description]
    * @return {[type]}       [description]
    */
-  function _insert( val, index ) {
+  const _insert = ( val, index ) => {
     var curNode = this.get( index );
     var prevNode = this.get( index - 1 );
     var tmpNode = _createNode( val );
@@ -113,7 +113,7 @@ function linkedListGenerator() {
 
 
 
-var books = linkedListGenerator();
+let books = linkedListGenerator();
 books.add('Notebook');
 // books.add('Harry Potter');
 // books.add('FaceBook');

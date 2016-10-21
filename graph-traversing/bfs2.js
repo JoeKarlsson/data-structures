@@ -10,10 +10,10 @@ const queueGenerator = require('../queue/queue');
    * @returns {array} Array of objects describing each vertex, like
    *     [{distance: _, predecessor: _ }]
 */
-const bfs = function(graph, source) {
-  var bfsInfo = [];
+const bfs = (graph, source) => {
+  let bfsInfo = [];
 
-  for (var i = 0; i < graph.length; i++) {
+  for (let i = 0; i < graph.length; i++) {
     bfsInfo[i] = {
       distance: null,
       predecessor: null,
@@ -22,7 +22,7 @@ const bfs = function(graph, source) {
 
   bfsInfo[source].distance = 0;
 
-  var queue = queueGenerator();
+  let queue = queueGenerator();
   queue.enqueue(source);
 
   // Traverse the graph
@@ -40,10 +40,10 @@ const bfs = function(graph, source) {
   //  use bfsInfo for distances and predecessors
 
   while(!queue.isEmpty()){
-    var vertex= queue.dequeue();
+    let vertex= queue.dequeue();
 
-    for(var i=0; i<vertex.length; i++){
-      var  neighbour = graph[vertex][i];
+    for(let i=0; i<vertex.length; i++){
+      let  neighbour = graph[vertex][i];
 
       if(bfsInfo[neighbour].distance===null){
           bfsInfo[neighbour].distance+=1;

@@ -26,6 +26,7 @@ const stackGenerator = () => {
   }
 }
 
+// Test
 const stack = stackGenerator();
 stack.push('first');
 stack.push('second');

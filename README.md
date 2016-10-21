@@ -27,10 +27,12 @@ This repo is a collection of common data structures, and alogirthims you might e
 * [Graph Traversing Algorithms](https://github.com/JoeKarlsson1/data-structures/tree/master/graph-traversing)
   * [Breadth First Search](https://github.com/JoeKarlsson1/data-structures/blob/master/graph-traversing/breadth-first-search.js)
   * [Depth First Search](https://github.com/JoeKarlsson1/data-structures/blob/master/graph-traversing/depth-first-search.js)
+  * [A*](https://github.com/JoeKarlsson1/data-structures/#)
 * [Queue](https://github.com/JoeKarlsson1/data-structures/tree/master/queue)
 * [Stack](https://github.com/JoeKarlsson1/data-structures/tree/master/stack)
 * [Graph Node](https://github.com/JoeKarlsson1/data-structures/tree/master/graph)
 * [Tree Node](https://github.com/JoeKarlsson1/data-structures/tree/master/tree)
+* [Binary Heap](https://github.com/JoeKarlsson1/data-structures/#)
 * [Sorting Algorithms](https://github.com/JoeKarlsson1/data-structures/tree/master/sorting-algorithms)
   * [Bubble Sort](https://github.com/JoeKarlsson1/data-structures/blob/master/sorting-algorithms/bubblesort.js)
   * [Insertion Sort](https://github.com/JoeKarlsson1/data-structures/blob/master/sorting-algorithms/insertionsort.js)
@@ -47,6 +49,14 @@ An algorithm is a self-contained step-by-step set of operations to be performed.
 Knuth: ". . .we want good algorithms in some loosely defined aesthetic sense. One criterion . . . is the length of time taken to perform the algorithm . . .. Other criteria are adaptability of the algorithm to computers, its simplicity and elegance, etc"
 
 Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest possible program for producing the output that it does"
+
+TODO:
+- Dijkstra’s
+- Floyd-Warshall
+- Traveling Salesman
+- A*, bloom filter
+- binary search
+- k-way merge
 
 ## Contributing
 1. Fork it!
