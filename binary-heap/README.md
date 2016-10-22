@@ -40,4 +40,5 @@ Max-Heapify (A, i):
 #### Binary Heap - Wikipedia
 - Link: [Binary heap - Wikipedia](https://en.wikipedia.org/wiki/Binary_heap)
 
+#### Binary Heap - Eloquent JavaScript
 - Link: [Binary heap - Eloquent JavaScript](http://eloquentjavascript.net/1st_edition/appendix2.html)
