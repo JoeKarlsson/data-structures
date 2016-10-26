@@ -15,6 +15,7 @@ Function.prototype.memoize = function(){
   }
 };
 
+// Test
 function fooBar(x){
   return x
 };
