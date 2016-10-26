@@ -51,12 +51,32 @@ Knuth: ". . .we want good algorithms in some loosely defined aesthetic sense. On
 Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest possible program for producing the output that it does"
 
 TODO:
-- Dijkstra’s
 - Floyd-Warshall
 - Traveling Salesman
-- A*, bloom filter
+- bloom filter
 - binary search
 - k-way merge
+- bitwise operations
+- Tries
+- hash table
+  - hash(k, m) - m is size of hash table
+  - add(key, value) - if key already exists, update value
+  - exists(key)
+  - get(key)
+  - remove(key)
+- implement arrays methods
+  - size() - number of items
+  - capacity() - number of items it can hold
+  - is_empty()
+  - at(index) - returns item at given index, blows up if index out of bounds
+  - push(item)
+  - insert(index, item) - inserts item at index, shifts that index's value and trailing elements to the right
+  - prepend(item) - can use insert above at index 0
+  - pop() - remove from end, return value
+  - delete(index) - delete item at index, shifting all trailing elements left
+  - remove(item) - looks for value and removes index holding it (even if in multiple places)
+  - find(item) - looks for value and returns first index with that value, -1 if not found
+  - resize(new_capacity) // private function
 
 ## Contributing
 1. Fork it!
