@@ -13,3 +13,10 @@ This is a basic Javascript hash table implementation. A hash table can be concep
 The outer array holds a number of buckets (sub-arrays) equal to the max length of the array. Inside the buckets, tuples or two element arrays hold key-value pairs.
 
 When key-value pairs are inserted into the hash table, the key is hashed with a hashing function. The key and the maximum length of the array are passed to the hashing function which returns an index used to identify the bucket.
+
+- hash table
+  - hash(k, m) - m is size of hash table
+  - add(key, value) - if key already exists, update value
+  - exists(key)
+  - get(key)
+  - remove(key)
