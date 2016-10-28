@@ -4,8 +4,6 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 
-// var eyes = require('eyes')
-
 function linkedListGenerator() {
   let head = null;
   let tail = null;
