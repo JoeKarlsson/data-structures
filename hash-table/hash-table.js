@@ -16,6 +16,7 @@ class Hashtable {
       }
     }
     this._storage[hash].push([key, value]);
+    console.log(this._storage);
     return 'inserted';
   }
 

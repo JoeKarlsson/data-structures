@@ -34,10 +34,6 @@ const bfs = (graph, source) => {
   //     Set distance to 1 greater than u's distance
   //     Set predecessor to u
   //     Enqueue v
-  //
-  //  Hint:
-  //  use graph to get the neighbors,
-  //  use bfsInfo for distances and predecessors
 
   while(!queue.isEmpty()){
     let vertex= queue.dequeue();
