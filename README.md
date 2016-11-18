@@ -1,5 +1,7 @@
 # JavaScript Data Structures and Algorithms
 
+I put this repo together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. IF you like what you see plz give it a star. Also, feel free to contribute :D
+
 ## What is an algorithm?
 
 ```
