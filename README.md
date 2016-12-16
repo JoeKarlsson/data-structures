@@ -66,6 +66,28 @@ TODO:
 - binary search
 - k-way merge
 - Tries
+- Plagiarism detection, using Rabin Karp String matching
+  - String matching algorithms are pervasive in software. One particularly fun one, is Rabin Karp, which is used in Plagiarism detection. As a student in CS (or in any major), plagiarism detection should be of interest ;-)
+Rabin Karp is relatively easy to implement. See this: Rabin–Karp algorithm - Wikipedia
+Rabin Karp has also inspired a string matching routine in Zlib (one of the most popular un/zip libraries ever). See this, directly into the source code.
+- Matching users to servers, using Gayle-Shapely Algorithm for Stable Marriage problem
+  -This is a beautiful algorithm for fair matching. Simple, elegant and effective. In its core form, it’s also straightforward to implement. Has numerous applications. See: Stable marriage problem - Wikipedia
+- A toy implementation of Viterbi algorithm
+  - Ubiquitous in cell phone technology, and many other applications, Viterbi algorithm is a Dynamic Programming based algorithm that finds the most likely sequence of states. See this toy implementation: http://homepages.ulb.ac.be/~dgon...
+- Music Search using Fast Fourier Transforms (FFT)
+  - Music recognition is done by converting it into frequency domain using FFT. FFT has implementations in number of languages. See this article for a great start: Shazam It! Music Recognition Algorithms, Fingerprinting, and Processing.
+- Implement RSA algorithm
+  - SSL transport, is the bane of safe existence on Internet these days. One of the most well-known algorithms in secure transport, is RSA, named by the first initials of its inventors. Implementing RSA is fun and instructive e.g. C code to implement RSA Algorithm(Encryption and Decryption)
+- Safe Browsing (or similar) using Bloom filters
+  - Bloom filters found very rare usage until the world got more online and we hit scale. But these days, we see new applications very frequently.Chrome browser uses Bloom filters to make preliminary decision on safe browsing. See some novel applications here.
+- Implement an LALR parser
+  - As a CS student, you may have already implemented it as part of your compiler’s class. But if not, then you should. LALR parsing makes syntactic sense of source code, whichever language you use. Many implementations of LALR exist. e.g. Where can I find a _simple_, easy to understand implementation of an LR(1) parser generator? Also, use YACC to understand LALR parsing better.
+- Treemap using Red Black Trees!
+  - RB Trees are not algorithms, but they are famed enough, that no discussion of tantalizing DS/Algorithms is complete without discussing them. The smoothest way to see/implement RB Trees, is to look at Treemap implementation in Java.
+- Circle Drawing using Bresenham’s algorithm
+Ever wondered, how circles are drawn on the screen, with minimal jaggedness (aliasing)? Bresenham’s elegant algorithm is at play here. See a version here: Circle Generation Algorithm . A refreshing use of a similar algorithm, is to make properly sized tabs in Chrome. Something we see almost every day. Such hidden gems!
+- Implement PageRank
+  - Can’t miss this. This transformed our lives in ways we never thought possible. Get started here: Pagerank Explained Correctly with Examples
 
 ## Contributing
 1. Fork it!
