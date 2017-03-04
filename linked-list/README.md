@@ -61,13 +61,3 @@ Takes in a Number value and searches for the Nth node removes it from the list. 
 
 ### insert(Value, Number)
 Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right. Cannot be used to append a node to the end of a list, if attempted, should return `false`.
-
-## Getting Started
-1. Fork this repository and clone it from your personal GitHub Account
-1. In the Terminal, navigate to the newly created folder for this repository.
-1. Install dependencies by running the command: `npm install`
-1. Run tests by running the command: `npm test`
-1. Your work will be one in the file named: `linkedList.js`
-1. Pay attention to the tests for hints on what Method names it expects.
-1. There are no stub descriptions in this exercise.
-1. Make your tests pass!

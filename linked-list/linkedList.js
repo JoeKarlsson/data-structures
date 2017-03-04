@@ -3,31 +3,40 @@
  * @description  Main Module
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
+const linkedListGenerator = () => {
+  let _head = null;
+  let _tail = null;
 
-function linkedListGenerator() {
-  let head = null;
-  let tail = null;
-
-  //points to our head
+  // points to our head
   const _getHead = () => {
-    return head;
+    return _head;
   }
 
-  //points to our tail
+  // points to our tail
   const _getTail = () => {
-    return tail;
+    return _tail;
   }
 
-  //takes a new node and adds it to our linked list
-  const _add = ( value ) => {
-    const node = {value: value, next: null};
-    if( _getHead() === null ) {
-      head = node;
-    } else {
-      _getTail().next = node;
+  // Create a new node
+  const _newNode = ( value) => {
+    return {
+      value,
+      next: null,
     }
-    tail = node;
-    return node;
+  }
+
+  // Takes a new node and adds it to our linked list
+  const _add = ( value ) => {
+    const newNode = _newNode( value );
+
+    if ( _getHead() === null ) {
+      _head  = newNode;
+    } else {
+      _getTail().next = newNode;
+    }
+    _tail = newNode;
+
+    return newNode;
   }
 
   /**
@@ -36,17 +45,20 @@ function linkedListGenerator() {
    * @return {[type]}       [description]
    */
   const _get = ( index ) => {
-    let curNode = _getHead();
-    let position =  0;
+    let currNode = _getHead();
+    let position = 0;
+    if ( index < 0 ) {
+      return false;
+    }
 
-    while( position < index ) {
-      if ( curNode.next === null ) {
+    while ( position < index ) {
+      if (currNode.next === null ) {
         return false;
       }
-      curNode = curNode.next;
+      currNode = currNode.next;
       position++;
     }
-    return curNode;
+    return currNode;
   }
 
   /**
@@ -55,23 +67,32 @@ function linkedListGenerator() {
    * @return {[type]}       [description]
    */
   const _remove = ( index ) => {
-    let curNode = _get(index);
-    let prevNode = _get(index - 1);
+    let currNode = _get( index );
+    let prevNode = _get( index -1 );
+    let nextNode = currNode.next;
 
-    if (curNode === false) {
+    // if the index is not in th LL
+    if ( currNode === false ) {
       return false;
     }
-    if (curNode.next === null ) {
-      tail = prevNode;
+
+    // removing the tail
+    if ( nextNode === null ) {
+      _tail = prevNode;
     }
-    if( index === 0 ) {
-      if( curNode.next === null) {
-        head = null;
-        tail = null;
+
+    // If we are removing the head
+    if ( index === 0 ) {
+      // check if the head and the tail are the same node
+      if (currNode.next === null ) {
+        _head = null;
+        _tail = null;
       }
-      head = curNode.next;
+      _head = nextNode;
     }
-    prevNode.next = curNode.next;
+
+    // Happy path
+    prevNode.next = nextNode;
   };
 
   /**
@@ -80,19 +101,26 @@ function linkedListGenerator() {
    * @param  {[type]} index [description]
    * @return {[type]}       [description]
    */
-  const _insert = ( val, index ) => {
-    var curNode = this.get( index );
-    var prevNode = this.get( index - 1 );
-    var tmpNode = _createNode( val );
+  const _insert = ( value, index ) => {
+    let currNode = _get( index );
+    let prevNode = _get( index -1 );
+    const newNode = _newNode( value );
 
-    if ( index >= length || index < 0 ) {
-      return false
-    } else if ( index === 0 ) {
-      tmpNode.next = curNode;
-      head = tmpNode;
+    if ( currNode === false ){
+      return false;
+    }
+
+    // if inserting at the head
+    if ( index === 0 ) {
+      newNode.next = currNode;
+      _head = newNode;
+    } else if ( currNode.next === null ) {
+      prevNode.next = newNode;
+      newNode.next = currNode;
+      _tail = newNode;
     } else {
-      prevNode.next = tmpNode;
-      tmpNode.next = curNode;
+      prevNode.next = newNode;
+      newNode.next = currNode;
     }
   }
 
@@ -104,23 +132,6 @@ function linkedListGenerator() {
     remove : _remove,
     insert : _insert
   };
-}
+};
 
-
-
-
-
-
-let books = linkedListGenerator();
-books.add('Notebook');
-// books.add('Harry Potter');
-// books.add('FaceBook');
-// eyes.inspect(books.getHead());
-
-
-// var movies = linkedListGenerator();
-// movies.add('star wars');
-// movies.add('batman');
-// movies.add('X-Men');
-
-// eyes.inspect(movies.getHead());
+module.exports = linkedListGenerator;
