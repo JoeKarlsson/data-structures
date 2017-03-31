@@ -1,7 +1,5 @@
 'use strict';
 
-const Node = require('../graph/graphNode.js');
-
 /*
   In a breadth first search you will start at the root node.
   You will then search all their children nodes moving from left to right.
@@ -15,6 +13,7 @@ const bfs = (start) => {
   // initailize the open to be the nodes we are currently exploring
   let open = [];
   open.push(start);
+  let path = [start.name];
 
   // Keep track of the nodes we have already visited, so we don't repeat nodes
   let visited_nodes = [start];
@@ -27,7 +26,7 @@ const bfs = (start) => {
     let current = open.shift();
 
     // Add the current node to our search path stack
-    searched_path.push(current);
+    searched_path.push(current.name);
 
     //Iterate through all of the neighbors of the current node
     current.neighbors.forEach((next) => {
@@ -42,30 +41,6 @@ const bfs = (start) => {
 
   //Once we have traversed the whole graph - return the search path
   return searched_path;
-}
+};
 
-// and a sample graph:
-const A = new Node("A")
-const B = new Node("B")
-const C = new Node("C")
-const D = new Node("D")
-const E = new Node("E")
-const F = new Node("F")
-A.neighbors = [B, C]
-B.neighbors = [ D, E]
-C.neighbors = [F]
-D.neighbors = []
-E.neighbors = []
-F.neighbors = []
-
-// console.log('A', A);
-// console.log('B', B);
-// console.log('C', C);
-// console.log('D', D);
-// console.log('E', E);
-
-let results = bfs(A);
-console.log("First search from A: ", results.toString());
-
-results = bfs(B)
-console.log("Second search from B: ", results.toString())
+module.exports = bfs;
