@@ -1,6 +1,3 @@
-/**
- * @author Grzegorz Rozdzialik <voreny.gelio@gmail.com>
- */
 class Node {
   /**
    * Creates an instance of Node.
