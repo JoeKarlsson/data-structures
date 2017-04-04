@@ -1,3 +1,5 @@
+'use strict';
+
 const quickSort = ( arr ) => {
   let pivot = arr[0];
 
