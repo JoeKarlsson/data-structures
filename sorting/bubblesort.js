@@ -2,6 +2,13 @@
 
 const bubbleModule = module.exports = (function() {
 
+  const swap = (arr, i1, i2) => {
+    let tmp = arr[i1];
+    arr[i1] = arr[i2];
+    arr[i2] = tmp;
+    return arr;
+  };
+
   /*
   * Bubble sort works in a nature similar to its name,
   * the lesser - or lighter - values
@@ -30,14 +37,8 @@ const bubbleModule = module.exports = (function() {
           //flag our conditional to loop through our array again
           if (array[i - 1] > array[i]) {
 
-            //store the prev variable to our previous element
-            prev = array[i - 1];
-
-            //set our previous element to this element
-            array[i - 1] = array[i];
-
-            //set this element to our prev variable
-            array[i] = prev;
+            // swap the two numbers
+            swap(array, i-1, i);
 
             //flag our conditional to continue looping
             swapped = true;
@@ -49,6 +50,13 @@ const bubbleModule = module.exports = (function() {
     }
   }
 });
+
+const swap = (arr, i1, i2) => {
+  let tmp = arr[i1];
+  arr[i1] = arr[i2];
+  arr[i2] = tmp;
+  return arr;
+};
 
 const arr = [5,1,4,2,8];
 const bubbleSort = bubbleModule();
