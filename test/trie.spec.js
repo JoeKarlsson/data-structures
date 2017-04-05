@@ -4,7 +4,7 @@ chai.should();
 
 const Trie = require('../trie/trie');
 
-describe( 'Class: Trie', () => {
+describe( 'Trie', () => {
 
   describe( '"add" and "exists" behavior', () => {
 
@@ -15,12 +15,12 @@ describe( 'Class: Trie', () => {
     });
 
     it( 'add should only accept strings', () => {
-      let boolErrorTest = () => trie.add(true);
-      let numberErrorTest = () => trie.add(10);
-      let arrayErrorTest = () => trie.add(['bad','words']);
-      let anonObjectErrorTest = () => trie.add({ bad : 'words' });
-      let nullErrorTest = () => trie.add(null);
-      let undefinedErrorTest = () => trie.add();
+      const boolErrorTest = () => trie.add(true);
+      const numberErrorTest = () => trie.add(10);
+      const arrayErrorTest = () => trie.add(['bad', 'words']);
+      const anonObjectErrorTest = () => trie.add({ bad: 'words' });
+      const nullErrorTest = () => trie.add(null);
+      const undefinedErrorTest = () => trie.add();
       expect(boolErrorTest).to.throw(TypeError);
       expect(numberErrorTest).to.throw(TypeError);
       expect(arrayErrorTest).to.throw(TypeError);
@@ -89,10 +89,6 @@ describe( 'Class: Trie', () => {
 
       trie.exists(' ').should.be.true;
       trie.exists('   ').should.be.false;
-
     });
-
-
   });
-
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-const quickModule = module.exports = (() => {
+const quickModule = (() => {
   //Privat Methods and variables
 
   //swap method because its used multiple times
@@ -95,6 +95,4 @@ const quickModule = module.exports = (() => {
 
 });
 
-let arr = [5, 1, 4, 2, 8, 7, 9, 9, 2, 4, 5, 6];
-const quick = quickModule();
-console.log(quick.quickSort(arr));
+module.exports = quickModule;

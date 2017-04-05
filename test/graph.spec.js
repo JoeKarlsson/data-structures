@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const Node = require('../graph/graphNode');
 
-describe('Graph Generator', () => {
+describe('Graphs', () => {
   let A;
   let B;
   let C;

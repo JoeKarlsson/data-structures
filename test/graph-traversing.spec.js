@@ -1,123 +1,162 @@
 const chai = require('chai');
+
 const expect = chai.expect;
 
 const Node = require('../graph/graphNode');
-const BFS = require('../graph-traversing/breadth-first-search');
-const DFS_Recursive = require('../graph-traversing/depth-first-search-recursive');
-const DFS_Imperative = require('../graph-traversing/depth-first-search-imperative');
+const breadthFirstSearch = require('../graph-traversing/breadth-first-search');
+const depthFirstSearch = require('../graph-traversing/depth-first-search-imperative');
+const depthFirstSearchRecursive = require('../graph-traversing/depth-first-search-recursive');
 
-describe('Recursive Depth First Search', () => {
-  let A;
-  let B;
-  let C;
-  let D;
-  let E;
-  let F;
+describe('Graph Traversing', () => {
+  describe('Recursive Depth First Search', () => {
+    let A;
+    let B;
+    let C;
+    let D;
+    let E;
+    let F;
 
-  beforeEach(() => {
-    A = new Node("A", "Joe");
-    B = new Node("B", "Jon");
-    C = new Node("C", "Ray");
-    D = new Node("D", "JSON");
-    E = new Node("E", "Marifel");
-    F = new Node("F", "Nigel");
-    A.addNeighbors([B, C]);
-    B.addNeighbors([D, E]);
-    C.addNeighbors([F]);
+    beforeEach(() => {
+      A = new Node('A', 'Joe');
+      B = new Node('B', 'Jon');
+      C = new Node('C', 'Ray');
+      D = new Node('D', 'JSON');
+      E = new Node('E', 'Marifel');
+      F = new Node('F', 'Nigel');
+      A.addNeighbors([B, C]);
+      B.addNeighbors([D, E]);
+      C.addNeighbors([F]);
+    });
+
+    it('should be a function that exists', () => {
+      expect(depthFirstSearchRecursive).to.exist;
+      expect(depthFirstSearchRecursive).to.be.a('function');
+    });
+
+    it('should return the node with the value of `searchFor` stored in its value property', () => {
+      expect(depthFirstSearchRecursive(A, 'Joe').value).to.equal('Joe');
+      expect(depthFirstSearchRecursive(A, 'JSON').value).to.equal('JSON');
+      expect(depthFirstSearchRecursive(A, 'JSON').name).to.equal('D');
+      expect(depthFirstSearchRecursive(A, 'Nigel').value).to.equal('Nigel');
+      expect(depthFirstSearchRecursive(A, 'Nigel').name).to.equal('F');
+      expect(depthFirstSearchRecursive(B, 'Marifel').value).to.equal('Marifel');
+      expect(depthFirstSearchRecursive(A, 'Marifel').name).to.equal('E');
+    });
+
+    it('should return false if it cant find the value in the graph', () => {
+      expect(depthFirstSearchRecursive(F, 'Joe')).to.equal(false);
+      expect(depthFirstSearchRecursive(E, 'Joe')).to.equal(false);
+    });
   });
 
-  it('should be a function that exists', () => {
-    expect(DFS_Recursive).to.exist;
-    expect(DFS_Recursive).to.be.a('function');
+  describe('Imperative Depth First Search', () => {
+    let A;
+    let B;
+    let C;
+    let D;
+    let E;
+    let F;
+
+    beforeEach(() => {
+      A = new Node('A', 'Joe');
+      B = new Node('B', 'Jon');
+      C = new Node('C', 'Ray');
+      D = new Node('D', 'JSON');
+      E = new Node('E', 'Marifel');
+      F = new Node('F', 'Nigel');
+      A.addNeighbors([B, C]);
+      B.addNeighbors([D, E]);
+      C.addNeighbors([F]);
+    });
+
+    it('should be a function that exists', () => {
+      expect(depthFirstSearch).to.exist;
+      expect(depthFirstSearch).to.be.a('function');
+    });
+
+    it('should return the node with the value of `searchFor` stored in its value property', () => {
+      expect(depthFirstSearch(A, 'Joe').value).to.equal('Joe');
+      expect(depthFirstSearch(A, 'JSON').value).to.equal('JSON');
+      expect(depthFirstSearch(A, 'JSON').name).to.equal('D');
+      expect(depthFirstSearch(A, 'Nigel').value).to.equal('Nigel');
+      expect(depthFirstSearch(A, 'Nigel').name).to.equal('F');
+      expect(depthFirstSearch(B, 'Marifel').value).to.equal('Marifel');
+      expect(depthFirstSearch(A, 'Marifel').name).to.equal('E');
+    });
+
+    it('should return false if it cant find the value in the graph', () => {
+      expect(depthFirstSearch(F, 'Joe')).to.equal(false);
+      expect(depthFirstSearch(E, 'Joe')).to.equal(false);
+    });
   });
 
-  it('should return the node with the value of `searchFor` stored in its value property', () => {
-    expect(DFS_Recursive(A, "Joe").value).to.equal("Joe");
-    expect(DFS_Recursive(A, "D").value).to.equal("JSON");
-    expect(DFS_Recursive(A, "D").name).to.equal("D");
-    expect(DFS_Recursive(A, "F").value).to.equal("Nigel");
-    expect(DFS_Recursive(A, "F").name).to.equal("F");
-    expect(DFS_Recursive(B, "E").value).to.equal("Marifel");
-    expect(DFS_Recursive(A, "E").name).to.equal("E");
+  describe('Breadth First Search', () => {
+    let A;
+    let B;
+    let C;
+    let D;
+    let E;
+    let F;
+
+    beforeEach(() => {
+      A = new Node('A', 'Joe');
+      B = new Node('B', 'Jon');
+      C = new Node('C', 'Ray');
+      D = new Node('D', 'JSON');
+      E = new Node('E', 'Marifel');
+      F = new Node('F', 'Nigel');
+      A.addNeighbors([B, C]);
+      B.addNeighbors([D, E]);
+      C.addNeighbors([F]);
+    });
+
+    it('should be a function that exists', () => {
+      expect(breadthFirstSearch).to.exist;
+      expect(breadthFirstSearch).to.be.a('function');
+    });
+
+    it('should return the traversal path from the starting point all the way to the end', () => {
+      expect(breadthFirstSearch(A)).to.deep.equal(['A', 'B', 'C', 'D', 'E', 'F']);
+      expect(breadthFirstSearch(B)).to.deep.equal(['B', 'D', 'E']);
+      expect(breadthFirstSearch(C)).to.deep.equal(['C', 'F']);
+      expect(breadthFirstSearch(D)).to.deep.equal(['D']);
+      expect(breadthFirstSearch(E)).to.deep.equal(['E']);
+      expect(breadthFirstSearch(F)).to.deep.equal(['F']);
+    });
   });
 
-  it('should return false if it cant find the value in the graph', () => {
-    expect(DFS_Recursive(F, "Joe")).to.equal(false);
-    expect(DFS_Recursive(E, "Joe")).to.equal(false);
-  });
-});
+  describe('Breadth First Search - with queue', () => {
+    let A;
+    let B;
+    let C;
+    let D;
+    let E;
+    let F;
 
-describe('Imperative Depth First Search', () => {
-  let A;
-  let B;
-  let C;
-  let D;
-  let E;
-  let F;
+    beforeEach(() => {
+      A = new Node('A', 'Joe');
+      B = new Node('B', 'Jon');
+      C = new Node('C', 'Ray');
+      D = new Node('D', 'JSON');
+      E = new Node('E', 'Marifel');
+      F = new Node('F', 'Nigel');
+      A.addNeighbors([B, C]);
+      B.addNeighbors([D, E]);
+      C.addNeighbors([F]);
+    });
 
-  beforeEach(() => {
-    A = new Node("A", "Joe");
-    B = new Node("B", "Jon");
-    C = new Node("C", "Ray");
-    D = new Node("D", "JSON");
-    E = new Node("E", "Marifel");
-    F = new Node("F", "Nigel");
-    A.addNeighbors([B, C]);
-    B.addNeighbors([D, E]);
-    C.addNeighbors([F]);
-  });
+    it('should be a function that exists', () => {
+      expect(breadthFirstSearch).to.exist;
+      expect(breadthFirstSearch).to.be.a('function');
+    });
 
-  it('should be a function that exists', () => {
-    expect(DFS_Imperative).to.exist;
-    expect(DFS_Imperative).to.be.a('function');
-  });
-
-  it('should return the node with the value of `searchFor` stored in its value property', () => {
-    expect(DFS_Imperative(A, "D").value).to.equal("JSON");
-    expect(DFS_Imperative(A, "D").name).to.equal("D");
-    expect(DFS_Imperative(A, "F").value).to.equal("Nigel");
-    expect(DFS_Imperative(A, "F").name).to.equal("F");
-    expect(DFS_Imperative(B, "E").value).to.equal("Marifel");
-    expect(DFS_Imperative(A, "E").name).to.equal("E");
-  });
-
-  it('should return false if it cant find the value in the graph', () => {
-    expect(DFS_Imperative(F, "Joe")).to.equal(false);
-    expect(DFS_Imperative(E, "Joe")).to.equal(false);
-  });
-});
-
-describe('Breadth First Search', () => {
-  let A;
-  let B;
-  let C;
-  let D;
-  let E;
-  let F;
-
-  beforeEach(() => {
-    A = new Node("A", "Joe");
-    B = new Node("B", "Jon");
-    C = new Node("C", "Ray");
-    D = new Node("D", "JSON");
-    E = new Node("E", "Marifel");
-    F = new Node("F", "Nigel");
-    A.addNeighbors([B, C]);
-    B.addNeighbors([D, E]);
-    C.addNeighbors([F]);
-  });
-
-  it('should be a function that exists', () => {
-    expect(BFS).to.exist;
-    expect(BFS).to.be.a('function');
-  });
-
-  it('should return the traversal path from the starting point all the way to the end', () => {
-    expect(BFS(A)).to.deep.equal(["A","B","C","D","F"]);
-    expect(BFS(B)).to.deep.equal(["B","D","E"]);
-    expect(BFS(C)).to.deep.equal(["C","F"]);
-    expect(BFS(D)).to.deep.equal(["D"]);
-    expect(BFS(E)).to.deep.equal(["E"]);
-    expect(BFS(F)).to.deep.equal(["F"]);
+    it('should return the traversal path from the starting point all the way to the end', () => {
+      expect(breadthFirstSearch(A)).to.deep.equal(['A', 'B', 'C', 'D', 'E', 'F']);
+      expect(breadthFirstSearch(B)).to.deep.equal(['B', 'D', 'E']);
+      expect(breadthFirstSearch(C)).to.deep.equal(['C', 'F']);
+      expect(breadthFirstSearch(D)).to.deep.equal(['D']);
+      expect(breadthFirstSearch(E)).to.deep.equal(['E']);
+      expect(breadthFirstSearch(F)).to.deep.equal(['F']);
+    });
   });
 });

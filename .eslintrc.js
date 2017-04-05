@@ -2,8 +2,10 @@ module.exports = {
     "extends": "airbnb-base",
      'rules': {
       'no-underscore-dangle': 'off',
-      "no-console": 0, // disallow use of console (off by default in the node environment)
+      "no-console": 0,
       "space-in-parens": 0,
+      "no-plusplus": 0,
+      "no-use-before-define": 0,
     },
     "env": {
       "browser": false,     // browser global variables.
@@ -12,6 +14,5 @@ module.exports = {
     },
     "plugins": [
       "import",
-       // e.g. "react" (must run `npm install eslint-plugin-react` first)
      ],
 };
