@@ -1,52 +1,38 @@
-'use strict';
+class Queue {
+  constructor() {
+    this.front = null;
+    this.back = null;
+  }
 
-const queueGenerator = () => {
-  var front = null;
-  let back = null;
-
-  const _enqueue = ( value ) => {
-    let newNode = {
+  enqueue( value ) {
+    const newNode = {
       value,
       next: null,
-    }
-    if (!front) {
-      back = newNode;
-      front = back;
+    };
+    if ( !this.front ) {
+      this.back = newNode;
+      this.front = this.back;
     } else {
-      back.next = newNode;
-      back = newNode;
+      this.back.next = newNode;
+      this.back = newNode;
     }
-  };
+  }
 
-  const _dequeue = () => {
-    if ( front ) {
-      let value = front.value;
-      front = front.next;
+  dequeue() {
+    if ( this.front ) {
+      const value = this.front.value;
+      this.front = this.front.next;
       return value;
     }
     return null;
-  };
+  }
 
-  const _isEmpty = () => {
-    if (front) {
+  isEmpty() {
+    if ( this.front === null ) {
       return true;
     }
     return false;
-  };
-
-  return {
-    enqueue: _enqueue,
-    dequeue: _dequeue,
-    isEmpty: _isEmpty,
   }
-};
+}
 
-module.exports = queueGenerator;
-
-var queue = queueGenerator();
-queue.enqueue('first');
-queue.enqueue('second');
-queue.enqueue('third');
-console.log(queue.dequeue());
-console.log(queue.dequeue());
-console.log(queue.dequeue());
+module.exports = Queue;

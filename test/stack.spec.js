@@ -30,7 +30,7 @@ describe( 'Stack', () => {
       stack.pop();
       expect(stack.pop()).to.equal('dog');
     });
-    it('should rereturn null when all of the nodes have been popped off teh stack', () => {
+    it('should rereturn null when all of the nodes have been popped off the stack', () => {
       stack.push('turtle');
       stack.push('dog');
       stack.push('cat');
