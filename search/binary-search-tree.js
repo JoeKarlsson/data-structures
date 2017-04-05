@@ -1,47 +1,47 @@
-'use strict';
-
 function BinarySearchTree() {
-    this.root = null;
+  this.root = null;
 }
 
-BinarySearchTree.prototype.makeNode = function(value) {
-    var node = {};
-    node.value = value;
-    node.left = null;
-    node.right = null;
-    return node;
+BinarySearchTree.prototype.makeNode = (value) => {
+  const node = {};
+  node.value = value;
+  node.left = null;
+  node.right = null;
+  return node;
 };
 
-BinarySearchTree.prototype.add = function(value) {
-    var currentNode = this.makeNode(value);
-    if (!this.root) {
-        this.root = currentNode;
-    } else {
-        this.insert(currentNode);
-    }
-    return this;
+BinarySearchTree.prototype.add = (value) => {
+  const currentNode = this.makeNode(value);
+  if (!this.root) {
+    this.root = currentNode;
+  } else {
+    this.insert(currentNode);
+  }
+  return this;
 };
 
-BinarySearchTree.prototype.insert = function(currentNode) {
-    var value = currentNode.value;
-    var traverse = function(node) {
-      if (value > node.value) {
-        if (!node.right) {
-            node.right = currentNode;
-            return;
-        } else {
-          traverse(node.right);
-        }
-      } else if (value < node.value) {
-        if (!node.left) {
-            node.left = currentNode;
-            return;
-        } else {
-          traverse(node.left);
-        }
+BinarySearchTree.prototype.insert = (currentNode) => {
+  const value = currentNode.value;
+
+  const traverse = (node) => {
+    if (value > node.value) {
+      if (!node.right) {
+        node.right = currentNode;
+        return;
+      } else {
+        traverse(node.right);
       }
-    };
-    traverse(this.root);
+    } else if (value < node.value) {
+      if (!node.left) {
+        node.left = currentNode;
+        return;
+      } else {
+        traverse(node.left);
+      }
+    }
+  };
+
+  traverse(this.root);
 };
 
 BinarySearchTree.prototype.remove = (value) => {
@@ -52,60 +52,59 @@ BinarySearchTree.prototype.remove = (value) => {
   let replacement;
   let replacementParent;
 
-  //find the node (removed for space)
-  //only proceed if the node was found
-  if (found){
-
-    //figure out how many children
+  // find the node (removed for space)
+  // only proceed if the node was found
+  if (found) {
+    // igure out how many children
     childCount = (current.left !== null ? 1 : 0) +
                  (current.right !== null ? 1 : 0);
 
-    //special case: the value is at the root
-    if (current === this._root){
-      switch(childCount){
-        //other cases removed to save space
-        //two children, little work to do
+    // special case: the value is at the root
+    if (current === this._root) {
+      switch (childCount) {
+        // other cases removed to save space
+        // two children, little work to do
         case 2:
-          //new root will be the old root's left child
-          //...maybe
+          // new root will be the old root's left child
+          // ...maybe
           replacement = this._root.left;
-          //find the right-most leaf node to be
-          //the real new root
-          while (replacement.right !== null){
+          // find the right-most leaf node to be
+          // the real new root
+          while (replacement.right !== null) {
             replacementParent = replacement;
             replacement = replacement.right;
           }
-          //it's not the first node on the left
-          if (replacementParent !== null){
-            //remove the new root from it's
-            //previous position
+          // it's not the first node on the left
+          if (replacementParent !== null) {
+            // remove the new root from it's
+            // previous position
             replacementParent.right = replacement.left;
-            //give the new root all of the old
-            //root's children
+            // give the new root all of the old
+            // root's children
             replacement.right = this._root.right;
             replacement.left = this._root.left;
           } else {
-            //just assign the children
+            // just assign the children
             replacement.right = this._root.right;
           }
-          //officially assign new root
+          // officially assign new root
           this._root = replacement;
-        //no default
+        // no default
       }
 
-    //non-root values
+    // non-root values
     } else {
-      switch (childCount){
+      switch (childCount) {
 
-        //other cases removed to save space
-        //two children, a bit more complicated
+        // other cases removed to save space
+        // two children, a bit more complicated
         case 2:
 
-          //reset pointers for new traversal
+          // reset pointers for new traversal
           replacement = current.left;
           replacementParent = current;
 
-          //find the right-most node
+          // find the right-most node
           while(replacement.right !== null){
               replacementParent = replacement;
               replacement = replacement.right;
@@ -113,11 +112,11 @@ BinarySearchTree.prototype.remove = (value) => {
 
           replacementParent.right = replacement.left;
 
-          //assign children to the replacement
+          // assign children to the replacement
           replacement.right = current.right;
           replacement.left = current.left;
 
-          //place the replacement in the right spot
+          // place the replacement in the right spot
           if (current.value < parent.value){
               parent.left = replacement;
           } else {

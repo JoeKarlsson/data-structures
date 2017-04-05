@@ -24,7 +24,7 @@ const swap = ( arr, i1, i2 ) => {
   return arr;
 };
 
-const result1 = bubbleSort([5,1,4,2,8]);
+const result1 = bubbleSort([5, 1, 4, 2, 8]);
 const result2 = bubbleSort([4,2,4,1,1,5]);
 
 console.log(result1);
