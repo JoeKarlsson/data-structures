@@ -19,8 +19,8 @@ class Trie {
     this.root = {};
   }
 
-  check(word) {
-    if(typeof word !== 'string') {
+  check( word ) {
+    if ( typeof word !== 'string' ) {
       throw new TypeError();
     }
   }
@@ -28,9 +28,9 @@ class Trie {
   add(word) {
     let currNode = this.root;
     this.check(word);
-    for(let i = 0; i < word.length; i++) {
-      let c = word[i];
-      if(!currNode[c]) {
+    for (let i = 0; i < word.length; i++) {
+      const c = word[i];
+      if (!currNode[c]) {
         currNode[c] = {};
       }
       currNode = currNode[c];
@@ -41,16 +41,15 @@ class Trie {
   exists(word) {
     let currNode = this.root;
     this.check(word);
-    for(let i = 0; i < word.length; i++) {
-      let c = word[i];
-      if(!currNode[c]) {
+    for (let i = 0; i < word.length; i++) {
+      const c = word[i];
+      if (!currNode[c]) {
         return false;
-      }else{
-        currNode = currNode[c];
       }
+      currNode = currNode[c];
     }
     return !!currNode.isWord;
   }
-};
+}
 
 module.exports = Trie;
