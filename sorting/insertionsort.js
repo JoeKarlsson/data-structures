@@ -2,7 +2,7 @@
 
 var insertionModule = module.exports = (function() {
   //swap method because its used multiple times
-  function swap (array, index1, index2) {
+  function swap ( array, index1, index2 ) {
 
     //store a tmp variable at pos index2
     var tmp = array[index2];
@@ -20,19 +20,19 @@ var insertionModule = module.exports = (function() {
      * @param  array unsorted array that will be sort
      * @return array sorted array
      */
-    insertionSort : function (a) {
+    insertionSort : function ( a ) {
 
       //Iterate over each element in the array - for each element we will be finding the correct place to put this element
-      for (var i = 1; i < a.length-1; i++) {
+      for ( var i = 1; i < a.length-1; i++ ) {
 
         //init j to i
         var j = i;
 
         //while our previous number is greater than 0, and the number we're comparing is less than our previous number enter our loop
-        while ( j > 0 && (a[j - 1] > a[j]) ) {
+        while ( j > 0 && ( a[j - 1] > a[j] ) ) {
 
           //shift the number down the array and give us a space to insert our current value
-          swap(a, j, j - 1)
+          swap( a, j, j - 1 )
 
           //decrement j to go through our entire array
           j--;
@@ -47,4 +47,4 @@ var insertionModule = module.exports = (function() {
 
 var arr = [5,1,4,2,8];
 var insertion = insertionModule();
-console.log(insertion.insertionSort(arr), ' Insterton Sort');
+console.log(insertion.insertionSort( arr ), ' Insterton Sort');

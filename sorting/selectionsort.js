@@ -1,9 +1,9 @@
 'use strict';
 
-var selectionModule = module.exports = (function() {
+var selectionModule = module.exports = ( function() {
 
   //swap method because its used multiple times
-  function swap (array, index1, index2) {
+  function swap ( array, index1, index2 ) {
 
     //store a tmp variable at pos index2
     var tmp = array[index2];
@@ -39,4 +39,4 @@ var selectionModule = module.exports = (function() {
 
 var arr = [5,1,4,2,8];
 var selection = selectionModule();
-console.log(selection.selectionSort(arr));
+console.log( selection.selectionSort( arr ) );

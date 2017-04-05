@@ -1,18 +1,17 @@
 'use strict';
 
 // Recursive implementation of Bubble Sort
-
 const bubbleSort = ( arr  ) => {
-  let cleanPass = false;
+  let swapped = false;
 
   for ( let i = 0; i < arr.length; i ++ ) {
     if ( arr[i] > arr[i+1] ) {
       swap( arr, i, i+1 );
-      cleanPass = true;
+      swapped = true;
     }
   }
 
-  if ( cleanPass === true ) {
+  if ( swapped === true ) {
     return bubbleSort( arr );
   }
   return arr;
