@@ -4,6 +4,7 @@ const expect = chai.expect;
 
 const Node = require('../graph/graphNode');
 const breadthFirstSearch = require('../graph-traversing/breadth-first-search');
+const breadthFirstSearchQueue = require('../graph-traversing/breadth-first-search-w-queue');
 const depthFirstSearch = require('../graph-traversing/depth-first-search-imperative');
 const depthFirstSearchRecursive = require('../graph-traversing/depth-first-search-recursive');
 
@@ -146,17 +147,25 @@ describe('Graph Traversing', () => {
     });
 
     it('should be a function that exists', () => {
-      expect(breadthFirstSearch).to.exist;
-      expect(breadthFirstSearch).to.be.a('function');
+      expect(breadthFirstSearchQueue).to.exist;
+      expect(breadthFirstSearchQueue).to.be.a('function');
     });
 
     it('should return the traversal path from the starting point all the way to the end', () => {
-      expect(breadthFirstSearch(A)).to.deep.equal(['A', 'B', 'C', 'D', 'E', 'F']);
-      expect(breadthFirstSearch(B)).to.deep.equal(['B', 'D', 'E']);
-      expect(breadthFirstSearch(C)).to.deep.equal(['C', 'F']);
-      expect(breadthFirstSearch(D)).to.deep.equal(['D']);
-      expect(breadthFirstSearch(E)).to.deep.equal(['E']);
-      expect(breadthFirstSearch(F)).to.deep.equal(['F']);
+      // expect(breadthFirstSearchQueue(A)).to.deep.equal(['A', 'B', 'C', 'D', 'E', 'F']);
+      // expect(breadthFirstSearchQueue(B)).to.deep.equal(['B', 'D', 'E']);
+      // expect(breadthFirstSearchQueue(C)).to.deep.equal(['C', 'F']);
+      // expect(breadthFirstSearchQueue(D)).to.deep.equal(['D']);
+      // expect(breadthFirstSearchQueue(E)).to.deep.equal(['E']);
+      // expect(breadthFirstSearchQueue(F)).to.deep.equal(['F']);
+
+      expect(breadthFirstSearchQueue(A, 'Joe').value).to.equal('Joe');
+      expect(breadthFirstSearchQueue(A, 'JSON').value).to.equal('JSON');
+      expect(breadthFirstSearchQueue(A, 'JSON').name).to.equal('D');
+      expect(breadthFirstSearchQueue(A, 'Nigel').value).to.equal('Nigel');
+      expect(breadthFirstSearchQueue(A, 'Nigel').name).to.equal('F');
+      expect(breadthFirstSearchQueue(B, 'Marifel').value).to.equal('Marifel');
+      expect(breadthFirstSearchQueue(A, 'Marifel').name).to.equal('E');
     });
   });
 });

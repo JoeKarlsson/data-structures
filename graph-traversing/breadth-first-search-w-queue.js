@@ -10,6 +10,7 @@ const queueGenerator = require('../queue/queue');
 */
 const bfs = (graph, source) => {
   const bfsInfo = [];
+  let searched_path = [];
 
   for (let i = 0; i < graph.length; i++) {
     bfsInfo[i] = {
@@ -17,10 +18,10 @@ const bfs = (graph, source) => {
       predecessor: null,
     };
   }
-
+  console.log(bfsInfo[source])
   bfsInfo[source].distance = 0;
 
-  let queue = queueGenerator();
+  const queue = queueGenerator();
   queue.enqueue(source);
 
   // Traverse the graph
@@ -33,19 +34,22 @@ const bfs = (graph, source) => {
   //     Set predecessor to u
   //     Enqueue v
 
-  while(!queue.isEmpty()){
-    let vertex= queue.dequeue();
+  while (!queue.isEmpty()) {
+    const vertex = queue.dequeue();
 
-    for(let i=0; i<vertex.length; i++){
-      let  neighbour = graph[vertex][i];
+    for (let i = 0; i < vertex.length; i++) {
+      const neighbour = graph[vertex][i];
 
-      if(bfsInfo[neighbour].distance===null){
-          bfsInfo[neighbour].distance+=1;
-          bfsInfo[neighbour].predecessor=vertex;
-          queue.enqueue(neighbour);
+      if (bfsInfo[neighbour].distance === null) {
+        bfsInfo[neighbour].distance += 1;
+        bfsInfo[neighbour].predecessor = vertex;
+        queue.enqueue(neighbour);
+        // Add the current node to our search path stack
+        searched_path.push(current.name);
       }
     }
   }
+  return searched_path;
 };
 
 module.exports = bfs;
