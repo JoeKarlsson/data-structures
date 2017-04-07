@@ -80,7 +80,6 @@ class LinkedList {
   remove( index ) {
     const currNode = this.get( index );
     const prevNode = this.get( index - 1 );
-    // console.log(currNode)
 
     // If index not in LL, return false
     if ( currNode === false ) {

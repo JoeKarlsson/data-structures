@@ -11,12 +11,12 @@ describe('Graphs', () => {
   let F;
 
   beforeEach(() => {
-    A = new Node("A", "Joe");
-    B = new Node("B", "Jon");
-    C = new Node("C", "Ray");
-    D = new Node("D", "JSON");
-    E = new Node("E", "Marifel");
-    F = new Node("F", "Nigel");
+    A = new Node('A', 'Joe');
+    B = new Node('B', 'Jon');
+    C = new Node('C', 'Ray');
+    D = new Node('D', 'JSON');
+    E = new Node('E', 'Marifel');
+    F = new Node('F', 'Nigel');
   });
 
   it('should be a function that exists', () => {
