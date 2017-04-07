@@ -244,8 +244,9 @@ describe('Linked List', () => {
         // bookList Tests
         // remove first node
         bookList.remove(0);
-        console.log(bookList.get(0))
         expect(bookList.get(0).value).to.equal('1982');
+        // console.log(bookList.get(0))
+
         bookList.remove(1);
         expect(bookList.getHead().value).to.equal('1982');
         expect(bookList.getTail().value).to.equal('Snow Crash');

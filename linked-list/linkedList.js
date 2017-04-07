@@ -29,10 +29,10 @@ class LinkedList {
 
   // Takes a new node and adds it to our linked list
   add( value ) {
-    const node = this.newNode(value);
+    const node = this.newNode( value );
 
     // init empty LL
-    if (this.getHead() === null) {
+    if ( this.getHead() === null ) {
       this.head = node;
     } else { // if it's not empty
       this.getTail().next = node;
@@ -52,7 +52,7 @@ class LinkedList {
     let postion = 0;
 
     // If index is less than 0, return false
-    if (index <= -1) {
+    if ( index <= -1 ) {
       return false;
     }
 
@@ -80,7 +80,7 @@ class LinkedList {
   remove( index ) {
     const currNode = this.get( index );
     const prevNode = this.get( index - 1 );
-    console.log(currNode)
+    // console.log(currNode)
 
     // If index not in LL, return false
     if ( currNode === false ) {
@@ -90,18 +90,16 @@ class LinkedList {
     // If removing the head, reassign the head to the next node
     if ( index === 0 ) {
       this.head = currNode.next;
-      // return true;
-    }
 
     // If removing the tail, reassign the tail to the prevNode
-    if ( currNode.next === null ) {
-      console.log('hit')
+    } else if ( currNode.next === null ) {
       this.tail = prevNode;
-      // return true;
-    }
+      prevNode.next = currNode.next;
 
     // Happy Path
-    prevNode.next = currNode.next;
+    } else {
+      prevNode.next = currNode.next;
+    }
   }
 
   insert( value, index ) {
