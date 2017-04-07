@@ -19,28 +19,30 @@ class Hashtable {
   }
 
   retrieve(key) {
-    let hash = getHash(key, this._storageLimit);
-    if (!this._storage[hash]) return 'key does not exist';
+    const hash = getHash(key, this._storageLimit);
+    if (!this._storage[hash]) {
+      return 'key does not exist';
+    }
     for (let i = 0; i < this._storage[hash].length; i++) {
-      let tupple = this._storage[hash][i];
+      const tupple = this._storage[hash][i];
       if (tupple[0] === key) {
         return tupple;
       }
     }
   }
 
- remove(key) {
-  let hash = getHash(key, this._storageLimit);
+  remove(key) {
+    const hash = getHash(key, this._storageLimit);
     if (!this._storage[hash]) return 'key does not exist';
     for (let i = 0; i < this._storage[hash].length; i++) {
       if (this._storage[hash][i][0] === key) {
         this._storage[hash][i].splice(i, 2);
-        return key + ' removed';
+        return `${key} removed`;
       }
     }
+    return false;
   }
-
-};
+}
 
 // helper function that generates hash
 var getHash = function (str, max) {

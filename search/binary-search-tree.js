@@ -365,7 +365,6 @@ class BinarySearchTree {
   }
 
   // Convert a binary search tree to a linked-list in place.
-  // In-order depth-first traversal.
   convertToLinkedList() {
     const node = this.root;
     if ( !node ) {

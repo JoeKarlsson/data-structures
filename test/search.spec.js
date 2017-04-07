@@ -382,20 +382,22 @@ describe( 'Search', () => {
       linearSearch = new LinearSearch(arr);
     });
 
-    it( 'should return `-1` if empty', () => {
-      const newLinearSearch = new LinearSearch([]);
-      expect(newLinearSearch.search()).to.be.equal(-1);
-    });
+    describe( '`search` method', () => {
+      it( 'should return `-1` if empty', () => {
+        const newLinearSearch = new LinearSearch([]);
+        expect(newLinearSearch.search()).to.be.equal(-1);
+      });
 
-    it( 'should return `-1` if the element is not found', () => {
-      expect(linearSearch.search('pig')).to.be.equal(-1);
-    });
+      it( 'should return `-1` if the element is not found', () => {
+        expect(linearSearch.search('pig')).to.be.equal(-1);
+      });
 
-    it( 'should return the index of the element if it\'s found', () => {
-      expect(linearSearch.search('cat')).to.be.equal(0);
-      expect(linearSearch.search('dog')).to.be.equal(1);
-      expect(linearSearch.search('mouse')).to.be.equal(2);
-      expect(linearSearch.search('turtle')).to.be.equal(3);
+      it( 'should return the index of the element if it\'s found', () => {
+        expect(linearSearch.search('cat')).to.be.equal(0);
+        expect(linearSearch.search('dog')).to.be.equal(1);
+        expect(linearSearch.search('mouse')).to.be.equal(2);
+        expect(linearSearch.search('turtle')).to.be.equal(3);
+      });
     });
   });
 });

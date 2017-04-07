@@ -21,6 +21,11 @@ In simple terms, it is possible to say that an algorithm is a sequence of steps 
 
 1. **It should be effective:** The algorithm should solve the problem it was designed to solve. And it should be possible to demonstrate that the algorithm converges with just a paper and pencil.
 
+## Getting Started
+
+1. Run `npm install`
+1. Run `npm test` to run all of the algorithms
+
 This repo is a collection of common data structures, and alogirthims you might encounter in an interview. This repo covers the following topics:
 
 * [Array](https://github.com/JoeKarlsson/data-structures/tree/master/array)
@@ -59,7 +64,7 @@ Knuth: ". . .we want good algorithms in some loosely defined aesthetic sense. On
 
 Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest possible program for producing the output that it does"
 
-TODO:
+### TODO:
 - Floyd-Warshall
 - Traveling Salesman
 - bloom filter
