@@ -1,227 +1,231 @@
-'use strict';
-
-const linkedListGenerator = require('../linked-list/linkedList');
+const LinkedList = require('../linked-list/linkedList');
 const chai = require('chai');
+
 const expect = chai.expect;
 
 describe('Linked List', () => {
   let newLinkedList;
 
-  it('should be a function', function () {
-    expect(linkedListGenerator).to.exist;
-    expect(linkedListGenerator).to.be.a('function');
+  it('should be a function', () => {
+    expect(LinkedList).to.exist;
+    expect(LinkedList).to.be.a('function');
   });
 
-  describe('returns a module object used to interact with the private Linked List object', function () {
-    beforeEach(function () {
-      newLinkedList = linkedListGenerator();
+  describe('returns a LinkedList object used to interact with the private Linked List object', function () {
+    beforeEach(() => {
+      newLinkedList = new LinkedList();
     });
-    it('should return a module object', function () {
+    it('should return a module object', () => {
       expect(newLinkedList).to.be.an('object');
     });
   });
 
-  describe('Module Object has methods available through Linked List Object', function () {
-    beforeEach(function () {
-      newLinkedList = linkedListGenerator();
+  describe('Linked List has methods available through Linked List Object', function () {
+    beforeEach(() => {
+      newLinkedList = new LinkedList();
     });
-    it('should have a method named `getHead`', function () {
+    it('should have a method named `getHead`', () => {
       expect(newLinkedList.getHead).to.exist;
       expect(newLinkedList.getHead).to.be.a('function');
     });
-    it('should have a method named `getTail`', function () {
+    it('should have a method named `getTail`', () => {
       expect(newLinkedList.getTail).to.exist;
       expect(newLinkedList.getTail).to.be.a('function');
     });
-    it('should have a method named `add`', function () {
+    it('should have a method named `add`', () => {
       expect(newLinkedList.add).to.exist;
       expect(newLinkedList.add).to.be.a('function');
     });
-    it('should have a method named `remove`', function () {
+    it('should have a method named `remove`', () => {
       expect(newLinkedList.remove).to.exist;
       expect(newLinkedList.remove).to.be.a('function');
     });
-    it('should have a method named `get`', function () {
+    it('should have a method named `get`', () => {
       expect(newLinkedList.get).to.exist;
       expect(newLinkedList.get).to.be.a('function');
     });
-    it('should have a method named `insert`', function () {
+    it('should have a method named `insert`', () => {
       expect(newLinkedList.insert).to.exist;
       expect(newLinkedList.insert).to.be.a('function');
     });
   });
 
-  describe('`getHead` method', function () {
-    var urlList;
+  describe('`getHead` method', () => {
+    let urlList;
 
-    beforeEach(function () {
-      urlList = linkedListGenerator();
+    beforeEach(() => {
+      urlList = new LinkedList();
     });
-    it('should retrieve the value of the first node in a list', function () {
+    it('should retrieve the value of the first node in a list', () => {
       expect(urlList.getHead).to.be.a('function');
       expect(urlList.getHead()).to.be.null;
     });
   });
 
-  describe('`getTail` method', function () {
-    var urlList;
+  describe('`getTail` method', () => {
+    let urlList;
 
-    beforeEach(function () {
-      urlList = linkedListGenerator();
+    beforeEach(() => {
+      urlList = new LinkedList();
     });
-    it('should retrieve the value of the first node in a list', function () {
+    it('should retrieve the value of the first node in a list',() => {
       expect(urlList.getTail).to.be.a('function');
       expect(urlList.getTail()).to.be.null;
     });
   });
 
-  describe('`add` method', function () {
-      var newNodeA, newNodeB, newNodeC, newLinkedListA, newLinkedListB, newLinkedListC;
+  describe('`add` method', () => {
+    let newNodeA;
+    let newLinkedListA;
+    let newLinkedListB;
+    let newLinkedListC;
 
-      beforeEach(function () {
-        newLinkedListA = linkedListGenerator(); // return new node
-        newLinkedListB = linkedListGenerator(); // for `head` and `tail`
-        newLinkedListC = linkedListGenerator(); // for `tail`
-        newNodeA = newLinkedListA.add('http://slashdot.org');
-      });
-
-      describe('should return a new node object after appending the node to the list', function () {
-        it('should return a new node object', function () {
-          expect(newNodeA).to.not.be.undefined;
-          expect(newNodeA.value).to.be.equal('http://slashdot.org');
-        });
-        it('should have a property named `value`', function () {
-          expect(newNodeA.value).to.exist;
-        });
-        it('should have a property named `next`', function () {
-          expect(newNodeA.next).to.be.defined;
-          expect(newNodeA.next).to.be.null;
-        });
-      });
-
-      describe('should append new nodes', function () {
-        it('`head` and `tail` should reference the same node object when adding to an empty list', function () {
-          // add a new node!
-          newLinkedListB.add('http://devleague.com');
-
-          // test!
-          expect(newLinkedListB.getHead().value).to.equal('http://devleague.com');
-          expect(newLinkedListB.getTail().value).to.equal('http://devleague.com');
-
-          // really the same?
-          expect(newLinkedListB.getHead()).to.equal(newLinkedListB.getTail())
-        });
-      });
-
-      describe('should append even more nodes', function () {
-        it('`tail` should reference the most recently added node', function () {
-          // add new nodes
-          newLinkedListC.add('http://eff.org')
-          newLinkedListC.add('http://devleague.com');
-
-          // tests!
-          // console.log(newLinkedListC.getHead());
-          expect(newLinkedListC.getHead().value).to.equal('http://eff.org');
-          expect(newLinkedListC.getTail().value).to.equal('http://devleague.com');
-
-          // add another node
-          newLinkedListC.add('http://xkcd.org');
-
-          // test!
-          expect(newLinkedListC.getHead().value).to.equal('http://eff.org');
-          expect(newLinkedListC.getTail().value).to.equal('http://xkcd.org');
-        });
-      });
+    beforeEach(() => {
+      newLinkedListA = new LinkedList(); // return new node
+      newLinkedListB = new LinkedList(); // for `head` and `tail`
+      newLinkedListC = new LinkedList(); // for `tail`
+      newNodeA = newLinkedListA.add('http://slashdot.org');
     });
-  describe('`get` method', function () {
-      var urlList, bookList;
 
-      beforeEach(function () {
-        urlList = linkedListGenerator();
-        bookList = linkedListGenerator();
-
-        var urlArr = [
-          'news.ycombinator.com',
-          'mozilla.org',
-          'eff.org',
-          'icann.org'
-        ];
-
-        var bookArr = [
-          'Ready Player One',
-          '1982',
-          'Neuromancer',
-          'Snow Crash'
-        ];
-
-        urlArr.forEach(function(url) {
-          urlList.add(url);
-        });
-        bookArr.forEach(function(book) {
-          bookList.add(book);
-        });
+    describe('should return a new node object after appending the node to the list', function () {
+      it('should return a new node object', () => {
+        expect(newNodeA).to.not.be.undefined;
+        expect(newNodeA.value).to.be.equal('http://slashdot.org');
       });
-
-      describe('takes an argument', function () {
-        it('should find a node by it\'s index in the Linked List', function () {
-          // urlList Tests
-          expect(urlList.get(0).value).to.equal('news.ycombinator.com');
-          expect(urlList.get(1).value).to.equal('mozilla.org');
-          expect(urlList.get(2).value).to.equal('eff.org');
-          expect(urlList.get(3).value).to.equal('icann.org');
-
-          expect(urlList.getHead().value).to.equal('news.ycombinator.com');
-          expect(urlList.getTail().value).to.equal('icann.org');
-
-          // bookList Tests
-          expect(bookList.get(0).value).to.equal('Ready Player One');
-          expect(bookList.get(1).value).to.equal('1982');
-          expect(bookList.get(2).value).to.equal('Neuromancer');
-          expect(bookList.get(3).value).to.equal('Snow Crash');
-
-          expect(bookList.getHead().value).to.equal('Ready Player One');
-          expect(bookList.getTail().value).to.equal('Snow Crash');
-        });
-        it('should return `false` if no node is found', function () {
-          expect(urlList.get(4)).to.be.false;
-          expect(urlList.get(5)).to.be.false;
-          expect(bookList.get(4)).to.be.false;
-          expect(bookList.get(5)).to.be.false;
-        });
+      it('should have a property named `value`', () => {
+        expect(newNodeA.value).to.exist;
+      });
+      it('should have a property named `next`', () => {
+        expect(newNodeA.next).to.be.defined;
+        expect(newNodeA.next).to.be.null;
       });
     });
 
-  describe('`remove` method', function () {
-    var urlList, bookList;
+    describe('should append new nodes', () => {
+      it('`head` and `tail` should reference the same node object when adding to an empty list', function () {
+        // add a new node!
+        newLinkedListB.add('http://devleague.com');
 
-    beforeEach(function () {
-      urlList = linkedListGenerator();
-      bookList = linkedListGenerator();
+        // test!
+        expect(newLinkedListB.getHead().value).to.equal('http://devleague.com');
+        expect(newLinkedListB.getTail().value).to.equal('http://devleague.com');
 
-      var urlArr = [
+        // really the same?
+        expect(newLinkedListB.getHead()).to.equal(newLinkedListB.getTail())
+      });
+    });
+
+    describe('should append even more nodes', () => {
+      it('`tail` should reference the most recently added node', () => {
+        // add new nodes
+        newLinkedListC.add('http://eff.org');
+        newLinkedListC.add('http://devleague.com');
+
+        // tests!
+        // console.log(newLinkedListC.getHead());
+        expect(newLinkedListC.getHead().value).to.equal('http://eff.org');
+        expect(newLinkedListC.getTail().value).to.equal('http://devleague.com');
+
+        // add another node
+        newLinkedListC.add('http://xkcd.org');
+
+        // test!
+        expect(newLinkedListC.getHead().value).to.equal('http://eff.org');
+        expect(newLinkedListC.getTail().value).to.equal('http://xkcd.org');
+      });
+    });
+  });
+  describe('`get` method', () => {
+    let urlList;
+    let bookList;
+
+    beforeEach(() => {
+      urlList = new LinkedList();
+      bookList = new LinkedList();
+
+      const urlArr = [
         'news.ycombinator.com',
         'mozilla.org',
         'eff.org',
-        'icann.org'
+        'icann.org',
       ];
 
-      var bookArr = [
+      const bookArr = [
         'Ready Player One',
         '1982',
         'Neuromancer',
-        'Snow Crash'
+        'Snow Crash',
       ];
 
-      urlArr.forEach(function(url) {
+      urlArr.forEach((url) => {
         urlList.add(url);
       });
-      bookArr.forEach(function(book) {
+      bookArr.forEach((book) => {
         bookList.add(book);
       });
     });
 
-    describe('takes an argument', function () {
-      it('should remove a node by it\'s index in the Linked List', function () {
+    describe('takes an argument', () => {
+      it('should find a node by it\'s index in the Linked List', () => {
+        // urlList Tests
+        expect(urlList.get(0).value).to.equal('news.ycombinator.com');
+        expect(urlList.get(1).value).to.equal('mozilla.org');
+        expect(urlList.get(2).value).to.equal('eff.org');
+        expect(urlList.get(3).value).to.equal('icann.org');
+
+        expect(urlList.getHead().value).to.equal('news.ycombinator.com');
+        expect(urlList.getTail().value).to.equal('icann.org');
+
+        // bookList Tests
+        expect(bookList.get(0).value).to.equal('Ready Player One');
+        expect(bookList.get(1).value).to.equal('1982');
+        expect(bookList.get(2).value).to.equal('Neuromancer');
+        expect(bookList.get(3).value).to.equal('Snow Crash');
+
+        expect(bookList.getHead().value).to.equal('Ready Player One');
+        expect(bookList.getTail().value).to.equal('Snow Crash');
+      });
+      it('should return `false` if no node is found', () => {
+        expect(urlList.get(4)).to.be.false;
+        expect(urlList.get(5)).to.be.false;
+        expect(bookList.get(4)).to.be.false;
+        expect(bookList.get(5)).to.be.false;
+      });
+    });
+  });
+
+  describe('`remove` method', () => {
+    let urlList;
+    let bookList;
+
+    beforeEach(() => {
+      urlList = new LinkedList();
+      bookList = new LinkedList();
+
+      const urlArr = [
+        'news.ycombinator.com',
+        'mozilla.org',
+        'eff.org',
+        'icann.org',
+      ];
+
+      const bookArr = [
+        'Ready Player One',
+        '1982',
+        'Neuromancer',
+        'Snow Crash',
+      ];
+
+      urlArr.forEach((url) => {
+        urlList.add(url);
+      });
+      bookArr.forEach((book) => {
+        bookList.add(book);
+      });
+    });
+
+    describe('takes an argument', () => {
+      it('should remove a node by it\'s index in the Linked List', () => {
         // urlList Tests
         // remove middle node
         urlList.remove(2);
@@ -238,14 +242,15 @@ describe('Linked List', () => {
         expect(urlList.getTail().value).to.equal('mozilla.org');
 
         // bookList Tests
-        //remove first node
+        // remove first node
         bookList.remove(0);
+        console.log(bookList.get(0))
         expect(bookList.get(0).value).to.equal('1982');
         bookList.remove(1);
         expect(bookList.getHead().value).to.equal('1982');
         expect(bookList.getTail().value).to.equal('Snow Crash');
       });
-      it('should return `false` if a node cannot be found to be removed', function () {
+      it('should return `false` if a node cannot be found to be removed', () => {
         expect(urlList.remove(9)).to.be.false;
         expect(urlList.remove(4)).to.be.false;
         expect(bookList.remove(4)).to.be.false;
@@ -254,32 +259,33 @@ describe('Linked List', () => {
     });
   });
 
-  describe('`insert` method', function () {
-    var urlList, bookList;
+  describe('`insert` method', () => {
+    let urlList;
+    let bookList;
 
-    beforeEach(function () {
-      urlList = linkedListGenerator();
-      bookList = linkedListGenerator();
+    beforeEach(() => {
+      urlList = new LinkedList();
+      bookList = new LinkedList();
 
-      var urlArr = [
+      const urlArr = [
         'news.ycombinator.com',
-        'icann.org'
+        'icann.org',
       ];
 
-      var bookArr = [
+      const bookArr = [
         'Neuromancer',
-        'Snow Crash'
+        'Snow Crash',
       ];
 
-      urlArr.forEach(function(url) {
+      urlArr.forEach((url) => {
         urlList.add(url);
       });
-      bookArr.forEach(function(book) {
+      bookArr.forEach((book) => {
         bookList.add(book);
       });
     });
-    describe('takes two arguments, a `value` and an `index`', function () {
-      it('should add a new node at a given index', function () {
+    describe('takes two arguments, a `value` and an `index`', () => {
+      it('should add a new node at a given index', () => {
         // insert into second position of list
         urlList.insert('mozilla.org', 1);
         expect(urlList.get(0).value).to.be.equal('news.ycombinator.com');
@@ -305,8 +311,7 @@ describe('Linked List', () => {
         expect(bookList.get(1).value).to.be.equal('The Stranger');
         expect(bookList.get(2).value).to.be.equal('Neuromancer');
       });
-      it('should return `false` if the index given is a value larger than the List\'s length', function () {
-
+      it('should return `false` if the index given is a value larger than the List\'s length', () => {
         // urlList has two items, it's max index value is 1
         expect(urlList.insert('boingboing.net', 3)).to.be.false;
         expect(urlList.getHead().value).to.be.equal('news.ycombinator.com');
@@ -324,6 +329,4 @@ describe('Linked List', () => {
       });
     });
   });
-
-
 });

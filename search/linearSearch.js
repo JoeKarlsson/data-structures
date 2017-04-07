@@ -13,8 +13,4 @@ class LinearSearch {
   }
 }
 
-const arr = ['cat', 'dog', 'mouse', 'turtle'];
-const linear = new LinearSearch(arr);
-
-console.log(linear.search('cat')); // 0
-console.log(linear.search('barf bucket')); // -1
+module.exports = LinearSearch;

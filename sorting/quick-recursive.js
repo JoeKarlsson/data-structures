@@ -7,18 +7,18 @@ const quickSort = ( arr ) => {
   // 1) Pick a pivot
   const pivot = arr[0];
 
-  // 2) Partition into
-  const { left, right } = partition(arr, pivot);
+  // 2) Partition
+  const { left, right } = partition( arr, pivot );
 
   // 3) Call quick sort recursively
   const leftArr = quickSort( left );
   const rightArr = quickSort( right );
 
   // 4) Concat after calling quicksort recursively
-  return leftArr.concat(pivot, rightArr);
+  return leftArr.concat( pivot, rightArr );
 };
 
-const partition = (arr, pivot) => {
+const partition = ( arr, pivot ) => {
   const left = [];
   const right = [];
 
@@ -27,7 +27,7 @@ const partition = (arr, pivot) => {
     // If value is less than the pivot - push into the left array, else push it into the right
     if ( arr[i] < pivot ) {
       left.push( arr[i] );
-    } else if ( arr[i] >= pivot ) {
+    } else {
       right.push( arr[i] );
     }
   }

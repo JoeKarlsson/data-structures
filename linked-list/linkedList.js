@@ -3,40 +3,43 @@
  * @description  Main Module
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
-const linkedListGenerator = () => {
-  let _head = null;
-  let _tail = null;
+class LinkedList {
+  constructor() {
+    this.tail = null;
+    this.head = null;
+  }
 
   // points to our head
-  const _getHead = () => {
-    return _head;
+  getHead() {
+    return this.head;
   }
 
   // points to our tail
-  const _getTail = () => {
-    return _tail;
+  getTail() {
+    return this.tail;
   }
 
   // Create a new node
-  const _newNode = ( value) => {
+  newNode( value ) {
     return {
       value,
       next: null,
-    }
+    };
   }
 
   // Takes a new node and adds it to our linked list
-  const _add = ( value ) => {
-    const newNode = _newNode( value );
+  add( value ) {
+    const node = this.newNode(value);
 
-    if ( _getHead() === null ) {
-      _head  = newNode;
-    } else {
-      _getTail().next = newNode;
+    // init empty LL
+    if (this.getHead() === null) {
+      this.head = node;
+    } else { // if it's not empty
+      this.getTail().next = node;
     }
-    _tail = newNode;
-
-    return newNode;
+    // Happy Path
+    this.tail = node;
+    return node;
   }
 
   /**
@@ -44,20 +47,28 @@ const linkedListGenerator = () => {
    * @param  {[type]} index [description]
    * @return {[type]}       [description]
    */
-  const _get = ( index ) => {
-    let currNode = _getHead();
-    let position = 0;
-    if ( index < 0 ) {
+  get( index ) {
+    let currNode = this.getHead();
+    let postion = 0;
+
+    // If index is less than 0, return false
+    if (index <= -1) {
       return false;
     }
 
-    while ( position < index ) {
-      if (currNode.next === null ) {
+    // Loop through all the nodes
+    while ( postion < index ) {
+
+      // Check if we hit the end of the LL
+      if ( currNode.next === null ) {
         return false;
       }
+
+      // If node exists go to next node
       currNode = currNode.next;
-      position++;
+      postion++;
     }
+
     return currNode;
   }
 
@@ -66,72 +77,59 @@ const linkedListGenerator = () => {
    * @param  {[type]} index [description]
    * @return {[type]}       [description]
    */
-  const _remove = ( index ) => {
-    let currNode = _get( index );
-    let prevNode = _get( index -1 );
-    let nextNode = currNode.next;
+  remove( index ) {
+    const currNode = this.get( index );
+    const prevNode = this.get( index - 1 );
+    console.log(currNode)
 
-    // if the index is not in th LL
+    // If index not in LL, return false
     if ( currNode === false ) {
       return false;
     }
 
-    // removing the tail
-    if ( nextNode === null ) {
-      _tail = prevNode;
-    }
-
-    // If we are removing the head
+    // If removing the head, reassign the head to the next node
     if ( index === 0 ) {
-      // check if the head and the tail are the same node
-      if (currNode.next === null ) {
-        _head = null;
-        _tail = null;
-      }
-      _head = nextNode;
+      this.head = currNode.next;
+      // return true;
     }
 
-    // Happy path
-    prevNode.next = nextNode;
-  };
+    // If removing the tail, reassign the tail to the prevNode
+    if ( currNode.next === null ) {
+      console.log('hit')
+      this.tail = prevNode;
+      // return true;
+    }
 
-  /**
-   * reads through our list and adds a new node in desired index
-   * @param  {[type]} val   [description]
-   * @param  {[type]} index [description]
-   * @return {[type]}       [description]
-   */
-  const _insert = ( value, index ) => {
-    let currNode = _get( index );
-    let prevNode = _get( index -1 );
-    const newNode = _newNode( value );
+    // Happy Path
+    prevNode.next = currNode.next;
+  }
 
-    if ( currNode === false ){
+  insert( value, index ) {
+    const currNode = this.get( index );
+    const prevNode = this.get( index - 1 );
+    const node = this.newNode( value );
+
+    // If index not in LL, return false
+    if ( currNode === false ) {
       return false;
     }
 
-    // if inserting at the head
+    // If inserting at the head, reassign the head to the new node
     if ( index === 0 ) {
-      newNode.next = currNode;
-      _head = newNode;
-    } else if ( currNode.next === null ) {
-      prevNode.next = newNode;
-      newNode.next = currNode;
-      _tail = newNode;
+      this.head = node;
+      node.next = currNode;
     } else {
-      prevNode.next = newNode;
-      newNode.next = currNode;
+
+      // If inserting at the tail, reassign the tail
+      if (currNode.next === null) {
+        this.tail = node;
+      }
+      node.next = currNode;
+      prevNode.next = node;
     }
+    return node;
   }
+}
 
-  return {
-    getHead : _getHead,
-    getTail : _getTail,
-    add : _add,
-    get : _get,
-    remove : _remove,
-    insert : _insert
-  };
-};
+module.exports = LinkedList;
 
-module.exports = linkedListGenerator;
