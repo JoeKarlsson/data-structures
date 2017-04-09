@@ -31,7 +31,7 @@ describe( 'Hash Table', () => {
   });
 
   describe( '`retrieve` method', () => {
-    it( 'should `key does not exist` if the key has not been added', () => {
+    it( 'should return `key does not exist` if the key has not been added', () => {
       expect(hashTable.retrieve('Cat')).to.equal('key does not exist');
       expect(hashTable.retrieve('Dog')).to.equal('key does not exist');
       expect(hashTable.retrieve('Human')).to.equal('key does not exist');
