@@ -1,7 +1,7 @@
 'use strict';
 
 const queueGenerator = () => {
-  var front = null;
+  let front = null;
   let back = null;
 
   const _enqueue = ( value ) => {

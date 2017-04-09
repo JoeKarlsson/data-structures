@@ -1,7 +1,7 @@
 /*
   Memoization is a useful optimization technique for caching the results of function calls such that lengthy lookups or expensive recursive computations can be minimized where possible.
  */
-Function.prototype.memoize = function(){
+Function.prototype.memoize = function() {
   let cache = {};
 
   return ( arg ) => {
@@ -16,11 +16,12 @@ Function.prototype.memoize = function(){
 };
 
 // Test
-function fooBar(x){
+function fooBar(x, y){
   return x
 };
 
 let memoFooBar = fooBar.memoize();
+console.log('memoFooBar(1): ', memoFooBar(1, 2));
 memoFooBar(1); // Cache miss
 memoFooBar(1); // Cache hit :D
 memoFooBar(2); // Cache miss
