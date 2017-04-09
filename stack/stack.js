@@ -1,36 +1,24 @@
-'use strict';
-
-const stackGenerator = () => {
-  let top = null;
-
-  const _push = ( value ) => {
-    const newNode = {
-      value,
-      next: top,
-    }
-    top = newNode;
+class Stack {
+  constructor() {
+    this.top = null;
   }
 
-  const _pop = () => {
-    if ( !top ) {
-      const value = top.value;
-      top = top.next;
+  push( value ) {
+    const newNode = {
+      value,
+      next: this.top,
+    };
+    this.top = newNode;
+  }
+
+  pop() {
+    if ( this.top !== null ) {
+      const value = this.top.value;
+      this.top = this.top.next;
       return value;
     }
     return null;
   }
-
-  return {
-    pop: _pop,
-    push: _push,
-  }
 }
 
-// Test
-const stack = stackGenerator();
-stack.push('first');
-stack.push('second');
-stack.push('third');
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
+module.exports = Stack;

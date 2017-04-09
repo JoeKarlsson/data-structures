@@ -1,34 +1,31 @@
-const Node = function(name) {
-  this.name = name;
-  this.neighbors = [];
-}
+class Node {
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+    this.neighbors = [];
+  }
 
-Node.prototype.neighbors = function() {
-  return this.neighbors;
-}
+  addNeighbors(arr) {
+    if (this.neighbors.length !== 0 && arr !== undefined) {
+      this.neighbors = this.neighbors.concat(arr);
+    } else if (this.neighbors.length === 0 && arr !== undefined) {
+      this.neighbors = arr;
+      return this.neighbors;
+    }
+    return this.neighbors;
+  }
 
-Node.prototype.toString = function() {
-  return this.name;
+  getNeighbors() {
+    return this.neighbors;
+  }
+
+  getValue() {
+    return this.value;
+  }
+
+  toString() {
+    return this.name;
+  }
 }
 
 module.exports = Node;
-
-// and a sample graph:
-A = new Node("A")
-B = new Node("B")
-C = new Node("C")
-D = new Node("D")
-E = new Node("E")
-F = new Node("F")
-A.neighbors = [B, C]
-B.neighbors = [D, E]
-C.neighbors = [F]
-D.neighbors = []
-E.neighbors = []
-F.neighbors = []
-
-console.log('A', A);
-console.log('B', B);
-console.log('C', C);
-// console.log('D', D);
-// console.log('E', E);
