@@ -209,7 +209,7 @@ class List {
       previousNode.next = new Node(value, nextNode);
     }
 
-    return this;
+    return this.head;
   }
 
   /**

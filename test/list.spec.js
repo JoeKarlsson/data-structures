@@ -96,12 +96,41 @@ describe( 'List', () => {
     });
   });
 
-  describe( '`geTail` method', () => {
+  describe( '`getTail` method', () => {
     it( 'should return the tail of the list', () => {
       expect(list.getTail()).to.deep.equal({
         value: 'et',
         next: null,
       });
+    });
+  });
+
+  describe( '`push` method', () => {
+    it( '`push(0, *)` should at a new node at the head', () => {
+      expect(list.push('cat', 0)).to.deep.equal({
+        value: 'cat',
+        next: {
+          value: 'lorem',
+          next: {
+            value: 'ipsum',
+            next: {
+              value: 'dolor',
+              next: {
+                value: 'et',
+                next: null,
+              },
+            },
+          },
+        },
+      });
+    });
+
+    it( 'should add a new node at index', () => {
+
+    });
+
+    it( 'should throw an error if the index exceeds list\'s size', () => {
+
     });
   });
 
