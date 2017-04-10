@@ -10,7 +10,7 @@ module.exports = {
       "no-param-reassign": 0,
       "consistent-return": 0,
       "no-bitwise": 0,
-
+      "no-shadow": 0,
     },
     "env": {
       "browser": false,    // browser global variables.

@@ -5,7 +5,7 @@ class Node {
    * @param {any} value   Node's value
    * @param {Node} [next] The next Node in the list
    */
-  constructor(value, next) {
+  constructor(value, next=null) {
     this.value = value;
     this.next = next;
   }
@@ -17,7 +17,7 @@ class Node {
  * @export
  * @class List
  */
-export class List {
+class List {
   /**
    * Creates an instance of List.
    *
@@ -175,8 +175,8 @@ export class List {
    * @return {List}         This list. Allows for chainability
    */
   pushBack(newValue) {
-    let newNode = new Node(newValue);
-    let tail = this.getTail();
+    const newNode = new Node(newValue);
+    const tail = this.getTail();
 
     if (tail) {
       tail.next = newNode;
@@ -200,12 +200,12 @@ export class List {
       // Replace head
       this.head = new Node(value, this.head);
     } else {
-      let previousNode = this.get(index - 1);
+      const previousNode = this.get(index - 1);
       if (!previousNode) {
         throw new Error('Index exceeds list\'s size');
       }
 
-      let nextNode = previousNode.next;
+      const nextNode = previousNode.next;
       previousNode.next = new Node(value, nextNode);
     }
 
@@ -239,7 +239,7 @@ export class List {
     if (!previousNode.next) {
       return;
     }
-    let currentNode = previousNode.next;
+    const currentNode = previousNode.next;
 
     if (currentNode.value === valueToRemove) {
       previousNode.next = currentNode.next;
@@ -256,14 +256,14 @@ export class List {
    * @return {Node}     Node with that value
    */
   find(value) {
-    function findRecursive(node, value) {
+    const findRecursive = (node, value) => {
       if (!node) {
         return null;
       } else if (node.value === value) {
         return node;
       }
       return findRecursive(node.next, value);
-    }
+    };
 
     return findRecursive(this.head, value);
   }
@@ -274,18 +274,13 @@ export class List {
    * @return {any[]}  Array of values from the list
    */
   getValues() {
-    let valuesArray = [];
+    const valuesArray = [];
     this.forEach(value => valuesArray.push(value));
     return valuesArray;
   }
 
 }
 
-// Test
-const values = ['lorem', 'ipsum', 'dolor', 'et'];
-const list = new List();
-
-values.forEach(value => list.pushBack(value));
-
+module.exports = List;
 
 // Source: https://github.com/Gelio/js-list

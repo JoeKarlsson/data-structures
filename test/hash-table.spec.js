@@ -1,8 +1,7 @@
 const chai = require('chai');
-const { expect } = chai;
-chai.should();
-
 const HashTable = require('../hash-table/hash-table');
+
+const { expect } = chai;
 
 describe( 'Hash Table', () => {
   let hashTable;

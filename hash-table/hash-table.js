@@ -62,6 +62,5 @@ const getHash = (str, max) => {
   return hash % max;
 };
 
-// Source: https://medium.com/@jenwong/hash-tables-a-simple-javascript-example-237f92d36459#.khe8iijr8
-
 module.exports = Hashtable;
+// Source: https://medium.com/@jenwong/hash-tables-a-simple-javascript-example-237f92d36459#.khe8iijr8
