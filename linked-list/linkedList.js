@@ -101,22 +101,26 @@ class LinkedList {
     }
   }
 
+  /**
+   * Inserts a new node at the deisred index
+   * @param  {[Num]} index
+   * @param  {[*]} value
+   * @return {[Node]} node
+   */
   insert( value, index ) {
     const currNode = this.get( index );
     const prevNode = this.get( index - 1 );
     const node = this.newNode( value );
 
-    // If index not in LL, return false
+    // If the index is not in the LL, return false
     if ( currNode === false ) {
       return false;
     }
-
     // If inserting at the head, reassign the head to the new node
     if ( index === 0 ) {
       this.head = node;
       node.next = currNode;
     } else {
-
       // If inserting at the tail, reassign the tail
       if (currNode.next === null) {
         this.tail = node;
@@ -129,4 +133,3 @@ class LinkedList {
 }
 
 module.exports = LinkedList;
-
