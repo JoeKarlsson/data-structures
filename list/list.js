@@ -160,7 +160,14 @@ class List {
     let currentIndex = 0;
     let currentNode = this.head;
 
+    if (targetIndex < 0 ) {
+      throw new Error('Index exceeds list\'s size');
+    }
+
     while (currentIndex < targetIndex && currentNode) {
+      if (currentNode.next === null) {
+        throw new Error('Index exceeds list\'s size');
+      }
       currentIndex += 1;
       currentNode = currentNode.next;
     }
