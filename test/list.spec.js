@@ -6,12 +6,17 @@ const { expect } = chai;
 describe( 'List', () => {
   let list;
   let values;
+  let list2;
+  let numValues;
 
   beforeEach(() => {
     values = ['lorem', 'ipsum', 'dolor', 'et'];
     list = new List();
-
     values.forEach(value => list.pushBack(value));
+
+    numValues = [1, 2, 3, 4, 5];
+    list2 = new List();
+    numValues.forEach(value => list2.pushBack(value));
   });
 
   describe( 'Constructor', () => {
@@ -27,7 +32,6 @@ describe( 'List', () => {
       expect(list3).to.deep.equal({});
     });
   });
-
   describe( '`pushback` method', () => {
     it( 'should add a new node to the end of the list', () => {
       expect(list).to.deep.equal({
@@ -64,9 +68,7 @@ describe( 'List', () => {
         },
       });
     });
-
   });
-
   describe( '`getLength` method', () => {
     it( 'should the entire List with a new node', () => {
       const list2 = new List('Cat');
@@ -77,7 +79,6 @@ describe( 'List', () => {
       expect(list3.getLength()).to.equal(0);
     });
   });
-
   describe( '`gethead` method', () => {
     it( 'should the return head of the List', () => {
       expect(list.getHead()).to.deep.equal({
@@ -95,7 +96,6 @@ describe( 'List', () => {
       });
     });
   });
-
   describe( '`getTail` method', () => {
     it( 'should return the tail of the list', () => {
       expect(list.getTail()).to.deep.equal({
@@ -104,7 +104,6 @@ describe( 'List', () => {
       });
     });
   });
-
   describe( '`get` method', () => {
     it( 'should retrieve the Node with a given index', () => {
       expect(list.get(0)).to.deep.equal({
@@ -148,7 +147,6 @@ describe( 'List', () => {
       expect(list.get.bind(list, 5)).to.throw('Index exceeds list\'s size');
     });
   });
-
   describe( '`push` method', () => {
     it( '`push(0, *)` should at a new node at the head', () => {
       expect(list.push('cat', 0)).to.deep.equal({
@@ -168,7 +166,6 @@ describe( 'List', () => {
         },
       });
     });
-
     it( 'should add a new node at index', () => {
       expect(list.push('Cat', 2)).to.deep.equal({
         value: 'lorem',
@@ -187,14 +184,12 @@ describe( 'List', () => {
         },
       });
     });
-
     it( 'should throw an error if the index exceeds list\'s size', () => {
       expect(list.push.bind(list, 'Cat', 100)).to.throw('Index exceeds list\'s size');
       expect(list.push.bind(list, 'Cat', -1)).to.throw('Index exceeds list\'s size');
       expect(list.push.bind(list, 'Cat', 5)).to.throw('Index exceeds list\'s size');
     });
   });
-
   describe( '`find` method', () => {
     it( 'should return the first node that value matches', () => {
       expect(list.find('lorem')).to.deep.equal({
@@ -240,13 +235,11 @@ describe( 'List', () => {
     });
 
   });
-
   describe( '`getValues` method', () => {
     it( 'should return an array of the list', () => {
       expect(list.getValues()).to.deep.equal(values);
     });
   });
-
   describe( '`reduce` method', () => {
     it( 'should reduce the list to a single value', () => {
       const numValues = [1, 2, 3, 4, 5];
@@ -269,9 +262,7 @@ describe( 'List', () => {
 
   describe( '`forEach` method', () => {
     it( 'should traverse the list and executes the callback function for each element in the list.', () => {
-      const numValues = [1, 2, 3, 4, 5];
-      const list2 = new List();
-      numValues.forEach(value => list2.pushBack(value));
+
       let numSum = 0;
 
       list2.forEach((el) => {
@@ -283,15 +274,85 @@ describe( 'List', () => {
       list.forEach((el) => {
         stringSum += el;
       });
-
       expect(stringSum).to.deep.equal('loremipsumdoloret');
     });
   });
 
   describe( '`map` method', () => {
     it( 'should execute callbackFn on each item from the list and returns the results as another list.', () => {
+      expect(list2.map((el) => {
+        return ++el;
+      })).to.deep.equal({
+        head: {
+          value: 2,
+          next: {
+            value: 3,
+            next: {
+              value: 4,
+              next: {
+                value: 5,
+                next: {
+                  value: 6,
+                  next: null,
+                },
+              },
+            },
+          },
+        },
+      });
+      expect(list.map((el) => {
+        return `${el} foo`;
+      })).to.deep.equal({
+        head: {
+          value: 'lorem foo',
+          next: {
+            value: 'ipsum foo',
+            next: {
+              value: 'dolor foo',
+              next: {
+                value: 'et foo',
+                next: null,
+              },
+            },
+          },
+        },
+      });
+    });
+  });
 
-      expect(list.getValues()).to.deep.equal(values);
+  describe( '`remove` method', () => {
+    it( 'should remove nodes with specific values from the list', () => {
+      expect(list.remove('ipsum')).to.deep.equal({
+        head: {
+          value: 'lorem',
+          next: {
+            value: 'dolor',
+            next: {
+              value: 'et',
+              next: null,
+            },
+          },
+        },
+      });
+      expect(list.remove('et')).to.deep.equal({
+        head: {
+          value: 'lorem',
+          next: {
+            value: 'dolor',
+            next: null,
+          },
+        },
+      });
+      expect(list.remove('dolor')).to.deep.equal({
+        head: {
+          value: 'lorem',
+          next: null,
+        },
+      });
+      list.remove('lorem');
+      expect(list).to.deep.equal({
+        head: {},
+      });
     });
   });
 

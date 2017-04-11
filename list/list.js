@@ -140,10 +140,10 @@ class List {
    * @return {List}   Transformed list
    */
   map(callbackFn) {
-    let outputList = new List();
+    const outputList = new List();
 
     this.forEach((value, index) => {
-      let transformedValue = callbackFn(value, index);
+      const transformedValue = callbackFn(value, index);
       outputList.pushBack(transformedValue);
     });
 
@@ -226,6 +226,10 @@ class List {
    * @return {List}             This list. Allows for chainability.
    */
   remove(valueToRemove) {
+    if(this.head.next === null) {
+      this.head = {};
+      return this.head;
+    }
     if (this.head.value === valueToRemove) {
       this.head = this.head.next;
       return this.remove(valueToRemove);
