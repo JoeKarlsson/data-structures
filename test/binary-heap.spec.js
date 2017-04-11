@@ -31,5 +31,10 @@ describe( 'BinaryHeap', () => {
   //   });
   // });
 
-
+  describe( 'push', () => {
+    it( 'should return a new empty binary heap', () => {
+      console.log(heap.pop())
+      // expect.(heap.content).to.deep.equal([1, 2, 4, 2, 5, 9, 7, 10, 3, 8, 6])
+    });
+  });
 });
