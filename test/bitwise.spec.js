@@ -57,17 +57,45 @@ describe( 'Bitwise', () => {
       });
     });
 
-    describe( 'bitwise isEven', () => {
+    describe( 'bitwise is Even', () => {
       it( 'should return a boolean depending on whether n is even', () => {
         expect(bitwise_basics.isEven(9)).to.equal(false);
         expect(bitwise_basics.isEven(2)).to.equal(true);
       });
     });
 
-    describe( 'bitwise isEven', () => {
-      it( 'should return a boolean depending on whether n is even', () => {
-        expect(bitwise_basics.isEven(9)).to.equal(false);
-        expect(bitwise_basics.isEven(2)).to.equal(true);
+    describe( 'bitwise is Odd', () => {
+      it( 'should return a boolean depending on whether n is odd', () => {
+        expect(bitwise_basics.isOdd(9)).to.equal(true);
+        expect(bitwise_basics.isOdd(2)).to.equal(false);
+      });
+    });
+
+    describe( 'bitwise dec2bin', () => {
+      it( 'should return a binary equivent of n', () => {
+        expect(bitwise_basics.dec2bin(9)).to.equal('1001');
+        expect(bitwise_basics.dec2bin(2)).to.equal('10');
+        expect(bitwise_basics.dec2bin(11)).to.equal('1011');
+        expect(bitwise_basics.dec2bin(-1)).to.equal('11111111111111111111111111111111');
+      });
+    });
+
+    describe( 'bitwise avgInt', () => {
+      it( 'should return a boolean depending on whether n is odd', () => {
+        // a + b / 2
+        expect(bitwise_basics.avgInt(6, 12)).to.equal(9);
+        expect(bitwise_basics.avgInt(2, 80)).to.equal(41);
+        expect(bitwise_basics.avgInt(6, 1233)).to.equal(619);
+        expect(bitwise_basics.avgInt(345345, 3234)).to.equal(174289);
+        expect(bitwise_basics.avgInt(12643, 32222)).to.equal(22432);
+        expect(bitwise_basics.avgInt(34444, 9999)).to.equal(22221);
+      });
+    });
+
+    describe( 'bitwise plus One Int', () => {
+      it( 'should return a boolean depending on whether n is odd', () => {
+        expect(bitwise_basics.plusOneInt(9)).to.equal(10);
+        expect(bitwise_basics.plusOneInt(2)).to.equal(3);
       });
     });
 
