@@ -1,22 +1,37 @@
 /**
- * Basic priority queue implementation. If a better priority queue is wanted/needed,
- */
-function PriorityQueue () {
-  this._nodes = [];
+ Basic priority queue implementation.
+  If a better priority queue is wanted/needed,
+*/
 
-  this.enqueue = function (priority, key) {
-    this._nodes.push({key: key, priority: priority });
+class PriorityQueue {
+  constructor() {
+    this._nodes = [];
+  }
+
+  enqueue(priority, key) {
+    this._nodes.push({
+      key,
+      priority,
+    });
     this.sort();
   }
-  this.dequeue = function () {
+
+  dequeue() {
+    if (this._nodes.length <= 0) {
+      return null;
+    }
     return this._nodes.shift().key;
   }
-  this.sort = function () {
-    this._nodes.sort(function (a, b) {
+
+  sort() {
+    this._nodes.sort((a, b) => {
       return a.priority - b.priority;
     });
   }
-  this.isEmpty = function () {
+
+  isEmpty() {
     return !this._nodes.length;
   }
 }
+
+module.exports = PriorityQueue;
