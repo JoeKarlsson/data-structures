@@ -259,37 +259,9 @@ GridNode.prototype.isWall = function() {
   return this.weight === 0;
 };
 
-// Test
-var graph = new Graph([
-      [1,1,0,1],
-      [0,1,1,0],
-      [0,0,1,1]
-  ]);
 
-const result = runSearch(graph, [0,0], [2,3]); //"(0,1)(1,1)(1,2)(2,2)(2,3)"
-console.log('result: ', result);
 
-function runSearch(graph, start, end, options) {
-  if (!(graph instanceof Graph)) {
-    graph = new Graph(graph);
-  }
-  start = graph.grid[start[0]][start[1]];
-  end = graph.grid[end[0]][end[1]];
-  var sTime = new Date(),
-    result = astar.search(graph, start, end, options),
-    eTime = new Date();
-  return {
-    result: result,
-    text: pathToString(result),
-    time: (eTime - sTime)
-  };
-}
-
-function pathToString(result) {
-  return result.map(function(node) {
-    return "(" + node.x + "," + node.y + ")";
-  }).join("");
-}
+module.exports = astar;
 
 // http://theory.stanford.edu/~amitp/GameProgramming/ImplementationNotes.html
 // http://www.briangrinstead.com/blog/astar-search-algorithm-in-javascript/
