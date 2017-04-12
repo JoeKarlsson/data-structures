@@ -103,7 +103,7 @@ describe( 'Bitwise', () => {
         it( 'should convert a RGB value to Binary', () => {
           let bin = [];
           // convert some RGB color values to hex and to binary
-          RGBarr.forEach(function(rgb){
+          RGBarr.forEach((rgb) => {
               bin.push(bitwise_rgb_hex_binary.RGBToBin(rgb[0],rgb[1],rgb[2]));
           });
           // black
@@ -119,7 +119,7 @@ describe( 'Bitwise', () => {
         it( 'should convert a RGB value to Hex', () => {
           let bin = [];
           // convert some RGB color values to hex and to hex
-          RGBarr.forEach(function(rgb){
+          RGBarr.forEach((rgb) => {
               bin.push(bitwise_rgb_hex_binary.RGBToHex(rgb[0],rgb[1],rgb[2]));
           });
           // black
@@ -145,7 +145,7 @@ describe( 'Bitwise', () => {
         it( 'should convert a HEX value to RGB', () => {
           let rgb = [];
           // convert a hexidecimal color string to 0..255 R,G,B
-          HexArr.forEach(function(hex){
+          HexArr.forEach((hex) => {
               rgb.push(bitwise_rgb_hex_binary.hexToRGB(parseInt(hex,16)));
           });
           // black
@@ -171,7 +171,7 @@ describe( 'Bitwise', () => {
         it( 'should convert a binary value to RGB', () => {
           let rgb = [];
           // convert a hexidecimal color string to 0..255 R,G,B
-          binArr.forEach(function(bin){
+          binArr.forEach((bin) => {
               rgb.push(bitwise_rgb_hex_binary.binToRGB(bin));
           });
           // black
