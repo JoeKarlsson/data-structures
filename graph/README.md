@@ -34,3 +34,8 @@ A graph is a representation of a set of objects where some pairs of objects are 
         - [ ] [A Search Algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm)
         - [ ] [A* Pathfinding Tutorial (video)](https://www.youtube.com/watch?v=KNXfSOx4eEE)
         - [ ] [A* Pathfinding (E01: algorithm explanation) (video)](https://www.youtube.com/watch?v=-L-WgKMFuhE)
+
+
+#Tree (Graph Theory)
+
+A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any acyclic connected graph is a tree. A forest is a disjoint union of trees.

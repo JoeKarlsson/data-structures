@@ -52,7 +52,6 @@ This repo is a collection of common data structures, and alogirthims you might e
   * [Quick Sort (duh)](https://github.com/JoeKarlsson/data-structures/blob/master/sorting-algorithms/quicksort.js)
   * [Selection Sort](https://github.com/JoeKarlsson/data-structures/blob/master/sorting-algorithms/selectionsort.js)
 * [Stack](https://github.com/JoeKarlsson/data-structures/tree/master/stack)
-* [Tree Node](https://github.com/JoeKarlsson/data-structures/tree/master/tree)
 * [Trie](https://github.com/JoeKarlsson/data-structures/tree/master/trie)
 
 
