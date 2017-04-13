@@ -29,7 +29,7 @@ In simple terms, it is possible to say that an algorithm is a sequence of steps 
 1. Run `npm install`
 1. Run `npm test` to run all of the algorithms
 
-This repo is a collection of common data structures, and alogirthims you might encounter in an interview. This repo covers the following topics:
+This repo is a collection of common data structures and alogirthims you might encounter in an interview. This repo covers the following topics:
 
 * [Binary Heap](https://github.com/JoeKarlsson/data-structures/tree/master/binary-heap)
 * [Bitwise](https://github.com/JoeKarlsson/data-structures/tree/master/bitwise)
@@ -75,12 +75,11 @@ Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest 
 ### TODO:
 - Floyd-Warshall
 - Traveling Salesman
-- bloom filter
 - k-way merge
 - Matching users to servers, using Gayle-Shapely Algorithm for Stable Marriage problem
-  -This is a beautiful algorithm for fair matching. Simple, elegant and effective. In its core form, it’s also straightforward to implement. Has numerous applications. See: Stable marriage problem - Wikipedia
+  - This is a beautiful algorithm for fair matching. Simple, elegant and effective. In its core form, it’s also straightforward to implement. Has numerous applications. See: Stable marriage problem - Wikipedia
 - A toy implementation of Viterbi algorithm
-  - Ubiquitous in cell phone technology, and many other applications, Viterbi algorithm is a Dynamic Programming based algorithm that finds the most likely sequence of states. See this toy implementation: http://homepages.ulb.ac.be/~dgon...
+  - Ubiquitous in cell phone technology, and many other applications, Viterbi algorithm is a Dynamic Programming based algorithm that finds the most likely sequence of states.
 - Music Search using Fast Fourier Transforms (FFT)
   - Music recognition is done by converting it into frequency domain using FFT. FFT has implementations in number of languages. See this article for a great start: Shazam It! Music Recognition Algorithms, Fingerprinting, and Processing.
 - Implement RSA algorithm
@@ -92,7 +91,7 @@ Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest 
 - Treemap using Red Black Trees!
   - RB Trees are not algorithms, but they are famed enough, that no discussion of tantalizing DS/Algorithms is complete without discussing them. The smoothest way to see/implement RB Trees, is to look at Treemap implementation in Java.
 - Circle Drawing using Bresenham’s algorithm
-Ever wondered, how circles are drawn on the screen, with minimal jaggedness (aliasing)? Bresenham’s elegant algorithm is at play here. See a version here: Circle Generation Algorithm . A refreshing use of a similar algorithm, is to make properly sized tabs in Chrome. Something we see almost every day. Such hidden gems!
+  - Ever wondered, how circles are drawn on the screen, with minimal jaggedness (aliasing)? Bresenham’s elegant algorithm is at play here. See a version here: Circle Generation Algorithm . A refreshing use of a similar algorithm, is to make properly sized tabs in Chrome. Something we see almost every day. Such hidden gems!
 - Implement PageRank
   - Can’t miss this. This transformed our lives in ways we never thought possible. Get started here: Pagerank Explained Correctly with Examples
 
