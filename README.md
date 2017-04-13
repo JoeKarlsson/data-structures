@@ -1,4 +1,8 @@
 # JavaScript Data Structures and Algorithms
+(https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
+![https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=master]
+
+(https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=masterstyle=flat)](https://travis-ci.org/JoeKarlsson/data-structures)
 
 I put this repo together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. IF you like what you see plz give it a star. Also, feel free to contribute :D
 
