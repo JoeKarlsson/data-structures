@@ -4,8 +4,9 @@
   "description": "Various data structures and algorithms implemented in JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "test-watch": "./node_modules/.bin/mocha --watch"
+    "test": "nyc ./node_modules/.bin/mocha",
+    "test-watch": "./node_modules/.bin/mocha --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Joe Karlsson",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0",
     "mocha": "^3.2.0",
-    "mocha-lcov-reporter": "^1.3.0"
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^10.2.0"
   }
 }
