@@ -5,7 +5,7 @@ class Node {
    * @param {any} value   Node's value
    * @param {Node} [next] The next Node in the list
    */
-  constructor(value, next=null) {
+  constructor(value, next = null) {
     this.value = value;
     this.next = next;
   }
@@ -226,7 +226,7 @@ class List {
    * @return {List}             This list. Allows for chainability.
    */
   remove(valueToRemove) {
-    if(this.head.next === null) {
+    if (this.head.next === null) {
       this.head = {};
       return this.head;
     }
