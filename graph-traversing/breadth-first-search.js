@@ -13,7 +13,6 @@ const bfs = (start) => {
   // initailize the open to be the nodes we are currently exploring
   const open = [];
   open.push(start);
-  const path = [start.name];
 
   // Keep track of the nodes we have already visited, so we don't repeat nodes
   const visitedNode = [start];

@@ -1,24 +1,25 @@
 const LinkedList = require('../linked-list/linkedList');
 
+// Private Helper functions
+const makeNode = ( value ) => {
+  const node = {};
+  node.value = value;
+  node.left = null;
+  node.right = null;
+  return node;
+};
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
   }
 
-  makeNode(value) {
-    const node = {};
-    node.value = value;
-    node.left = null;
-    node.right = null;
-    return node;
-  }
-
-  add(value) {
-    const currentNode = this.makeNode(value);
-    if (!this.root) {
+  add( value ) {
+    const currentNode = makeNode( value );
+    if ( !this.root ) {
       this.root = currentNode;
     } else {
-      this.insert(currentNode);
+      this.insert( currentNode );
     }
     return this.root;
   }
@@ -54,13 +55,13 @@ class BinarySearchTree {
       return this.get( start.left, searchFor, start, true );
     } else if ( searchFor > start.value ) {
       return this.get( start.right, searchFor, start, false );
-    } else { // key is equal to node key
-      return {
-        current: start,
-        parent,
-        isLeft,
-      };
     }
+    // key is equal to node key
+    return {
+      current: start,
+      parent,
+      isLeft,
+    };
   }
 
   remove(value) {
@@ -70,7 +71,7 @@ class BinarySearchTree {
     let replacementParent;
 
     // find the node
-    const {
+    let {
       current,
       parent,
       isLeft,
@@ -140,29 +141,27 @@ class BinarySearchTree {
           // two children, a bit more complicated - we need to determine
           // replacement node
           case 2:
-            // reset pointers for new traversal
-            replacement = current.left;
-            replacementParent = current;
 
-            // find the right-most node
-            while ( replacement.right !== null ) {
-              replacementParent = replacement;
-              replacement = replacement.right;
-            }
+            // find the min node on the right side of curr node
+            const traverse = node =>  !node.left ? node : traverse( node.left );
+            const minNode = traverse(current.right);
 
-            replacementParent.right = replacement.left;
+            // console.log(minNode.value, 'MinNode');
 
-            // assign children to the replacement
-            replacement.right = current.right;
-            replacement.left = current.left;
+            // Delete duplicate node
+            const result = this.get(this.root, minNode.value);
+            // console.log(result, 'result')
 
-            // place the replacement in the right spot
-            if (current.value < parent.value) {
-              parent.left = replacement;
+            // copy the value in targetted node
+            current.value = minNode.value;
+
+            // Delete duplicate node
+
+            if ( result.isLeft ) {
+              result.parent.left = minNode.left;
             } else {
-              parent.right = replacement;
+              result.parent.right = minNode.left;
             }
-            break;
 
           // no default
         }

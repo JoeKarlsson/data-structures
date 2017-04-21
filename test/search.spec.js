@@ -75,7 +75,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a root node from the tree', () => {
+      it( 'should remove a root node with zero children', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -101,7 +101,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a node from the middle of the tree', () => {
+      it( 'should remove a node with two children', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -109,21 +109,51 @@ describe( 'Search', () => {
         bst1.add(32);
         bst1.add(5);
         bst1.add(35);
-        bst1.remove(25);
-        // console.log(bst1.root.left);
-        // expect(bst1.root).to.deep.equal({
-        //   value: 40,
-        //   left: {
-        //     value: 10,
-        //     left: [Circular],
-        //     right: null,
-        //   },
-        //   right: {
-        //     value: 78,
-        //     left: null,
-        //     right: null,
-        //   },
-        // });
+        bst1.add(30);
+        bst1.add(34);
+        bst1.add(38);
+        bst1.remove(32);
+
+        console.log(bst1.root)
+
+        // This is what the correct answer SHOULD be - still not working
+        expect(bst1.root).to.deep.equal({
+          value: 40,
+          left: {
+            value: 25,
+            left: {
+              value: 10,
+              left: {
+                value: 5,
+                left: null,
+                right: null,
+              },
+              right: null,
+            },
+            right: {
+              value: 34,
+              left: {
+                value: 30,
+                left: null,
+                right: null,
+              },
+              right: {
+                value: 35,
+                left: null,
+                right: {
+                  value: 38,
+                  left: null,
+                  right: null,
+                },
+              },
+            },
+          },
+          right: {
+            value: 78,
+            left: null,
+            right: null,
+          },
+        });
       });
 
       it( 'should remove a node with one left child from the tree', () => {
