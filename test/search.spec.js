@@ -48,6 +48,51 @@ describe( 'Search', () => {
         });
       });
     });
+
+    describe( '`get` method', () => {
+      it( 'should find and return the node based on it\'s value', () => {
+        bst1.add(40);
+        bst1.add(25);
+        bst1.add(78);
+        bst1.add(10);
+        bst1.add(32);
+        const node = bst1.get(bst1.root, 10);
+        expect(node).to.deep.equal({
+          current: {
+            value: 10,
+            left: null,
+            right: null,
+          },
+          parent: {
+            value: 25,
+            left: {
+              value: 10,
+              left: null,
+              right: null,
+            },
+            right: {
+              value: 32,
+              left: null,
+              right: null,
+            },
+          },
+          isLeft: true,
+        });
+      });
+      it( 'should should return null if the value is not found', () => {
+        bst1.add(40);
+        bst1.add(25);
+        bst1.add(78);
+        bst1.add(10);
+        bst1.add(32);
+        const result = bst1.get(bst1.root, 1000000);
+        expect(result).to.equal(null);
+      });
+      it( 'should should return null if the BST is empty', () => {
+        const result = bst1.get(bst1.root, 1000000);
+        expect(result).to.equal(null);
+      });
+    });
     describe( '`remove` method', () => {
       it( 'should remove a leaf node from the tree', () => {
         bst1.add(40);
@@ -101,7 +146,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a node with two children', () => {
+      it( 'should remove a node with two children when the replacement node is on the left', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -113,8 +158,6 @@ describe( 'Search', () => {
         bst1.add(34);
         bst1.add(38);
         bst1.remove(32);
-
-        console.log(bst1.root)
 
         // This is what the correct answer SHOULD be - still not working
         expect(bst1.root).to.deep.equal({

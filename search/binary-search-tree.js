@@ -48,7 +48,7 @@ class BinarySearchTree {
 
   // Find and return the node based on it's value
   get(start, searchFor, parent = null, isLeft = true) {
-    if (!start.value) {
+    if (!start) {
       return null; // key not found
     }
     if ( searchFor < start.value ) {
@@ -146,17 +146,12 @@ class BinarySearchTree {
             const traverse = node =>  !node.left ? node : traverse( node.left );
             const minNode = traverse(current.right);
 
-            // console.log(minNode.value, 'MinNode');
-
-            // Delete duplicate node
             const result = this.get(this.root, minNode.value);
-            // console.log(result, 'result')
 
             // copy the value in targetted node
             current.value = minNode.value;
 
             // Delete duplicate node
-
             if ( result.isLeft ) {
               result.parent.left = minNode.left;
             } else {
