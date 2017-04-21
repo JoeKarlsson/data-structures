@@ -120,7 +120,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a root node with zero children', () => {
+      it( 'should remove a root node with zero children and left of parent', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -129,6 +129,32 @@ describe( 'Search', () => {
         bst1.remove(40);
         expect(bst1.root).to.deep.equal({
           value: 32,
+          left: {
+            value: 25,
+            left: {
+              value: 10,
+              left: null,
+              right: null,
+            },
+            right: null,
+          },
+          right: {
+            value: 78,
+            left: null,
+            right: null,
+          },
+        });
+      });
+
+      it( 'should remove a root node with zero children and right of parent', () => {
+        bst1.add(40);
+        bst1.add(25);
+        bst1.add(78);
+        bst1.add(10);
+        bst1.add(32);
+        bst1.remove(32);
+        expect(bst1.root).to.deep.equal({
+          value: 40,
           left: {
             value: 25,
             left: {
