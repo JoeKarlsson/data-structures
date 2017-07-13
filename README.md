@@ -7,15 +7,6 @@ I put this repo together to get ready for technical interviews. I hope it helps 
 
 ## What is an algorithm?
 
-```
-Informally, an algorithm is any well-defined computational procedure that takes
-some value, or set of values, as input and produces some value, or set of values, as
-output. An algorithm is thus a sequence of computational steps that transform the
-input into the output.
-
-Source: Thomas H. Cormen, Chales E. Leiserson (2009), Introduction to Algorithms 3rd edition.
-```
-
 In simple terms, it is possible to say that an algorithm is a sequence of steps which allow to solve a certain task ( Yes, not just computers use algorithms, humans also use them). Now, an algorithm should have three important characteristics to be considered valid:
 
 1. **It should be finite:** If your algorithm never ends trying to solve the problem it was designed to solve then it is useless
@@ -29,7 +20,8 @@ In simple terms, it is possible to say that an algorithm is a sequence of steps 
 1. Run `npm install`
 1. Run `npm test` to run all of the algorithms
 
-This repo is a collection of common data structures and alogirthims you might encounter in an interview. This repo covers the following topics:
+
+This repo covers the following topics:
 
 * [Binary Heap](https://github.com/JoeKarlsson/data-structures/tree/master/binary-heap)
 * [Bitwise](https://github.com/JoeKarlsson/data-structures/tree/master/bitwise)
