@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=master)](https://travis-ci.org/JoeKarlsson/data-structures) [![Coverage Status](https://coveralls.io/repos/github/JoeKarlsson/data-structures/badge.svg?branch=master)](https://coveralls.io/github/JoeKarlsson/data-structures?branch=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
 
 
-I put this repo together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. If you like what you see plz give it a star. Also, feel free to contribute :D
+I put this repository together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. If you like what you see plz give it a star. Also, feel free to contribute :D
 
 ## What is an algorithm?
 
