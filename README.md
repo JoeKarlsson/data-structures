@@ -74,9 +74,6 @@ Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest 
   - This is a beautiful algorithm for fair matching. Simple, elegant and effective. In its core form, it’s also straightforward to implement. Has numerous applications. See: Stable marriage problem - Wikipedia
 - A toy implementation of Viterbi algorithm
   - Ubiquitous in cell phone technology, and many other applications, Viterbi algorithm is a Dynamic Programming based algorithm that finds the most likely sequence of states.
-- Music Search using Fast Fourier Transforms (FFT)
-  - Music recognition is done by converting it into frequency domain using FFT. FFT has implementations in number of languages. See this article for a great start: Shazam It! Music Recognition Algorithms, Fingerprinting, and Processing.
-- Implement RSA algorithm
   - SSL transport, is the bane of safe existence on Internet these days. One of the most well-known algorithms in secure transport, is RSA, named by the first initials of its inventors. Implementing RSA is fun and instructive e.g. C code to implement RSA Algorithm(Encryption and Decryption)
 - Safe Browsing (or similar) using Bloom filters
   - Bloom filters found very rare usage until the world got more online and we hit scale. But these days, we see new applications very frequently.Chrome browser uses Bloom filters to make preliminary decision on safe browsing. See some novel applications here.
