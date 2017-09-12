@@ -1,5 +1,4 @@
-
-export default class ComplexArray {
+class ComplexArray {
   constructor(other, arrayType = Float32Array) {
     if (other instanceof ComplexArray) {
       // Copy constuctor.
@@ -69,3 +68,5 @@ export default class ComplexArray {
     return mags;
   }
 }
+
+module.exports = ComplexArray;
