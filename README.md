@@ -25,6 +25,7 @@ This repo covers the following topics:
 
 * [Binary Heap](https://github.com/JoeKarlsson/data-structures/tree/master/binary-heap)
 * [Bitwise](https://github.com/JoeKarlsson/data-structures/tree/master/bitwise)
+* [Complex Arrays](https://github.com/JoeKarlsson/data-structures/tree/master/complex-array)
 * [Graph Traversing](https://github.com/JoeKarlsson/data-structures/tree/master/graph-traversing)
   * [Breadth First Search](https://github.com/JoeKarlsson/data-structures/blob/master/graph-traversing/breadth-first-search.js)
   * [Depth First Search](https://github.com/JoeKarlsson/data-structures/blob/master/graph-traversing/depth-first-search-recursive.js)
@@ -33,6 +34,7 @@ This repo covers the following topics:
   * [Grid Graph](https://github.com/JoeKarlsson/data-structures/blob/master/graph/gridGraph.js)
   * [Tree Node](https://github.com/JoeKarlsson/data-structures/blob/master/graph/tree.js)
 * [Hash Table](https://github.com/JoeKarlsson/data-structures/tree/master/hash-table)
+* [Fast Fourier Transformations](https://github.com/JoeKarlsson/data-structures/tree/master/fast-fourier-transforms)
 * [Linked Lists](https://github.com/JoeKarlsson/data-structures/tree/master/linked-list)
 * [List](https://github.com/JoeKarlsson/data-structures/tree/master/list)
 * [Memoization](https://github.com/JoeKarlsson/data-structures/tree/master/memoization)
