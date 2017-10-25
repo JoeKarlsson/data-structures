@@ -1,6 +1,13 @@
 # JavaScript Data Structures and Algorithms
 
-[![Build Status](https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=master)](https://travis-ci.org/JoeKarlsson/data-structures) [![Coverage Status](https://coveralls.io/repos/github/JoeKarlsson/data-structures/badge.svg?branch=master)](https://coveralls.io/github/JoeKarlsson/data-structures?branch=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
+[![deps][deps]][deps-url]
+[![Coverage Status][cover]][cover-url]
+[![Build Status][tests]][tests-url]
+[![Maintainability][maintainability]][maintainability-url]
+[![stars][stars]][stars-url]
+[![pr][pr]][pr-url]
+[![license][license]][license-url]
+[![twitter][twitter]][twitter-url]
 
 
 I put this repository together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. If you like what you see plz give it a star. Also, feel free to contribute :D
@@ -87,8 +94,53 @@ Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest 
   - Can’t miss this. This transformed our lives in ways we never thought possible. Get started here: Pagerank Explained Correctly with Examples
 
 ## Contributing
+Don't hesitate to create a pull request. Every contribution is appreciated. In development you can start the tests by calling `npm test`. Checkout our [contribution README](https://github.com/JoeKarlsson/data-structures/blob/master/CONTRIBUTING.md) for more info.
+
 1. Fork it!
 2. Create your feature branch: ```git checkout -b my-new-feature```
 3. Commit your changes: ```git commit -am 'Add some feature'```
 4. Push to the branch: ````git push origin my-new-feature````
 5. Submit a pull request :D
+
+<h2 align="center">Maintainers</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img width="150 height="150"
+        src="https://avatars.githubusercontent.com/JoeKarlsson?v=3">
+        <br />
+        <a href="https://github.com/JoeKarlsson">Joe Karlsson</a>
+      </td>
+    <tr>
+  <tbody>
+</table>
+
+<h2 align="center">LICENSE</h2>
+
+#### [MIT](./LICENSE)
+
+[deps]: https://david-dm.org/JoeKarlsson/data-structures/status.svg
+[deps-url]: https://david-dm.org/JoeKarlsson/data-structures
+
+[tests]: https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=master
+[tests-url]: https://travis-ci.org/JoeKarlsson/data-structures
+
+[maintainability]: https://api.codeclimate.com/v1/badges/7d2a095c01bb88557a41/maintainability
+[maintainability-url]: https://codeclimate.com/github/JoeKarlsson/data-structures/maintainability
+
+[pr]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
+[pr-url]: CONTRIBUTING.md
+
+[cover]: https://coveralls.io/repos/github/JoeKarlsson/data-structures/badge.svg?branch=master
+[cover-url]: https://coveralls.io/github/JoeKarlsson/data-structures?branch=master
+
+[stars]: https://img.shields.io/github/stars/JoeKarlsson/data-structures.svg?style=flat-square
+[stars-url]: https://github.com/JoeKarlsson/data-structures/stargazers
+
+[license]: https://img.shields.io/github/license/JoeKarlsson/data-structures.svg
+[license-url]: https://github.com/JoeKarlsson/data-structures/blob/master/LICENSE
+
+[twitter]: https://img.shields.io/twitter/url/https/github.com/JoeKarlsson/data-structures.svg?style=social&style=flat-square
+[twitter-url]: https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FJoeKarlsson%2Fdata-structures
