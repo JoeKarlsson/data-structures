@@ -127,7 +127,7 @@ Don't hesitate to create a pull request. Every contribution is appreciated. In d
 [tests]: https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=master
 [tests-url]: https://travis-ci.org/JoeKarlsson/data-structures
 
-[maintainability]: https://api.codeclimate.com/v1/badges/7d2a095c01bb88557a41/maintainability
+[maintainability]: https://api.codeclimate.com/v1/badges/462bdda833cde7f72e01/maintainability
 [maintainability-url]: https://codeclimate.com/github/JoeKarlsson/data-structures/maintainability
 
 [pr]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
