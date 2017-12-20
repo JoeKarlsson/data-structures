@@ -68,7 +68,7 @@ describe('Linked List', () => {
     beforeEach(() => {
       urlList = new LinkedList();
     });
-    it('should retrieve the value of the first node in a list',() => {
+    it('should retrieve the value of the first node in a list', () => {
       expect(urlList.getTail).to.be.a('function');
       expect(urlList.getTail()).to.be.null;
     });
@@ -96,7 +96,6 @@ describe('Linked List', () => {
         expect(newNodeA.value).to.exist;
       });
       it('should have a property named `next`', () => {
-        expect(newNodeA.next).to.be.defined;
         expect(newNodeA.next).to.be.null;
       });
     });
