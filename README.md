@@ -1,5 +1,7 @@
 # JavaScript Data Structures and Algorithms
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JoeKarlsson/data-structures.svg)](https://greenkeeper.io/)
+
 [![deps][deps]][deps-url]
 [![Coverage Status][cover]][cover-url]
 [![Build Status][tests]][tests-url]
