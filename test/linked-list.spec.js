@@ -87,7 +87,7 @@ describe('Linked List', () => {
       newNodeA = newLinkedListA.add('http://slashdot.org');
     });
 
-    describe('should return a new node object after appending the node to the list', function () {
+    describe('should return a new node object after appending the node to the list', () => {
       it('should return a new node object', () => {
         expect(newNodeA).to.not.be.undefined;
         expect(newNodeA.value).to.be.equal('http://slashdot.org');
@@ -101,7 +101,7 @@ describe('Linked List', () => {
     });
 
     describe('should append new nodes', () => {
-      it('`head` and `tail` should reference the same node object when adding to an empty list', function () {
+      it('`head` and `tail` should reference the same node object when adding to an empty list', () => {
         // add a new node!
         newLinkedListB.add('http://devleague.com');
 
