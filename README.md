@@ -10,6 +10,7 @@
 [![pr][pr]][pr-url]
 [![license][license]][license-url]
 [![twitter][twitter]][twitter-url]
+[![BCH-compliance][BCH-compliance]][BCH-compliance-url]
 
 
 I put this repository together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. If you like what you see plz give it a star. Also, feel free to contribute :D
@@ -146,3 +147,6 @@ Don't hesitate to create a pull request. Every contribution is appreciated. In d
 
 [twitter]: https://img.shields.io/twitter/url/https/github.com/JoeKarlsson/data-structures.svg?style=social&style=flat-square
 [twitter-url]: https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FJoeKarlsson%2Fdata-structures
+
+[BCH-compliance]: https://bettercodehub.com/edge/badge/JoeKarlsson/data-structures?branch=master
+[BCH-compliance-url]: https://bettercodehub.com/
