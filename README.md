@@ -1,6 +1,5 @@
 # JavaScript Data Structures and Algorithms
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/JoeKarlsson/data-structures.svg)](https://greenkeeper.io/)
 
 [![deps][deps]][deps-url]
 [![Coverage Status][cover]][cover-url]
@@ -11,6 +10,7 @@
 [![license][license]][license-url]
 [![twitter][twitter]][twitter-url]
 [![BCH-compliance][BCH-compliance]][BCH-compliance-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/JoeKarlsson/data-structures.svg)](https://greenkeeper.io/)
 
 
 I put this repository together to get ready for technical interviews. I hope it helps you get ready for your next big technical interview. If you like what you see plz give it a star. Also, feel free to contribute :D
