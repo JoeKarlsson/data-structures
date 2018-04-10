@@ -61,12 +61,12 @@ describe( 'Trie', () => {
 
     it( 'should not add duplicate data to the trie', () => {
       trie.add('cat');
-      let snapshot1 = JSON.stringify(trie);
+      const snapshot1 = JSON.stringify(trie);
 
       for (let i = 0, len = 100; i < len; i++) {
         trie.add('cat');
       }
-      let snapshot2 = JSON.stringify(trie);
+      const snapshot2 = JSON.stringify(trie);
 
       snapshot1.should.be.equal(snapshot2);
     });

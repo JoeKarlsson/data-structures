@@ -1,52 +1,54 @@
-/**
- * Class - Trie
- *
- *
- * Instance Methods
- *
- * add( word )
- * @param word  string
- * @returns void
- *
- * exists( word )
- * @param word  string
- * @returns boolean
- *          true if the word exists in the trie, else false
- */
+class TrieNode {
+  constructor(value) {
+    this.isWord = false;
+    this.value = value;
+    this.children = {};
+  }
+}
+
+const isString = ( word ) => {
+  if ( typeof word !== 'string' ) {
+    throw new TypeError('Input must be of type string');
+  }
+};
 
 class Trie {
   constructor() {
-    this.root = {};
-  }
-
-  check( word ) {
-    if ( typeof word !== 'string' ) {
-      throw new TypeError();
-    }
+    this.words = 0;
+    this.root = new TrieNode('');
   }
 
   add(word) {
+    isString(word);
     let currNode = this.root;
-    this.check(word);
+
     for (let i = 0; i < word.length; i++) {
-      const c = word[i];
-      if (!currNode[c]) {
-        currNode[c] = {};
+      const letter = word[i];
+      let nextNode = currNode.children[letter];
+
+      if (nextNode === undefined) {
+        nextNode = new TrieNode(letter);
       }
-      currNode = currNode[c];
+      currNode.children[letter] = nextNode;
+      currNode = nextNode;
+
     }
-    currNode.isWord = true;
+    if (currNode.isWord === false) {
+      this.words++;
+      currNode.isWord = true;
+    }
   }
 
   exists(word) {
+    isString(word);
     let currNode = this.root;
-    this.check(word);
+
     for (let i = 0; i < word.length; i++) {
-      const c = word[i];
-      if (!currNode[c]) {
+      const letter = word[i];
+      if (!currNode.children[letter]) {
         return false;
       }
-      currNode = currNode[c];
+      currNode = currNode.children[letter];
     }
     return !!currNode.isWord;
   }

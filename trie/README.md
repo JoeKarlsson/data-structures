@@ -22,6 +22,13 @@ root
           └── r  (leaf)
 ```
 
+## Complexity
+
+Access	Search	Insertion	Deletion
+O(k)	  O(k)	  O(k)	    O(k)
+
+where k is the word length.
+
 ### Usage
 
 Running node on the `index.js` file located in the root of the repository will be your interactive test (in addition to the tests spec'd out in the `tests` directory).
