@@ -77,6 +77,7 @@ Knuth: ". . .we want good algorithms in some loosely defined aesthetic sense. On
 Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest possible program for producing the output that it does"
 
 ### TODO:
+- Timsort
 - Floyd-Warshall
 - Traveling Salesman
 - k-way merge
