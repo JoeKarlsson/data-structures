@@ -72,7 +72,7 @@ Chaitin: " . . . a program is 'elegant,' by which I mean that it's the smallest 
 
 ### TODO
 
-- Timsort
+* Timsort
 * Floyd-Warshall
 * Traveling Salesman
 * k-way merge
