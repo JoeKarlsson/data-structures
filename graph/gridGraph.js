@@ -42,9 +42,9 @@ class GridGraph {
 
   neighbors(node) {
     const ret = [];
-    const x = node.x;
-    const y = node.y;
-    const grid = this.grid;
+    const { x } = node;
+    const { y } = node;
+    const { grid } = this;
 
     // West
     if (grid[x - 1] && grid[x - 1][y]) {
@@ -106,7 +106,6 @@ class GridGraph {
 
 }
 
-
 class GridNode {
   constructor(x, y, weight) {
     this.x = x;
@@ -115,7 +114,7 @@ class GridNode {
   }
 
   toString() {
-    return '[' + this.x + ' ' + this.y + ']';
+    return `[${this.x} ${this.y}]`;
   }
 
   getCost(fromNeighbor) {

@@ -26,7 +26,7 @@ class BinarySearchTree {
 
   // Find and insert a new node in the BST
   insert(currentNode) {
-    const value = currentNode.value;
+    const { value } = currentNode;
 
     const traverse = (node) => {
       if (value > node.value) {
@@ -53,7 +53,7 @@ class BinarySearchTree {
     }
     if ( searchFor < start.value ) {
       return this.get( start.left, searchFor, start, true );
-    } else if ( searchFor > start.value ) {
+    } if ( searchFor > start.value ) {
       return this.get( start.right, searchFor, start, false );
     }
     // key is equal to node key
@@ -71,7 +71,7 @@ class BinarySearchTree {
     let replacementParent;
 
     // find the node
-    let {
+    const {
       current,
       parent,
       isLeft,
@@ -83,8 +83,8 @@ class BinarySearchTree {
     // only proceed if the node was found
     if (found) {
       // Figure out how many children
-      childCount = (current.left !== null ? 1 : 0) +
-                   (current.right !== null ? 1 : 0);
+      childCount = (current.left !== null ? 1 : 0)
+                   + (current.right !== null ? 1 : 0);
       // special case: the value is at the root
       if (current === this.root) {
         switch (childCount) {
@@ -143,7 +143,7 @@ class BinarySearchTree {
           case 2:
 
             // find the min node on the right side of curr node
-            const traverse = node =>  !node.left ? node : traverse( node.left );
+            const traverse = (node) => (!node.left ? node : traverse( node.left ));
             const minNode = traverse(current.right);
 
             const result = this.get(this.root, minNode.value);
@@ -172,9 +172,9 @@ class BinarySearchTree {
       }
       if ( value === node.value ) {
         return true;
-      } else if ( value > node.value ) {
+      } if ( value > node.value ) {
         return traverse(node.right);
-      } else if ( value < node.value ) {
+      } if ( value < node.value ) {
         return traverse( node.left );
       }
     };
@@ -184,18 +184,14 @@ class BinarySearchTree {
   // find the left most node to find the min value of a binary tree;
   findMin() {
     const node = this.root;
-    const traverse = ( node ) => {
-      return !node.left ? node.value : traverse( node.left );
-    };
+    const traverse = ( node ) => (!node.left ? node.value : traverse( node.left ));
     return traverse(node);
   }
 
   // find the right most node to find the max value of a binary tree;
   findMax() {
     const node = this.root;
-    const traverse = ( node ) => {
-      return !node.right ? node.value : traverse( node.right );
-    };
+    const traverse = ( node ) => (!node.right ? node.value : traverse( node.right ));
     return traverse( node );
   }
 
@@ -258,7 +254,7 @@ class BinarySearchTree {
     traverse(node, 0);
 
     // get averages and breadthFirst
-    for ( let key in result ) {
+    for ( const key in result ) {
       const len = result[key].length;
       let depthAvg = 0;
       for ( let i = 0; i < len; i++ ) {

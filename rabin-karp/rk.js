@@ -5,7 +5,7 @@ const primeBase = 101; // Any large prime number
 //
 // ASCII a = 97, b = 98, r = 114.
 // hash("abr") = (97 × 1012) + (98 × 1011) + (114 × 1010) = 999,509
-const hashFromTo = ( str, from, to ) => {
+const hashFromTo = (str, from, to) => {
   let hash = 0; // init hash
   for (let i = from; i < to && i < str.length; i++) {
     const charASCII = str.charCodeAt(i);
@@ -28,21 +28,21 @@ const matchesAtIndex = (index, text, str) => {
 
 /**
  * Returns an array of indexes of the places where the str is found within text
- * @param  {String} text
- * @param  {String} str
- * @return {Array[num]}
+ * @param {string} text - Text to search in
+ * @param {string} str - String to search for
+ * @returns {Array<number>} Array of indexes where str is found
  */
-const searchRabinKarp = ( text, str ) => {
+const searchRabinKarp = (text, str) => {
   const matches = [];
 
   const hashStr = hashFromTo(str, 0, str.length); // hash the substring
-  const primeToPower = Math.pow(primeBase, str.length);
+  const primeToPower = primeBase ** str.length;
   const maxIndexForPotentialMatch = text.length - str.length;
   // init text has of the length of the substring
   let hashTextPart = hashFromTo(text, 0, str.length);
 
   for (let i = 0; i <= maxIndexForPotentialMatch; i++) {
-    if ( hashTextPart === hashStr ) {
+    if (hashTextPart === hashStr) {
       // if there is a hash match - we need to verify this is
       // a valid match by manually checking it
       if (matchesAtIndex(i, text, str)) {

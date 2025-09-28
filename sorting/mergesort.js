@@ -33,7 +33,7 @@ const mergeModule = ( () => {
   };
 
   return {
-    mergeSort: function ( arr ) {
+    mergeSort( arr ) {
       // Base Case - if the array is length 0 or 1,
       //  then we can assume it is already sorted and return it
       if (arr.length < 2) {

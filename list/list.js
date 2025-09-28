@@ -31,8 +31,7 @@ class List {
 
   /**
    * Computes the length of the list
-   *
-   * @return {number} The length of the list.
+   * @returns {number} The length of the list
    */
   getLength() {
     let current = this.head;
@@ -48,8 +47,7 @@ class List {
 
   /**
    * Returns the head of the list (the first element)
-   *
-   * @return {Node} The head node (the first node in the list)
+   * @returns {Node} The head node (the first node in the list)
    */
   getHead() {
     return this.head;
@@ -57,8 +55,7 @@ class List {
 
   /**
    * Returns the tail of the list (the last element)
-   *
-   * @return {Node} The tail node (the last node in the list)
+   * @returns {Node} The tail node (the last node in the list)
    */
   getTail() {
     return this.reduce((_, node) => node, undefined, false);
@@ -78,7 +75,7 @@ class List {
    * @param {any} [startingValue]           Value to initiate the reducing with.
    * @param {boolean} [extractValues=true]  Decides on what will be passed to the callbackFn,
    * either values or whole nodes.
-   * @return {any}                          Reduced value
+   * @returns {any}                          Reduced value
    */
   reduce(callbackFn, startingValue, extractValues = true) {
     let currentNode;
@@ -86,9 +83,9 @@ class List {
 
     let extractorFn;
     if (extractValues) {
-      extractorFn = node => node.value;
+      extractorFn = (node) => node.value;
     } else {
-      extractorFn = node => node;
+      extractorFn = (node) => node;
     }
 
     if (!this.head) {
@@ -137,7 +134,7 @@ class List {
    * Executes callbackFn on each item from the list and returns the results as another list.
    *
    * @param {valueCallbackFn} callbackFn  Function invoked for each element in the list
-   * @return {List}   Transformed list
+   * @returns {List}   Transformed list
    */
   map(callbackFn) {
     const outputList = new List();
@@ -154,13 +151,13 @@ class List {
    * Retrieves the Node with a given index
    *
    * @param {number} targetIndex  Wanted node's index
-   * @return {Node}               Found node
+   * @returns {Node}               Found node
    */
   get(targetIndex) {
     let currentIndex = 0;
     let currentNode = this.head;
 
-    if (targetIndex < 0 ) {
+    if (targetIndex < 0) {
       throw new Error('Index exceeds list\'s size');
     }
 
@@ -179,7 +176,7 @@ class List {
    * Adds a value to the end of the list
    *
    * @param {any} newValue  A value to be added
-   * @return {List}         This list. Allows for chainability
+   * @returns {List}         This list. Allows for chainability
    */
   pushBack(newValue) {
     const newNode = new Node(newValue);
@@ -200,7 +197,7 @@ class List {
    * @param {any} value     Value to be added.
    * @param {number} index  Index at which the value should be added.
    * @throws {Error} Index must not exceed list size.
-   * @return {List}    This list. Allows for chainability.
+   * @returns {List}    This list. Allows for chainability.
    */
   push(value, index) {
     if (index === 0) {
@@ -223,7 +220,7 @@ class List {
    * Removes nodes with specific values from the list
    *
    * @param {any} valueToRemove A value to be removed
-   * @return {List}             This list. Allows for chainability.
+   * @returns {List}             This list. Allows for chainability.
    */
   remove(valueToRemove) {
     if (this.head.next === null) {
@@ -264,13 +261,13 @@ class List {
    * Returns the first node that value matches.
    *
    * @param {any} value Value to be found
-   * @return {Node}     Node with that value
+   * @returns {Node}     Node with that value
    */
   find(value) {
     const findRecursive = (node, value) => {
       if (!node) {
         return null;
-      } else if (node.value === value) {
+      } if (node.value === value) {
         return node;
       }
       return findRecursive(node.next, value);
@@ -282,11 +279,11 @@ class List {
   /**
    * Converts the list to an array
    *
-   * @return {any[]}  Array of values from the list
+   * @returns {any[]}  Array of values from the list
    */
   getValues() {
     const valuesArray = [];
-    this.forEach(value => valuesArray.push(value));
+    this.forEach((value) => valuesArray.push(value));
     return valuesArray;
   }
 

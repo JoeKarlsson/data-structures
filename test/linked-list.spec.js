@@ -1,7 +1,7 @@
-const LinkedList = require('../linked-list/linkedList');
 const chai = require('chai');
+const LinkedList = require('../linked-list/linkedList');
 
-const expect = chai.expect;
+const { expect } = chai;
 
 describe('Linked List', () => {
   let newLinkedList;
@@ -11,7 +11,7 @@ describe('Linked List', () => {
     expect(LinkedList).to.be.a('function');
   });
 
-  describe('returns a LinkedList object used to interact with the private Linked List object', function () {
+  describe('returns a LinkedList object used to interact with the private Linked List object', () => {
     beforeEach(() => {
       newLinkedList = new LinkedList();
     });
@@ -20,7 +20,7 @@ describe('Linked List', () => {
     });
   });
 
-  describe('Linked List has methods available through Linked List Object', function () {
+  describe('Linked List has methods available through Linked List Object', () => {
     beforeEach(() => {
       newLinkedList = new LinkedList();
     });
@@ -110,7 +110,7 @@ describe('Linked List', () => {
         expect(newLinkedListB.getTail().value).to.equal('http://devleague.com');
 
         // really the same?
-        expect(newLinkedListB.getHead()).to.equal(newLinkedListB.getTail())
+        expect(newLinkedListB.getHead()).to.equal(newLinkedListB.getTail());
       });
     });
 

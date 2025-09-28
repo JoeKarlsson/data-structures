@@ -20,7 +20,7 @@ class ComplexArray {
 
     this.forEach((value, i) => {
       components.push(
-        `(${value.real.toFixed(2)}, ${value.imag.toFixed(2)})`
+        `(${value.real.toFixed(2)}, ${value.imag.toFixed(2)})`,
       );
     });
 
@@ -31,7 +31,7 @@ class ComplexArray {
     const n = this.length;
     // For gc efficiency, re-use a single object in the iterator.
     const value = Object.seal(Object.defineProperties({}, {
-      real: {writable: true}, imag: {writable: true},
+      real: { writable: true }, imag: { writable: true },
     }));
 
     for (let i = 0; i < n; i++) {
@@ -62,8 +62,8 @@ class ComplexArray {
     const mags = new this.ArrayType(this.length);
 
     this.forEach((value, i) => {
-      mags[i] = Math.sqrt(value.real*value.real + value.imag*value.imag);
-    })
+      mags[i] = Math.sqrt(value.real * value.real + value.imag * value.imag);
+    });
 
     return mags;
   }

@@ -1,6 +1,6 @@
 const chai = require('chai');
 
-const expect = chai.expect;
+const { expect } = chai;
 
 const Node = require('../graph/graphNode');
 const breadthFirstSearch = require('../graph-traversing/breadth-first-search');

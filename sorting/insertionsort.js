@@ -1,6 +1,6 @@
 const insertionModule = (() => {
   // swap method because its used multiple times
-  const swap = ( array, index1, index2 ) => {
+  const swap = (array, index1, index2) => {
     // store a tmp variable at pos index2
     const tmp = array[index2];
 
@@ -17,22 +17,22 @@ const insertionModule = (() => {
      * from the input array, finds the location it belongs to
      * and inserts it at this point.
      *
-     * @param  array unsorted array that will be sort
-     * @return array sorted array
+     * @param {Array} a - Unsorted array that will be sorted
+     * @returns {Array} Sorted array
      */
-    insertionSort: ( a ) => {
+    insertionSort: (a) => {
       // Iterate over each element in the array
       //  for each element we will be finding the
       //  correct place to put this element
-      for ( let i = 1; i < a.length; i++ ) {
+      for (let i = 1; i < a.length; i++) {
         // init j to i
         let j = i;
         // while our previous number is greater than 0,
         //  and the number we're comparing is less than
         //  our previous number enter our loop
-        while ( j > 0 && ( a[j - 1] > a[j] ) ) {
+        while (j > 0 && (a[j - 1] > a[j])) {
           // shift the number down the array and give us a space to insert our current value
-          swap( a, j, j - 1 );
+          swap(a, j, j - 1);
           // decrement j to go through our entire array
           j--;
         }

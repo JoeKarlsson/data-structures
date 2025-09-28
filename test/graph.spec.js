@@ -1,5 +1,6 @@
 const chai = require('chai');
-const expect = chai.expect;
+
+const { expect } = chai;
 const Node = require('../graph/graphNode');
 
 describe('Graphs', () => {
@@ -81,13 +82,13 @@ describe('Graphs', () => {
   });
 
   it('Node method `addNeighbors` should return an array of Nodes', () => {
-    A.addNeighbors([B,C])
+    A.addNeighbors([B, C]);
     expect(A.neighbors[0].name).to.equal('B');
     expect(A.neighbors[0].value).to.equal('Jon');
     expect(A.neighbors[1].name).to.equal('C');
     expect(A.neighbors[1].value).to.equal('Ray');
 
-    A.addNeighbors([D,E])
+    A.addNeighbors([D, E]);
     expect(A.neighbors[0].name).to.equal('B');
     expect(A.neighbors[0].value).to.equal('Jon');
     expect(A.neighbors[1].name).to.equal('C');

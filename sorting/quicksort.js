@@ -55,7 +55,7 @@ const quickModule = (() => {
     *   higher value partitions, then recursively creates partitions until it cannot.
     *  takes in the array and optionally low and high parameters for recursion
     */
-    quickSort: function( array, low, high ) {
+    quickSort( array, low, high ) {
 
       // reset our pivot for recursive use
       let pivot = null;

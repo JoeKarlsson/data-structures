@@ -1,12 +1,18 @@
 const chai = require('chai');
 const fftMod = require('../fast-fourier-transforms/fft');
 const ComplexArray = require('../complex-array/complex-array');
-const {FFT, InvFFT} = fftMod;
-const expect = chai.expect;
+
+const { FFT, InvFFT } = fftMod;
+const { expect } = chai;
 
 const EPSILON = 1e-4;
-const PI = Math.PI;
+const { PI } = Math;
 
+/**
+ * Asserts that two complex arrays are approximately equal
+ * @param {ComplexArray} first - First complex array
+ * @param {ComplexArray} second - Second complex array
+ */
 function assertComplexArraysAlmostEqual(first, second) {
   const message = `${second} != ${first}`;
 
@@ -18,6 +24,11 @@ function assertComplexArraysAlmostEqual(first, second) {
   });
 }
 
+/**
+ * Asserts that FFT result matches expected output
+ * @param {ComplexArray} original - Original input
+ * @param {ComplexArray} expected - Expected FFT output
+ */
 function assertFFTMatches(original, expected) {
   if (!(expected instanceof ComplexArray)) {
     throw TypeError('expected match should be a ComplexArray');
@@ -29,12 +40,21 @@ function assertFFTMatches(original, expected) {
   assertComplexArraysAlmostEqual(copy, InvFFT(transformed));
 }
 
+/**
+ * Asserts that FFT matches DFT for given input
+ * @param {Array|ComplexArray} input - Input to test
+ */
 function assertFFTMatchesDFT(input) {
   input = new ComplexArray(input);
 
   assertComplexArraysAlmostEqual(DFT(input), FFT(input));
 }
 
+/**
+ * Discrete Fourier Transform implementation for testing
+ * @param {ComplexArray} input - Input complex array
+ * @returns {ComplexArray} DFT result
+ */
 function DFT(input) {
   const n = input.length;
   const amplitude = 1 / Math.sqrt(n);
@@ -44,12 +64,12 @@ function DFT(input) {
   }
   const output = new ComplexArray(input);
 
-  for(let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     output.real[i] = 0, output.imag[i] = 0;
-    const phase = {real: 1, imag: 0};
-    const delta = {real: Math.cos(2*PI*i/n), imag: Math.sin(2*PI*i/n)};
+    const phase = { real: 1, imag: 0 };
+    const delta = { real: Math.cos(2 * PI * i / n), imag: Math.sin(2 * PI * i / n) };
 
-    for(let j = 0; j < n; j++) {
+    for (let j = 0; j < n; j++) {
       output.real[i] += phase.real * input.real[j] - phase.imag * input.imag[j];
       output.imag[i] += phase.real * input.imag[j] + phase.imag * input.real[j];
       [phase.real, phase.imag] = [
@@ -64,6 +84,12 @@ function DFT(input) {
   return output;
 }
 
+/**
+ * Asserts that two numbers are approximately equal within epsilon
+ * @param {number} first - First number
+ * @param {number} second - Second number
+ * @param {string} message - Error message
+ */
 function assertApproximatelyEqual(first, second, message) {
   const delta = Math.abs(first - second);
 
@@ -75,4 +101,4 @@ module.exports = {
   assertFFTMatches,
   assertFFTMatchesDFT,
   DFT,
-}
+};

@@ -4,21 +4,33 @@
   "description": "Various data structures and algorithms implemented in JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc ./node_modules/.bin/mocha",
-    "test-watch": "./node_modules/.bin/mocha --watch",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "test": "nyc mocha",
+    "test:watch": "mocha --watch",
+    "test:coverage": "nyc report --reporter=text-lcov",
+    "test:coverage:html": "nyc report --reporter=html",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "dev": "npm run test:watch",
+    "build": "echo 'No build step needed for this project'",
+    "clean": "rm -rf .nyc_output coverage",
+    "prepare": "husky install"
   },
   "author": "Joe Karlsson",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.0.0",
+    "chai": "^4.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^48.6.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "mocha": "^10.4.0",
     "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^12.0.2"
+    "nyc": "^15.1.0",
+    "prettier": "^3.2.5"
   }
 }

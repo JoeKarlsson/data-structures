@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - "9.4.0"
+  - "18"
+  - "20"
 notifications:
   email: false
-after_success: npm run coverage
+script: npm test

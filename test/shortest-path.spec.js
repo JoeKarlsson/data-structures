@@ -51,19 +51,15 @@ describe( 'Shortest Path', () => {
 
       it( 'should return array of the shortest path', () => {
         const shortestPath = g.shortestPath('A', 'H')
-        .concat(['A'])
-        .reverse();
+          .concat(['A'])
+          .reverse();
 
         expect(shortestPath).to.deep.equal(['A', 'B', 'F', 'H']);
       });
     });
   });
   describe( 'A Star', () => {
-    const pathToString = (result) => {
-      return result.map((node) => {
-        return '(' + node.x + ',' + node.y + ')';
-      }).join('');
-    };
+    const pathToString = (result) => result.map((node) => `(${node.x},${node.y})`).join('');
 
     const runSearch = (gridGraph, start, end, options) => {
       if (!(gridGraph instanceof GridGraph)) {

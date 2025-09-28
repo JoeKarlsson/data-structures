@@ -12,11 +12,11 @@ describe( 'List', () => {
   beforeEach(() => {
     values = ['lorem', 'ipsum', 'dolor', 'et'];
     list = new List();
-    values.forEach(value => list.pushBack(value));
+    values.forEach((value) => list.pushBack(value));
 
     numValues = [1, 2, 3, 4, 5];
     list2 = new List();
-    numValues.forEach(value => list2.pushBack(value));
+    numValues.forEach((value) => list2.pushBack(value));
   });
 
   describe( 'Constructor', () => {
@@ -244,19 +244,13 @@ describe( 'List', () => {
     it( 'should reduce the list to a single value', () => {
       const numValues = [1, 2, 3, 4, 5];
       const list2 = new List();
-      numValues.forEach(value => list2.pushBack(value));
+      numValues.forEach((value) => list2.pushBack(value));
 
-      expect(list2.reduce((prev, curr) => {
-        return prev + curr;
-      }, 0)).to.equal(15);
+      expect(list2.reduce((prev, curr) => prev + curr, 0)).to.equal(15);
 
-      expect(list2.reduce((prev, curr) => {
-        return prev + curr;
-      }, 2)).to.equal(15);
+      expect(list2.reduce((prev, curr) => prev + curr, 2)).to.equal(15);
 
-      expect(list.reduce((prev, curr) => {
-        return prev + curr;
-      }, 0)).to.equal('loremipsumdoloret');
+      expect(list.reduce((prev, curr) => prev + curr, 0)).to.equal('loremipsumdoloret');
     });
   });
 
@@ -280,9 +274,7 @@ describe( 'List', () => {
 
   describe( '`map` method', () => {
     it( 'should execute callbackFn on each item from the list and returns the results as another list.', () => {
-      expect(list2.map((el) => {
-        return ++el;
-      })).to.deep.equal({
+      expect(list2.map((el) => ++el)).to.deep.equal({
         head: {
           value: 2,
           next: {
@@ -300,9 +292,7 @@ describe( 'List', () => {
           },
         },
       });
-      expect(list.map((el) => {
-        return `${el} foo`;
-      })).to.deep.equal({
+      expect(list.map((el) => `${el} foo`)).to.deep.equal({
         head: {
           value: 'lorem foo',
           next: {

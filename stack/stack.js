@@ -13,7 +13,7 @@ class Stack {
 
   pop() {
     if ( this.top !== null ) {
-      const value = this.top.value;
+      const { value } = this.top;
       this.top = this.top.next;
       return value;
     }

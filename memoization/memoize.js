@@ -6,19 +6,24 @@
 Function.prototype.memoize = () => {
   const cache = {};
 
-  return ( arg ) => {
+  return (arg) => {
     if (arg in cache) {
       // Cache Hit
       return cache[arg];
     }
     // Chache Miss
-    cache[arg] = this( arg );
+    cache[arg] = this(arg);
     return cache[arg];
   };
 };
 
 // Test
-function fooBar( x ) {
+/**
+ * Test function for memoization
+ * @param {*} x - Input value
+ * @returns {*} The input value
+ */
+function fooBar(x) {
   return x;
 }
 

@@ -1,6 +1,6 @@
 const chai = require('chai');
 
-const expect = chai.expect;
+const { expect } = chai;
 chai.should();
 
 const bubbleModule = require('../sorting/bubblesort.js');
@@ -34,7 +34,7 @@ describe('Sorting', () => {
       expect(bubbleRecursive).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( bubbleRecursive( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9 ]);
+      expect( bubbleRecursive( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
     });
   });
 
@@ -45,7 +45,7 @@ describe('Sorting', () => {
       expect(quickRecursive).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( quickRecursive(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9 ]);
+      expect( quickRecursive(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
     });
   });
 
@@ -57,7 +57,7 @@ describe('Sorting', () => {
       expect(quickModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( quick.quickSort(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9 ]);
+      expect( quick.quickSort(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
     });
   });
 
@@ -69,7 +69,7 @@ describe('Sorting', () => {
       expect(mergeModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( merge.mergeSort(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9 ]);
+      expect( merge.mergeSort(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
     });
   });
 
@@ -81,7 +81,7 @@ describe('Sorting', () => {
       expect(insertionModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( insert.insertionSort( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9 ]);
+      expect( insert.insertionSort( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
     });
   });
 
@@ -93,7 +93,7 @@ describe('Sorting', () => {
       expect(selectionModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( select.selectionSort( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9 ]);
+      expect( select.selectionSort( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
     });
   });
 });

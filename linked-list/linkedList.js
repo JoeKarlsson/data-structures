@@ -20,7 +20,7 @@ class LinkedList {
   }
 
   // Create a new node
-  newNode( value ) {
+  newNode(value) {
     return {
       value,
       next: null,
@@ -28,11 +28,11 @@ class LinkedList {
   }
 
   // Takes a new node and adds it to our linked list
-  add( value ) {
-    const node = this.newNode( value );
+  add(value) {
+    const node = this.newNode(value);
 
     // init empty LL
-    if ( this.getHead() === null ) {
+    if (this.getHead() === null) {
       this.head = node;
     } else { // if it's not empty
       this.getTail().next = node;
@@ -44,23 +44,23 @@ class LinkedList {
 
   /**
    * Reads through our list and returns the node we are looking for
-   * @param  {[type]} index [description]
-   * @return {[type]}       [description]
+   * @param {number} index - Index of the node to retrieve
+   * @returns {Object|false} The node at the given index or false if not found
    */
-  get( index ) {
+  get(index) {
     let currNode = this.getHead();
     let postion = 0;
 
     // If index is less than 0, return false
-    if ( index <= -1 ) {
+    if (index <= -1) {
       return false;
     }
 
     // Loop through all the nodes
-    while ( postion < index ) {
+    while (postion < index) {
 
       // Check if we hit the end of the LL
-      if ( currNode.next === null ) {
+      if (currNode.next === null) {
         return false;
       }
 
@@ -74,28 +74,28 @@ class LinkedList {
 
   /**
    * reads through our list and removes desired node
-   * @param  {[type]} index [description]
-   * @return {[type]}       [description]
+   * @param {number} index - Index of the node to remove
+   * @returns {Object|false} The removed node or false if not found
    */
-  remove( index ) {
-    const currNode = this.get( index );
-    const prevNode = this.get( index - 1 );
+  remove(index) {
+    const currNode = this.get(index);
+    const prevNode = this.get(index - 1);
 
     // If index not in LL, return false
-    if ( currNode === false ) {
+    if (currNode === false) {
       return false;
     }
 
     // If removing the head, reassign the head to the next node
-    if ( index === 0 ) {
+    if (index === 0) {
       this.head = currNode.next;
 
-    // If removing the tail, reassign the tail to the prevNode
-    } else if ( currNode.next === null ) {
+      // If removing the tail, reassign the tail to the prevNode
+    } else if (currNode.next === null) {
       this.tail = prevNode;
       prevNode.next = currNode.next;
 
-    // Happy Path
+      // Happy Path
     } else {
       prevNode.next = currNode.next;
     }
@@ -103,21 +103,21 @@ class LinkedList {
 
   /**
    * Inserts a new node at the deisred index
-   * @param  {[Num]} index
-   * @param  {[*]} value
-   * @return {[Node]} node
+   * @param {*} value - Value to insert
+   * @param {number} index - Index where to insert
+   * @returns {Object|false} The inserted node or false if index is invalid
    */
-  insert( value, index ) {
-    const currNode = this.get( index );
-    const prevNode = this.get( index - 1 );
-    const node = this.newNode( value );
+  insert(value, index) {
+    const currNode = this.get(index);
+    const prevNode = this.get(index - 1);
+    const node = this.newNode(value);
 
     // If the index is not in the LL, return false
-    if ( currNode === false ) {
+    if (currNode === false) {
       return false;
     }
     // If inserting at the head, reassign the head to the new node
-    if ( index === 0 ) {
+    if (index === 0) {
       this.head = node;
       node.next = currNode;
     } else {

@@ -24,9 +24,7 @@ class PriorityQueue {
   }
 
   sort() {
-    this._nodes.sort((a, b) => {
-      return a.priority - b.priority;
-    });
+    this._nodes.sort((a, b) => a.priority - b.priority);
   }
 
   isEmpty() {

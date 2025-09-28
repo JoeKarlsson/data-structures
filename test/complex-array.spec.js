@@ -1,9 +1,14 @@
 const chai = require('chai');
 
-const expect = chai.expect;
+const { expect } = chai;
 
 const ComplexArray = require('../complex-array/complex-array');
 
+/**
+ * Asserts that two arrays are equal
+ * @param {Array} first - First array to compare
+ * @param {Array} second - Second array to compare
+ */
 function assertArrayEquals(first, second) {
   const message = `${first} != ${second}`;
 
@@ -44,7 +49,7 @@ describe('Complex Array', () => {
     it('should contruct from a real array with a type', () => {
       const a = new ComplexArray([1, 2], Int32Array);
 
-      expect(a.ArrayType).to.equal(Int32Array)
+      expect(a.ArrayType).to.equal(Int32Array);
       assertArrayEquals([1, 2], a.real);
       assertArrayEquals([0, 0], a.imag);
     });

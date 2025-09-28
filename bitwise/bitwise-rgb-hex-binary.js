@@ -1,17 +1,13 @@
 // convert 0..255 R,G,B values to binary string
 const RGBToBin = ( r, g, b ) => {
   const bin = r << 16 | g << 8 | b;
-  return ((h) => {
-    return new Array(25 - h.length).join( '0' ) + h;
-  })(bin.toString(2));
+  return ((h) => new Array(25 - h.length).join( '0' ) + h)(bin.toString(2));
 };
 
 // convert 0..255 R,G,B values to a hexidecimal color string
 const RGBToHex = ( r, g, b ) => {
   const bin = r << 16 | g << 8 | b;
-  return (( h ) => {
-    return new Array(7 - h.length).join( '0' ) + h;
-  })( bin.toString( 16 ).toUpperCase() );
+  return (( h ) => new Array(7 - h.length).join( '0' ) + h)( bin.toString( 16 ).toUpperCase() );
 };
 
 // convert a 24 bit binary color to 0..255 R,G,B

@@ -11,19 +11,18 @@ const pathTo = (node) => {
   return path;
 };
 
-const getHeap = () => new BinaryHeap( node => node.f );
+const getHeap = () => new BinaryHeap((node) => node.f);
 
 const astar = {
   /**
   * Perform an A* Search on a graph given a start and end node.
-  * @param {Graph} graph
-  * @param {GridNode} start
-  * @param {GridNode} end
-  * @param {Object} [options]
-  * @param {bool} [options.closest] Specifies whether to return the
-             path to the closest node if the target is unreachable.
-  * @param {Function} [options.heuristic] Heuristic function (see
-  *          astar.heuristics).
+  * @param {Graph} graph - The graph to search
+  * @param {GridNode} start - Starting node
+  * @param {GridNode} end - Target node
+  * @param {Object} [options] - Search options
+  * @param {bool} [options.closest] - Specifies whether to return the path to the closest node if the target is unreachable
+  * @param {Function} [options.heuristic] - Heuristic function (see astar.heuristics)
+  * @returns {Array<GridNode>} Array of nodes representing the path
   */
   search: (graph, start, end, options) => {
     graph.cleanDirty();
@@ -83,8 +82,8 @@ const astar = {
             // or if it's equally close but has a cheaper path than
             // the current closest node then it becomes the closest node
             if (
-              neighbor.h < closestNode.h ||
-              (neighbor.h === closestNode.h && neighbor.g < closestNode.g)
+              neighbor.h < closestNode.h
+              || (neighbor.h === closestNode.h && neighbor.g < closestNode.g)
             ) {
               closestNode = neighbor;
             }

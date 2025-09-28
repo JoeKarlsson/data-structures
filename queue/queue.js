@@ -20,7 +20,7 @@ class Queue {
 
   dequeue() {
     if ( this.front ) {
-      const value = this.front.value;
+      const { value } = this.front;
       this.front = this.front.next;
       return value;
     }
