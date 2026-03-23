@@ -1,6 +1,6 @@
-const BinaryHeap = require('../binary-heap/binaryHeap');
+import BinaryHeap from '../binary-heap/binaryHeap.js';
 
-const pathTo = (node) => {
+const pathTo = node => {
   const path = [];
   let curr = node;
 
@@ -11,19 +11,19 @@ const pathTo = (node) => {
   return path;
 };
 
-const getHeap = () => new BinaryHeap((node) => node.f);
+const getHeap = () => new BinaryHeap(node => node.f);
 
 const astar = {
   /**
-  * Perform an A* Search on a graph given a start and end node.
-  * @param {Graph} graph - The graph to search
-  * @param {GridNode} start - Starting node
-  * @param {GridNode} end - Target node
-  * @param {Object} [options] - Search options
-  * @param {bool} [options.closest] - Specifies whether to return the path to the closest node if the target is unreachable
-  * @param {Function} [options.heuristic] - Heuristic function (see astar.heuristics)
-  * @returns {Array<GridNode>} Array of nodes representing the path
-  */
+   * Perform an A* Search on a graph given a start and end node.
+   * @param {Graph} graph - The graph to search
+   * @param {GridNode} start - Starting node
+   * @param {GridNode} end - Target node
+   * @param {object} [options] - Search options
+   * @param {bool} [options.closest] - Specifies whether to return the path to the closest node if the target is unreachable
+   * @param {Function} [options.heuristic] - Heuristic function (see astar.heuristics)
+   * @returns {Array<GridNode>} Array of nodes representing the path
+   */
   search: (graph, start, end, options) => {
     graph.cleanDirty();
     options = options || {};
@@ -68,7 +68,6 @@ const astar = {
         const beenVisited = neighbor.visited;
 
         if (!beenVisited || gScore < neighbor.g) {
-
           // Found an optimal (so far) path to this node.
           // Take score for node to see how good it is.
           neighbor.visited = true;
@@ -82,8 +81,8 @@ const astar = {
             // or if it's equally close but has a cheaper path than
             // the current closest node then it becomes the closest node
             if (
-              neighbor.h < closestNode.h
-              || (neighbor.h === closestNode.h && neighbor.g < closestNode.g)
+              neighbor.h < closestNode.h ||
+              (neighbor.h === closestNode.h && neighbor.g < closestNode.g)
             ) {
               closestNode = neighbor;
             }
@@ -120,10 +119,10 @@ const astar = {
       const D2 = Math.sqrt(2);
       const d1 = Math.abs(pos1.x - pos0.x);
       const d2 = Math.abs(pos1.y - pos0.y);
-      return (D * (d1 + d2)) + ((D2 - (2 * D)) * Math.min(d1, d2));
+      return D * (d1 + d2) + (D2 - 2 * D) * Math.min(d1, d2);
     },
   },
-  cleanNode: (node) => {
+  cleanNode: node => {
     node.f = 0;
     node.g = 0;
     node.h = 0;
@@ -133,7 +132,7 @@ const astar = {
   },
 };
 
-module.exports = astar;
+export default astar;
 
 // http://theory.stanford.edu/~amitp/GameProgramming/ImplementationNotes.html
 // http://www.briangrinstead.com/blog/astar-search-algorithm-in-javascript/

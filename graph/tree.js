@@ -1,5 +1,5 @@
 class Node {
-  constructor( value ) {
+  constructor(value) {
     this.value = value;
     this.children = [];
   }
@@ -8,8 +8,8 @@ class Node {
     return this.children;
   }
 
-  addChild( child ) {
-    this.children.push( child );
+  addChild(child) {
+    this.children.push(child);
   }
 
   hasChildren() {
@@ -25,4 +25,4 @@ class Node {
   }
 }
 
-module.exports = Node;
+export default Node;

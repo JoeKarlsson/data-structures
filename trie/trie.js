@@ -6,8 +6,8 @@ class TrieNode {
   }
 }
 
-const isString = ( word ) => {
-  if ( typeof word !== 'string' ) {
+const isString = word => {
+  if (typeof word !== 'string') {
     throw new TypeError('Input must be of type string');
   }
 };
@@ -31,7 +31,6 @@ class Trie {
       }
       currNode.children[letter] = nextNode;
       currNode = nextNode;
-
     }
     if (currNode.isWord === false) {
       this.words++;
@@ -54,4 +53,4 @@ class Trie {
   }
 }
 
-module.exports = Trie;
+export default Trie;

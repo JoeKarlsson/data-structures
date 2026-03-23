@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const Node = require('../graph/graphNode');
+import { expect } from 'chai';
+import Node from '../graph/graphNode.js';
 
 describe('Graphs', () => {
   let A;

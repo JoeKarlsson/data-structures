@@ -1,14 +1,10 @@
-const chai = require('chai');
-const fftMod = require('../fast-fourier-transforms/fft');
-const testHelper = require('./fft-test-helper');
-
-const { ComplexArray } = fftMod;
-const {
+import { expect } from 'chai';
+import { ComplexArray } from '../fast-fourier-transforms/fft.js';
+import {
   assertComplexArraysAlmostEqual,
   assertFFTMatches,
   assertFFTMatchesDFT,
-} = testHelper;
-const { expect } = chai;
+} from './fft-test-helper.js';
 
 describe('Fast Fourier Transformations', () => {
   describe('`FFT` method', () => {
@@ -38,7 +34,7 @@ describe('Fast Fourier Transformations', () => {
       it('should return a single frequency given a constant array', () => {
         assertFFTMatches(
           [1, 1, 1, 1, 1, 1],
-          new ComplexArray([Math.sqrt(6), 0, 0, 0, 0, 0]),
+          new ComplexArray([Math.sqrt(6), 0, 0, 0, 0, 0])
         );
       });
 
@@ -47,14 +43,14 @@ describe('Fast Fourier Transformations', () => {
 
         assertFFTMatches(
           [1, 0, 0, 0, 0, 0],
-          new ComplexArray([a, a, a, a, a, a]),
+          new ComplexArray([a, a, a, a, a, a])
         );
       });
     });
 
     describe('on N=`prime` Arrays', () => {
       it('should match the DFT', () => {
-        const a = new ComplexArray(13).map((value) => {
+        const a = new ComplexArray(13).map(value => {
           value.real = Math.random();
           value.imag = Math.random();
         });
@@ -65,7 +61,7 @@ describe('Fast Fourier Transformations', () => {
 
     describe('on N=512 Arrays', () => {
       it('should match the DFT', () => {
-        const a = new ComplexArray(512).map((value) => {
+        const a = new ComplexArray(512).map(value => {
           value.real = Math.random();
           value.imag = Math.random();
         });
@@ -76,7 +72,7 @@ describe('Fast Fourier Transformations', () => {
 
     describe('on N=900 Arrays', () => {
       it('should match the DFT', () => {
-        const a = new ComplexArray(900).map((value) => {
+        const a = new ComplexArray(900).map(value => {
           value.real = Math.random();
           value.imag = Math.random();
         });
@@ -101,7 +97,10 @@ describe('Fast Fourier Transformations', () => {
         value.imag /= 2;
       });
 
-      assertComplexArraysAlmostEqual(new ComplexArray([0.5, 1, 1.5, 2]), filtered);
+      assertComplexArraysAlmostEqual(
+        new ComplexArray([0.5, 1, 1.5, 2]),
+        filtered
+      );
     });
 
     it('should return zeroed ComplexArray', () => {
@@ -117,7 +116,7 @@ describe('Fast Fourier Transformations', () => {
       const original = new ComplexArray([1, 2, 3, 4]);
       const filtered = original.frequencyMap((value, i) => {
         // Multiply by a phase to shift the original.
-        const phase = { real: i % 2 ? 0 : (1 - i), imag: i % 2 ? (2 - i) : 0 };
+        const phase = { real: i % 2 ? 0 : 1 - i, imag: i % 2 ? 2 - i : 0 };
 
         [value.real, value.imag] = [
           phase.real * value.real - phase.imag * value.imag,

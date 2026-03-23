@@ -3,7 +3,7 @@ class Stack {
     this.top = null;
   }
 
-  push( value ) {
+  push(value) {
     const newNode = {
       value,
       next: this.top,
@@ -12,7 +12,7 @@ class Stack {
   }
 
   pop() {
-    if ( this.top !== null ) {
+    if (this.top !== null) {
       const { value } = this.top;
       this.top = this.top.next;
       return value;
@@ -21,4 +21,4 @@ class Stack {
   }
 }
 
-module.exports = Stack;
+export default Stack;

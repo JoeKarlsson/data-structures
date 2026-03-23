@@ -1,15 +1,12 @@
-const chai = require('chai');
+import { expect } from 'chai';
 
-const { expect } = chai;
-chai.should();
-
-const bubbleModule = require('../sorting/bubblesort.js');
-const bubbleRecursive = require('../sorting/bubble-recursive.js');
-const quickModule = require('../sorting/quicksort.js');
-const quickRecursive = require('../sorting/quick-recursive.js');
-const mergeModule = require('../sorting/mergesort.js');
-const insertionModule = require('../sorting/insertionsort.js');
-const selectionModule = require('../sorting/selectionsort.js');
+import bubbleModule from '../sorting/bubblesort.js';
+import bubbleRecursive from '../sorting/bubble-recursive.js';
+import quickModule from '../sorting/quicksort.js';
+import quickRecursive from '../sorting/quick-recursive.js';
+import mergeModule from '../sorting/mergesort.js';
+import insertionModule from '../sorting/insertionsort.js';
+import selectionModule from '../sorting/selectionsort.js';
 
 describe('Sorting', () => {
   describe('Bubble Sort', () => {
@@ -23,7 +20,7 @@ describe('Sorting', () => {
       expect(bubble).to.be.a('object');
     });
     it('should be return a sorted array', () => {
-      expect( result ).to.deep.equal([1, 2, 3]);
+      expect(result).to.deep.equal([1, 2, 3]);
     });
   });
 
@@ -34,7 +31,9 @@ describe('Sorting', () => {
       expect(bubbleRecursive).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( bubbleRecursive( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+      expect(bubbleRecursive(arr)).to.deep.equal([
+        1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9,
+      ]);
     });
   });
 
@@ -45,7 +44,9 @@ describe('Sorting', () => {
       expect(quickRecursive).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( quickRecursive(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+      expect(quickRecursive(arr)).to.deep.equal([
+        1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9,
+      ]);
     });
   });
 
@@ -57,7 +58,9 @@ describe('Sorting', () => {
       expect(quickModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( quick.quickSort(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+      expect(quick.quickSort(arr)).to.deep.equal([
+        1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9,
+      ]);
     });
   });
 
@@ -69,7 +72,9 @@ describe('Sorting', () => {
       expect(mergeModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( merge.mergeSort(arr) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+      expect(merge.mergeSort(arr)).to.deep.equal([
+        1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9,
+      ]);
     });
   });
 
@@ -81,7 +86,9 @@ describe('Sorting', () => {
       expect(insertionModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( insert.insertionSort( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+      expect(insert.insertionSort(arr)).to.deep.equal([
+        1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9,
+      ]);
     });
   });
 
@@ -93,7 +100,9 @@ describe('Sorting', () => {
       expect(selectionModule).to.be.a('function');
     });
     it('should be return a sorted array', () => {
-      expect( select.selectionSort( arr ) ).to.deep.equal([1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+      expect(select.selectionSort(arr)).to.deep.equal([
+        1, 2, 2, 4, 4, 5, 5, 6, 7, 8, 9, 9,
+      ]);
     });
   });
 });

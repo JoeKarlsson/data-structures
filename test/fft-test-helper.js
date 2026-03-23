@@ -1,9 +1,6 @@
-const chai = require('chai');
-const fftMod = require('../fast-fourier-transforms/fft');
-const ComplexArray = require('../complex-array/complex-array');
-
-const { FFT, InvFFT } = fftMod;
-const { expect } = chai;
+import { expect } from 'chai';
+import { FFT, InvFFT } from '../fast-fourier-transforms/fft.js';
+import ComplexArray from '../complex-array/complex-array.js';
 
 const EPSILON = 1e-4;
 const { PI } = Math;
@@ -65,9 +62,12 @@ function DFT(input) {
   const output = new ComplexArray(input);
 
   for (let i = 0; i < n; i++) {
-    output.real[i] = 0, output.imag[i] = 0;
+    ((output.real[i] = 0), (output.imag[i] = 0));
     const phase = { real: 1, imag: 0 };
-    const delta = { real: Math.cos(2 * PI * i / n), imag: Math.sin(2 * PI * i / n) };
+    const delta = {
+      real: Math.cos((2 * PI * i) / n),
+      imag: Math.sin((2 * PI * i) / n),
+    };
 
     for (let j = 0; j < n; j++) {
       output.real[i] += phase.real * input.real[j] - phase.imag * input.imag[j];
@@ -96,7 +96,7 @@ function assertApproximatelyEqual(first, second, message) {
   expect(delta < EPSILON).to.be.true;
 }
 
-module.exports = {
+export {
   assertComplexArraysAlmostEqual,
   assertFFTMatches,
   assertFFTMatchesDFT,

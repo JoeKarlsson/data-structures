@@ -52,7 +52,8 @@ const searchRabinKarp = (text, str) => {
     // Update rolling hash
     // s[i+1..i+m] = s[i..i+m-1] - s[i] + s[i+m]
     const charASCII = text.charCodeAt(i + str.length);
-    hashTextPart = primeBase * hashTextPart - primeToPower * text.charCodeAt(i) + charASCII;
+    hashTextPart =
+      primeBase * hashTextPart - primeToPower * text.charCodeAt(i) + charASCII;
   }
 
   return matches;
@@ -63,4 +64,4 @@ const subStr = 'abaaa';
 const hashStr = searchRabinKarp(str, subStr);
 console.log(hashStr);
 
-module.exports = searchRabinKarp;
+export default searchRabinKarp;

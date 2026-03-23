@@ -8,7 +8,7 @@ class Hashtable {
     const hash = getHash(key, this._storageLimit);
 
     // check if the hash index exists in HashTables
-    if ( this._storage[hash] ) {
+    if (this._storage[hash]) {
       this._storage[hash] = this._storage[hash];
     } else {
       this._storage[hash] = [];
@@ -55,12 +55,12 @@ class Hashtable {
 const getHash = (str, max) => {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
-    hash = ( hash << 5 ) + hash + str.charCodeAt(i);
+    hash = (hash << 5) + hash + str.charCodeAt(i);
     hash &= hash; //
     hash = Math.abs(hash);
   }
   return hash % max;
 };
 
-module.exports = Hashtable;
+export default Hashtable;
 // Source: https://medium.com/@jenwong/hash-tables-a-simple-javascript-example-237f92d36459#.khe8iijr8

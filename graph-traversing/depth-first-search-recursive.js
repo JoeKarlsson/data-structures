@@ -34,4 +34,4 @@ const dfs = (start, searchFor) => {
   return false;
 };
 
-module.exports = dfs;
+export default dfs;

@@ -1,24 +1,22 @@
-const chai = require('chai');
-const Queue = require('../queue/queue');
-const PriorityQueue = require('../queue/priority-queue');
+import { expect } from 'chai';
+import Queue from '../queue/queue.js';
+import PriorityQueue from '../queue/priority-queue.js';
 
-const { expect } = chai;
-
-describe( 'Queues and Priority Queues', () => {
-  describe( 'Queue', () => {
-    describe( '`enqueue` and `dequeue` methods', () => {
+describe('Queues and Priority Queues', () => {
+  describe('Queue', () => {
+    describe('`enqueue` and `dequeue` methods', () => {
       let queue;
 
       beforeEach(() => {
         queue = new Queue();
       });
 
-      it( 'should return `null` if the queue is empty', () => {
+      it('should return `null` if the queue is empty', () => {
         expect(queue.dequeue()).to.equal(null);
         expect(queue.dequeue()).to.equal(null);
         expect(queue.dequeue()).to.equal(null);
       });
-      it( 'should return the last value pushed onto the stack', () => {
+      it('should return the last value pushed onto the stack', () => {
         queue.enqueue('turtle');
         queue.enqueue('dog');
         queue.enqueue('cat');
@@ -41,25 +39,25 @@ describe( 'Queues and Priority Queues', () => {
         expect(queue.dequeue()).to.equal(null);
       });
     });
-    describe( '`isEmpty` method', () => {
+    describe('`isEmpty` method', () => {
       let queue;
 
       beforeEach(() => {
         queue = new Queue();
       });
 
-      it( 'should initially be empty', () => {
+      it('should initially be empty', () => {
         expect(queue.isEmpty()).to.equal(true);
       });
 
-      it( 'should return false when an node is added to the queue', () => {
+      it('should return false when an node is added to the queue', () => {
         queue.enqueue('turtle');
         expect(queue.isEmpty()).to.equal(false);
       });
     });
   });
 
-  describe( 'Priority Queue', () => {
+  describe('Priority Queue', () => {
     let priorityQueue;
     let priorityQueue2;
 
@@ -68,8 +66,8 @@ describe( 'Queues and Priority Queues', () => {
       priorityQueue2 = new PriorityQueue();
     });
 
-    describe( 'constructor', () => {
-      it( 'should initially be empty', () => {
+    describe('constructor', () => {
+      it('should initially be empty', () => {
         expect(priorityQueue).to.deep.equal({
           _nodes: [],
         });
@@ -77,8 +75,8 @@ describe( 'Queues and Priority Queues', () => {
       });
     });
 
-    describe( '`enqueue` method', () => {
-      it( 'should be queued in order of priority', () => {
+    describe('`enqueue` method', () => {
+      it('should be queued in order of priority', () => {
         priorityQueue.enqueue(1, 'BMO');
         priorityQueue.enqueue(2, 'Cake');
         priorityQueue.enqueue(3, 'Finn');
@@ -104,7 +102,7 @@ describe( 'Queues and Priority Queues', () => {
           ],
         });
       });
-      it( 'should be queued in the order they arrive if the prioroty is the same', () => {
+      it('should be queued in the order they arrive if the prioroty is the same', () => {
         priorityQueue.enqueue(1, 'BMO');
         priorityQueue.enqueue(1, 'Cake');
         priorityQueue.enqueue(1, 'Finn');
@@ -119,8 +117,8 @@ describe( 'Queues and Priority Queues', () => {
         });
       });
     });
-    describe( '`dequeue` method', () => {
-      it( 'should dequeue the highest priority items first', () => {
+    describe('`dequeue` method', () => {
+      it('should dequeue the highest priority items first', () => {
         priorityQueue.enqueue(4, 'BMO');
         priorityQueue.enqueue(3, 'Cake');
         priorityQueue.enqueue(2, 'Finn');
@@ -131,7 +129,7 @@ describe( 'Queues and Priority Queues', () => {
         expect(priorityQueue.dequeue()).to.deep.equal('BMO');
         expect(priorityQueue.dequeue()).to.deep.equal(null);
       });
-      it( 'should return null when the list is empty', () => {
+      it('should return null when the list is empty', () => {
         priorityQueue.enqueue(4, 'BMO');
         priorityQueue.enqueue(3, 'Cake');
         priorityQueue.enqueue(2, 'Finn');
@@ -146,6 +144,5 @@ describe( 'Queues and Priority Queues', () => {
         expect(priorityQueue.dequeue()).to.deep.equal(null);
       });
     });
-
   });
 });

@@ -1,21 +1,17 @@
-const chai = require('chai');
+import { expect, should } from 'chai';
+should();
 
-const { expect } = chai;
-chai.should();
+import Trie from '../trie/trie.js';
 
-const Trie = require('../trie/trie');
-
-describe( 'Trie', () => {
-
-  describe( '"add" and "exists" behavior', () => {
-
+describe('Trie', () => {
+  describe('"add" and "exists" behavior', () => {
     let trie;
 
     beforeEach(() => {
       trie = new Trie();
     });
 
-    it( 'add should only accept strings', () => {
+    it('add should only accept strings', () => {
       const boolErrorTest = () => trie.add(true);
       const numberErrorTest = () => trie.add(10);
       const arrayErrorTest = () => trie.add(['bad', 'words']);
@@ -30,17 +26,17 @@ describe( 'Trie', () => {
       expect(undefinedErrorTest).to.throw(TypeError);
     });
 
-    it( 'exists should return "true" if the word has been added', () => {
+    it('exists should return "true" if the word has been added', () => {
       trie.add('cat');
       trie.exists('cat').should.be.true;
     });
 
-    it( 'exists should return "false" if the word has not been added', () => {
+    it('exists should return "false" if the word has not been added', () => {
       trie.add('cat');
       trie.exists('dog').should.be.false;
     });
 
-    it( 'exists should return "false" if the word is in the trie and not an actual word', () => {
+    it('exists should return "false" if the word is in the trie and not an actual word', () => {
       trie.add('cat');
       trie.add('catacombs');
       trie.add('catatonic');
@@ -60,7 +56,7 @@ describe( 'Trie', () => {
       trie.exists('catalyts').should.be.false;
     });
 
-    it( 'should not add duplicate data to the trie', () => {
+    it('should not add duplicate data to the trie', () => {
       trie.add('cat');
       const snapshot1 = JSON.stringify(trie);
 
@@ -72,7 +68,7 @@ describe( 'Trie', () => {
       snapshot1.should.be.equal(snapshot2);
     });
 
-    it( 'should handle spaces gracefully', () => {
+    it('should handle spaces gracefully', () => {
       trie.add('cat');
       trie.add('cat');
       trie.add('d o g');

@@ -1,41 +1,47 @@
-const chai = require('chai');
-const HashTable = require('../hash-table/hash-table');
+import { expect } from 'chai';
+import HashTable from '../hash-table/hash-table.js';
 
-const { expect } = chai;
-
-describe( 'Hash Table', () => {
+describe('Hash Table', () => {
   let hashTable;
 
   beforeEach(() => {
     hashTable = new HashTable();
   });
 
-  describe( '`insert` method', () => {
-    it( 'should return `inserted` if successful', () => {
+  describe('`insert` method', () => {
+    it('should return `inserted` if successful', () => {
       expect(hashTable.insert('Cat', 'Elvis')).to.equal('inserted');
       expect(hashTable.insert('Cat2', 'BMO')).to.equal('inserted');
       expect(hashTable.insert('Cat4', 'Merrie')).to.equal('inserted');
       expect(hashTable.insert('Dog', 'Rover')).to.equal('inserted');
     });
-    it( 'should `key already exists; keys must be unique` if duplicate key', () => {
+    it('should `key already exists; keys must be unique` if duplicate key', () => {
       hashTable.insert('Cat', 'Elvis');
       hashTable.insert('Cat2', 'BMO');
       hashTable.insert('Cat4', 'Merrie');
       hashTable.insert('Dog', 'Rover');
-      expect(hashTable.insert('Cat', 'Elvis')).to.equal('key already exists; keys must be unique');
-      expect(hashTable.insert('Cat2', 'BMO')).to.equal('key already exists; keys must be unique');
-      expect(hashTable.insert('Cat4', 'Merrie')).to.equal('key already exists; keys must be unique');
-      expect(hashTable.insert('Dog', 'Rover')).to.equal('key already exists; keys must be unique');
+      expect(hashTable.insert('Cat', 'Elvis')).to.equal(
+        'key already exists; keys must be unique'
+      );
+      expect(hashTable.insert('Cat2', 'BMO')).to.equal(
+        'key already exists; keys must be unique'
+      );
+      expect(hashTable.insert('Cat4', 'Merrie')).to.equal(
+        'key already exists; keys must be unique'
+      );
+      expect(hashTable.insert('Dog', 'Rover')).to.equal(
+        'key already exists; keys must be unique'
+      );
     });
   });
 
-  describe( '`retrieve` method', () => {
-    it( 'should return `key does not exist` if the key has not been added', () => {
+  describe('`retrieve` method', () => {
+    it('should return `key does not exist` if the key has not been added', () => {
       expect(hashTable.retrieve('Cat')).to.equal('key does not exist');
       expect(hashTable.retrieve('Dog')).to.equal('key does not exist');
       expect(hashTable.retrieve('Human')).to.equal('key does not exist');
     });
-    it( 'should return the tupple if successful', () => {
+    it('should return the tupple if successful', () => {
       hashTable.insert('Cat', 'Elvis');
       hashTable.insert('Cat2', 'BMO');
       hashTable.insert('Cat4', 'Merrie');
@@ -47,13 +53,13 @@ describe( 'Hash Table', () => {
     });
   });
 
-  describe( '`remove` method', () => {
-    it( 'should return `key does not exist` if the key does not exist', () => {
+  describe('`remove` method', () => {
+    it('should return `key does not exist` if the key does not exist', () => {
       expect(hashTable.remove('Cat')).to.equal('key does not exist');
       expect(hashTable.remove('Dog')).to.equal('key does not exist');
       expect(hashTable.remove('Human')).to.equal('key does not exist');
     });
-    it( 'should return `[key name] removed` if successful', () => {
+    it('should return `[key name] removed` if successful', () => {
       hashTable.insert('Cat', 'Elvis');
       hashTable.insert('Cat2', 'BMO');
       hashTable.insert('Cat4', 'Merrie');

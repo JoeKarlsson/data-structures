@@ -1,11 +1,8 @@
-const chai = require('chai');
-
-const { expect } = chai;
-
-const Node = require('../graph/graphNode');
-const breadthFirstSearch = require('../graph-traversing/breadth-first-search');
-const depthFirstSearch = require('../graph-traversing/depth-first-search-imperative');
-const depthFirstSearchRecursive = require('../graph-traversing/depth-first-search-recursive');
+import { expect } from 'chai';
+import Node from '../graph/graphNode.js';
+import breadthFirstSearch from '../graph-traversing/breadth-first-search.js';
+import depthFirstSearch from '../graph-traversing/depth-first-search-imperative.js';
+import depthFirstSearchRecursive from '../graph-traversing/depth-first-search-recursive.js';
 
 describe('Graph Traversing', () => {
   describe('Depth First Search - Recursive', () => {
@@ -116,7 +113,14 @@ describe('Graph Traversing', () => {
     });
 
     it('should return the traversal path from the starting point all the way to the end', () => {
-      expect(breadthFirstSearch(A)).to.deep.equal(['A', 'B', 'C', 'D', 'E', 'F']);
+      expect(breadthFirstSearch(A)).to.deep.equal([
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+      ]);
       expect(breadthFirstSearch(B)).to.deep.equal(['B', 'D', 'E']);
       expect(breadthFirstSearch(C)).to.deep.equal(['C', 'F']);
       expect(breadthFirstSearch(D)).to.deep.equal(['D']);

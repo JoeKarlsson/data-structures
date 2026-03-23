@@ -1,4 +1,4 @@
-const baseComplexArray = require('../complex-array/complex-array');
+import baseComplexArray from '../complex-array/complex-array.js';
 
 // Math constants and functions we need.
 const { PI } = Math;
@@ -65,7 +65,7 @@ class ComplexArray extends baseComplexArray {
  * @returns {ComplexArray} ComplexArray instance
  */
 function ensureComplexArray(input) {
-  return input instanceof ComplexArray && input || new ComplexArray(input);
+  return (input instanceof ComplexArray && input) || new ComplexArray(input);
 }
 
 /**
@@ -81,7 +81,6 @@ function fft(input, inverse) {
     return FFT_Recursive(input, inverse);
   }
   return FFT_2_Iterative(input, inverse);
-
 }
 
 /**
@@ -118,8 +117,8 @@ function FFT_Recursive(input, inverse) {
       recursive_result = fft(recursive_result, inverse);
     }
 
-    const del_f_r = Math.cos(2 * PI * j / n);
-    const del_f_i = (inverse ? -1 : 1) * Math.sin(2 * PI * j / n);
+    const del_f_r = Math.cos((2 * PI * j) / n);
+    const del_f_i = (inverse ? -1 : 1) * Math.sin((2 * PI * j) / n);
     let f_r = 1;
     let f_i = 0;
 
@@ -132,7 +131,7 @@ function FFT_Recursive(input, inverse) {
 
       [f_r, f_i] = [
         f_r * del_f_r - f_i * del_f_i,
-        f_i = f_r * del_f_i + f_i * del_f_r,
+        f_r * del_f_i + f_i * del_f_r,
       ];
     }
   }
@@ -251,9 +250,4 @@ function LowestOddFactor(n) {
   return n;
 }
 
-module.exports = {
-  FFT,
-  InvFFT,
-  frequencyMap,
-  ComplexArray,
-};
+export { FFT, InvFFT, frequencyMap, ComplexArray };

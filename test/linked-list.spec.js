@@ -1,7 +1,5 @@
-const chai = require('chai');
-const LinkedList = require('../linked-list/linkedList');
-
-const { expect } = chai;
+import { expect } from 'chai';
+import LinkedList from '../linked-list/linkedList.js';
 
 describe('Linked List', () => {
   let newLinkedList;
@@ -149,23 +147,18 @@ describe('Linked List', () => {
         'icann.org',
       ];
 
-      const bookArr = [
-        'Ready Player One',
-        '1982',
-        'Neuromancer',
-        'Snow Crash',
-      ];
+      const bookArr = ['Ready Player One', '1982', 'Neuromancer', 'Snow Crash'];
 
-      urlArr.forEach((url) => {
+      urlArr.forEach(url => {
         urlList.add(url);
       });
-      bookArr.forEach((book) => {
+      bookArr.forEach(book => {
         bookList.add(book);
       });
     });
 
     describe('takes an argument', () => {
-      it('should find a node by it\'s index in the Linked List', () => {
+      it("should find a node by it's index in the Linked List", () => {
         // urlList Tests
         expect(urlList.get(0).value).to.equal('news.ycombinator.com');
         expect(urlList.get(1).value).to.equal('mozilla.org');
@@ -208,23 +201,18 @@ describe('Linked List', () => {
         'icann.org',
       ];
 
-      const bookArr = [
-        'Ready Player One',
-        '1982',
-        'Neuromancer',
-        'Snow Crash',
-      ];
+      const bookArr = ['Ready Player One', '1982', 'Neuromancer', 'Snow Crash'];
 
-      urlArr.forEach((url) => {
+      urlArr.forEach(url => {
         urlList.add(url);
       });
-      bookArr.forEach((book) => {
+      bookArr.forEach(book => {
         bookList.add(book);
       });
     });
 
     describe('takes an argument', () => {
-      it('should remove a node by it\'s index in the Linked List', () => {
+      it("should remove a node by it's index in the Linked List", () => {
         // urlList Tests
         // remove middle node
         urlList.remove(2);
@@ -267,20 +255,14 @@ describe('Linked List', () => {
       urlList = new LinkedList();
       bookList = new LinkedList();
 
-      const urlArr = [
-        'news.ycombinator.com',
-        'icann.org',
-      ];
+      const urlArr = ['news.ycombinator.com', 'icann.org'];
 
-      const bookArr = [
-        'Neuromancer',
-        'Snow Crash',
-      ];
+      const bookArr = ['Neuromancer', 'Snow Crash'];
 
-      urlArr.forEach((url) => {
+      urlArr.forEach(url => {
         urlList.add(url);
       });
-      bookArr.forEach((book) => {
+      bookArr.forEach(book => {
         bookList.add(book);
       });
     });
@@ -311,7 +293,7 @@ describe('Linked List', () => {
         expect(bookList.get(1).value).to.be.equal('The Stranger');
         expect(bookList.get(2).value).to.be.equal('Neuromancer');
       });
-      it('should return `false` if the index given is a value larger than the List\'s length', () => {
+      it("should return `false` if the index given is a value larger than the List's length", () => {
         // urlList has two items, it's max index value is 1
         expect(urlList.insert('boingboing.net', 3)).to.be.false;
         expect(urlList.getHead().value).to.be.equal('news.ycombinator.com');
@@ -325,7 +307,6 @@ describe('Linked List', () => {
         expect(bookList.get(0).value).to.be.equal('Neuromancer');
         expect(bookList.get(1).value).to.be.equal('Snow Crash');
         expect(bookList.getTail().value).to.equal('Snow Crash');
-
       });
     });
   });

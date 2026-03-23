@@ -1,7 +1,7 @@
 /**
  * @name  linkedListGenerator
  * @description  Main Module
- * @return {Object} an object exposing methods to be used to manipulate a linked list
+ * @returns {object} an object exposing methods to be used to manipulate a linked list
  */
 class LinkedList {
   constructor() {
@@ -34,7 +34,8 @@ class LinkedList {
     // init empty LL
     if (this.getHead() === null) {
       this.head = node;
-    } else { // if it's not empty
+    } else {
+      // if it's not empty
       this.getTail().next = node;
     }
     // Happy Path
@@ -45,7 +46,7 @@ class LinkedList {
   /**
    * Reads through our list and returns the node we are looking for
    * @param {number} index - Index of the node to retrieve
-   * @returns {Object|false} The node at the given index or false if not found
+   * @returns {object | false} The node at the given index or false if not found
    */
   get(index) {
     let currNode = this.getHead();
@@ -58,7 +59,6 @@ class LinkedList {
 
     // Loop through all the nodes
     while (postion < index) {
-
       // Check if we hit the end of the LL
       if (currNode.next === null) {
         return false;
@@ -75,7 +75,7 @@ class LinkedList {
   /**
    * reads through our list and removes desired node
    * @param {number} index - Index of the node to remove
-   * @returns {Object|false} The removed node or false if not found
+   * @returns {object | false} The removed node or false if not found
    */
   remove(index) {
     const currNode = this.get(index);
@@ -105,7 +105,7 @@ class LinkedList {
    * Inserts a new node at the deisred index
    * @param {*} value - Value to insert
    * @param {number} index - Index where to insert
-   * @returns {Object|false} The inserted node or false if index is invalid
+   * @returns {object | false} The inserted node or false if index is invalid
    */
   insert(value, index) {
     const currNode = this.get(index);
@@ -132,4 +132,4 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+export default LinkedList;

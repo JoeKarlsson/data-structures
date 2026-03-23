@@ -1,8 +1,8 @@
-const astar = require('../shortest-path/aStar');
+import astar from '../shortest-path/aStar.js';
 /**
  * A graph memory structure
  * @param {Array} gridIn 2D array of input weights
- * @param {Object} [options]
+ * @param {object} [options]
  * @param {bool} [options.diagonal] Specifies whether diagonal moves are allowed
  */
 class GridGraph {
@@ -103,7 +103,6 @@ class GridGraph {
     }
     return graphString.join('\n');
   }
-
 }
 
 class GridNode {
@@ -119,7 +118,11 @@ class GridNode {
 
   getCost(fromNeighbor) {
     // Take diagonal weight into consideration.
-    if (fromNeighbor && fromNeighbor.x !== this.x && fromNeighbor.y !== this.y) {
+    if (
+      fromNeighbor &&
+      fromNeighbor.x !== this.x &&
+      fromNeighbor.y !== this.y
+    ) {
       return this.weight * 1.41421;
     }
     return this.weight;
@@ -130,4 +133,4 @@ class GridNode {
   }
 }
 
-module.exports = GridGraph;
+export default GridGraph;

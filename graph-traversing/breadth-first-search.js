@@ -9,7 +9,7 @@
     The image below shows you the order that you will search a tree in a breadth first search.
  */
 
-const bfs = (start) => {
+const bfs = start => {
   // initailize the open to be the nodes we are currently exploring
   const open = [];
   open.push(start);
@@ -20,7 +20,6 @@ const bfs = (start) => {
 
   // Keep checking nodes until our open array is empty
   while (open.length > 0) {
-
     // Pull the first item off of our queue
     const current = open.shift();
 
@@ -28,7 +27,7 @@ const bfs = (start) => {
     searchPath.push(current.name);
 
     // Iterate through all of the neighbors of the current node
-    current.neighbors.forEach((next) => {
+    current.neighbors.forEach(next => {
       // If we haven't already visisted a node, add it to our
       //  visisted stack, and add it to our open queue
       if (visitedNode.indexOf(next) < 0) {
@@ -42,4 +41,4 @@ const bfs = (start) => {
   return searchPath;
 };
 
-module.exports = bfs;
+export default bfs;

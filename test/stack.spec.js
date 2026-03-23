@@ -1,24 +1,21 @@
-const chai = require('chai');
+import { expect } from 'chai';
 
-const { expect } = chai;
-chai.should();
+import Stack from '../stack/stack.js';
 
-const Stack = require('../stack/stack');
-
-describe( 'Stack', () => {
-  describe( '"push" and "pop" methods', () => {
+describe('Stack', () => {
+  describe('"push" and "pop" methods', () => {
     let stack;
 
     beforeEach(() => {
       stack = new Stack();
     });
 
-    it( 'should return `null` if the stack is empty', () => {
+    it('should return `null` if the stack is empty', () => {
       expect(stack.pop()).to.equal(null);
       expect(stack.pop()).to.equal(null);
       expect(stack.pop()).to.equal(null);
     });
-    it( 'should return the last value pushed onto the stack', () => {
+    it('should return the last value pushed onto the stack', () => {
       stack.push('turtle');
       stack.push('dog');
       stack.push('cat');

@@ -1,7 +1,7 @@
-const LinkedList = require('../linked-list/linkedList');
+import LinkedList from '../linked-list/linkedList.js';
 
 // Private Helper functions
-const makeNode = ( value ) => {
+const makeNode = value => {
   const node = {};
   node.value = value;
   node.left = null;
@@ -14,12 +14,12 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  add( value ) {
-    const currentNode = makeNode( value );
-    if ( !this.root ) {
+  add(value) {
+    const currentNode = makeNode(value);
+    if (!this.root) {
       this.root = currentNode;
     } else {
-      this.insert( currentNode );
+      this.insert(currentNode);
     }
     return this.root;
   }
@@ -28,7 +28,7 @@ class BinarySearchTree {
   insert(currentNode) {
     const { value } = currentNode;
 
-    const traverse = (node) => {
+    const traverse = node => {
       if (value > node.value) {
         if (!node.right) {
           node.right = currentNode;
@@ -51,10 +51,11 @@ class BinarySearchTree {
     if (!start) {
       return null; // key not found
     }
-    if ( searchFor < start.value ) {
-      return this.get( start.left, searchFor, start, true );
-    } if ( searchFor > start.value ) {
-      return this.get( start.right, searchFor, start, false );
+    if (searchFor < start.value) {
+      return this.get(start.left, searchFor, start, true);
+    }
+    if (searchFor > start.value) {
+      return this.get(start.right, searchFor, start, false);
     }
     // key is equal to node key
     return {
@@ -71,11 +72,7 @@ class BinarySearchTree {
     let replacementParent;
 
     // find the node
-    const {
-      current,
-      parent,
-      isLeft,
-    } = this.get(this.root, value);
+    const { current, parent, isLeft } = this.get(this.root, value);
 
     if (current) {
       found = true;
@@ -83,8 +80,8 @@ class BinarySearchTree {
     // only proceed if the node was found
     if (found) {
       // Figure out how many children
-      childCount = (current.left !== null ? 1 : 0)
-                   + (current.right !== null ? 1 : 0);
+      childCount =
+        (current.left !== null ? 1 : 0) + (current.right !== null ? 1 : 0);
       // special case: the value is at the root
       if (current === this.root) {
         switch (childCount) {
@@ -118,7 +115,7 @@ class BinarySearchTree {
           // no default
         }
 
-      // non-root values
+        // non-root values
       } else {
         switch (childCount) {
           // Leaf Node
@@ -131,7 +128,7 @@ class BinarySearchTree {
             break;
           // 1 child
           case 1:
-            if ( isLeft ) {
+            if (isLeft) {
               parent.left = current.left;
             } else {
               parent.right = current.left;
@@ -141,9 +138,8 @@ class BinarySearchTree {
           // two children, a bit more complicated - we need to determine
           // replacement node
           case 2:
-
             // find the min node on the right side of curr node
-            const traverse = (node) => (!node.left ? node : traverse( node.left ));
+            const traverse = node => (!node.left ? node : traverse(node.left));
             const minNode = traverse(current.right);
 
             const result = this.get(this.root, minNode.value);
@@ -152,7 +148,7 @@ class BinarySearchTree {
             current.value = minNode.value;
 
             // Delete duplicate node
-            if ( result.isLeft ) {
+            if (result.isLeft) {
               result.parent.left = minNode.left;
             } else {
               result.parent.right = minNode.left;
@@ -166,58 +162,60 @@ class BinarySearchTree {
 
   contains(value) {
     const node = this.root;
-    const traverse = ( node ) => {
+    const traverse = node => {
       if (!node) {
         return false;
       }
-      if ( value === node.value ) {
+      if (value === node.value) {
         return true;
-      } if ( value > node.value ) {
+      }
+      if (value > node.value) {
         return traverse(node.right);
-      } if ( value < node.value ) {
-        return traverse( node.left );
+      }
+      if (value < node.value) {
+        return traverse(node.left);
       }
     };
-    return traverse( node );
+    return traverse(node);
   }
 
   // find the left most node to find the min value of a binary tree;
   findMin() {
     const node = this.root;
-    const traverse = ( node ) => (!node.left ? node.value : traverse( node.left ));
+    const traverse = node => (!node.left ? node.value : traverse(node.left));
     return traverse(node);
   }
 
   // find the right most node to find the max value of a binary tree;
   findMax() {
     const node = this.root;
-    const traverse = ( node ) => (!node.right ? node.value : traverse( node.right ));
-    return traverse( node );
+    const traverse = node => (!node.right ? node.value : traverse(node.right));
+    return traverse(node);
   }
 
   getDepth() {
     let maxDepth = 0;
     const node = this.root;
     const traverse = (node, depth) => {
-      if ( !node ) return null;
-      if ( node ) {
+      if (!node) return null;
+      if (node) {
         maxDepth = depth > maxDepth ? depth : maxDepth;
-        traverse( node.left, depth + 1 );
-        traverse( node.right, depth + 1 );
+        traverse(node.left, depth + 1);
+        traverse(node.right, depth + 1);
       }
     };
-    traverse( node, 0 );
+    traverse(node, 0);
     return maxDepth;
   }
 
   countLeaves() {
     let count = 0;
     const node = this.root;
-    const traverse = ( node ) => {
-      if ( !node) {
+    const traverse = node => {
+      if (!node) {
         return null;
       }
-      if ( !node.left && !node.right ) {
+      if (!node.left && !node.right) {
         count++;
       } else {
         traverse(node.left) + traverse(node.right);
@@ -233,20 +231,20 @@ class BinarySearchTree {
     const result = {};
     const depthAverages = [];
 
-    const traverse = ( node, depth ) => {
-      if ( !node ) {
+    const traverse = (node, depth) => {
+      if (!node) {
         return null;
       }
-      if ( node ) {
-        if ( !result[depth] ) {
+      if (node) {
+        if (!result[depth]) {
           result[depth] = [node.value];
         } else {
-          result[depth].push( node.value );
+          result[depth].push(node.value);
         }
       }
       // check to see if node is a leaf, depth stays the same if it is
       // otherwise increment depth for possible right and left nodes
-      if ( node.right || node.left ) {
+      if (node.right || node.left) {
         traverse(node.left, depth + 1);
         traverse(node.right, depth + 1);
       }
@@ -254,13 +252,13 @@ class BinarySearchTree {
     traverse(node, 0);
 
     // get averages and breadthFirst
-    for ( const key in result ) {
+    for (const key in result) {
       const len = result[key].length;
       let depthAvg = 0;
-      for ( let i = 0; i < len; i++ ) {
+      for (let i = 0; i < len; i++) {
         depthAvg += result[key][i];
       }
-      depthAverages.push( Number( ( depthAvg / len ).toFixed( 2 ) ) );
+      depthAverages.push(Number((depthAvg / len).toFixed(2)));
     }
     return depthAverages;
   }
@@ -307,7 +305,7 @@ class BinarySearchTree {
   preOrder() {
     const result = [];
     const node = this.root;
-    const traverse = ( node ) => {
+    const traverse = node => {
       result.push(node.value);
       node.left && traverse(node.left);
       node.right && traverse(node.right);
@@ -326,7 +324,7 @@ class BinarySearchTree {
   inOrder() {
     const result = [];
     const node = this.root;
-    const traverse = ( node ) => {
+    const traverse = node => {
       node.left && traverse(node.left);
       result.push(node.value);
       node.right && traverse(node.right);
@@ -345,7 +343,7 @@ class BinarySearchTree {
   postOrder() {
     const result = [];
     const node = this.root;
-    const traverse = (node) => {
+    const traverse = node => {
       node.left && traverse(node.left);
       node.right && traverse(node.right);
       result.push(node.value);
@@ -357,17 +355,17 @@ class BinarySearchTree {
   // Convert a binary search tree to a linked-list in place.
   convertToLinkedList() {
     const node = this.root;
-    if ( !node ) {
+    if (!node) {
       return null;
     }
     const list = new LinkedList();
-    const result = this.inOrder( node );
+    const result = this.inOrder(node);
 
-    for ( let i = 0; i < result.length; i++) {
-      list.add( result[i] );
+    for (let i = 0; i < result.length; i++) {
+      list.add(result[i]);
     }
     return list;
   }
 }
 
-module.exports = BinarySearchTree;
+export default BinarySearchTree;

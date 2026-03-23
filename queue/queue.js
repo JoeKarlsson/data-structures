@@ -4,12 +4,12 @@ class Queue {
     this.back = null;
   }
 
-  enqueue( value ) {
+  enqueue(value) {
     const newNode = {
       value,
       next: null,
     };
-    if ( !this.front ) {
+    if (!this.front) {
       this.back = newNode;
       this.front = this.back;
     } else {
@@ -19,7 +19,7 @@ class Queue {
   }
 
   dequeue() {
-    if ( this.front ) {
+    if (this.front) {
       const { value } = this.front;
       this.front = this.front.next;
       return value;
@@ -28,11 +28,11 @@ class Queue {
   }
 
   isEmpty() {
-    if ( this.front === null ) {
+    if (this.front === null) {
       return true;
     }
     return false;
   }
 }
 
-module.exports = Queue;
+export default Queue;

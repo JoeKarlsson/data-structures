@@ -1,4 +1,4 @@
-const selectionModule = (() => {
+const selectionModule = () => {
   // swap method because its used multiple times
   const swap = (array, index1, index2) => {
     // store a tmp variable at pos index2
@@ -13,11 +13,11 @@ const selectionModule = (() => {
 
   // Everything after the return statement is public
   return {
-    selectionSort: ( array ) => {
-      for ( let i = 0; i < array.length - 1; i++ ) {
+    selectionSort: array => {
+      for (let i = 0; i < array.length - 1; i++) {
         let min = i;
-        for ( let j = i + 1; j < array.length; j++ ) {
-          if ( array[j] < array[min] ) {
+        for (let j = i + 1; j < array.length; j++) {
+          if (array[j] < array[min]) {
             min = j;
           }
         }
@@ -28,6 +28,6 @@ const selectionModule = (() => {
       return array;
     },
   };
-});
+};
 
-module.exports = selectionModule;
+export default selectionModule;

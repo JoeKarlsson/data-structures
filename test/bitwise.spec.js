@@ -1,8 +1,6 @@
-const chai = require('chai');
-const bitwise_basics = require('../bitwise/bitwise-basics');
-const bitwise_rgb_hex_binary = require('../bitwise/bitwise-rgb-hex-binary');
-
-const { expect } = chai;
+import { expect } from 'chai';
+import * as bitwise_basics from '../bitwise/bitwise-basics.js';
+import * as bitwise_rgb_hex_binary from '../bitwise/bitwise-rgb-hex-binary.js';
 
 describe('Bitwise', () => {
   describe('Bitwise Basics', () => {
@@ -27,7 +25,9 @@ describe('Bitwise', () => {
     describe('bitwise NOT', () => {
       it('should return the binary NOT of two integers', () => {
         // ~1001 = 0110
-        expect(bitwise_basics.bitwiseNOT(9)).to.equal('11111111111111111111111111110110');
+        expect(bitwise_basics.bitwiseNOT(9)).to.equal(
+          '11111111111111111111111111110110'
+        );
       });
     });
     describe('bitwise Left Shift', () => {
@@ -39,7 +39,9 @@ describe('Bitwise', () => {
     describe('bitwise Sign Propagating Right Shift', () => {
       it('should return the binary right of a integers by n bits', () => {
         // 1001 >> 2 = 0010
-        expect(bitwise_basics.bitwiseSignPropagatingRightShift(9, 2)).to.equal('10');
+        expect(bitwise_basics.bitwiseSignPropagatingRightShift(9, 2)).to.equal(
+          '10'
+        );
       });
     });
     describe('bitwise Zero Fill Right Shift', () => {
@@ -47,7 +49,9 @@ describe('Bitwise', () => {
         // 1001 << 2 = 100100
         expect(bitwise_basics.bitwiseZeroFillRightShift(9, 2)).to.equal('10');
         // 11111111111111111111111111110111 >>> 2 = 1073741821
-        expect(bitwise_basics.bitwiseZeroFillRightShift(-9, 2)).to.equal('111111111111111111111111111101');
+        expect(bitwise_basics.bitwiseZeroFillRightShift(-9, 2)).to.equal(
+          '111111111111111111111111111101'
+        );
       });
     });
     describe('bitwise is Even', () => {
@@ -67,7 +71,9 @@ describe('Bitwise', () => {
         expect(bitwise_basics.dec2bin(9)).to.equal('1001');
         expect(bitwise_basics.dec2bin(2)).to.equal('10');
         expect(bitwise_basics.dec2bin(11)).to.equal('1011');
-        expect(bitwise_basics.dec2bin(-1)).to.equal('11111111111111111111111111111111');
+        expect(bitwise_basics.dec2bin(-1)).to.equal(
+          '11111111111111111111111111111111'
+        );
       });
     });
     describe('bitwise avgInt', () => {
@@ -96,14 +102,14 @@ describe('Bitwise', () => {
         RGBarr = [
           [0, 0, 0], // black
           [0, 255, 0], // green
-          [255, 255, 255] // white
+          [255, 255, 255], // white
         ];
       });
       describe('To Bin', () => {
         it('should convert a RGB value to Binary', () => {
           const bin = [];
           // convert some RGB color values to hex and to binary
-          RGBarr.forEach((rgb) => {
+          RGBarr.forEach(rgb => {
             bin.push(bitwise_rgb_hex_binary.RGBToBin(rgb[0], rgb[1], rgb[2]));
           });
           // black
@@ -112,14 +118,13 @@ describe('Bitwise', () => {
           expect(bin[1]).to.equal('000000001111111100000000');
           // white
           expect(bin[2]).to.equal('111111111111111111111111');
-
         });
       });
       describe('To Hex', () => {
         it('should convert a RGB value to Hex', () => {
           const bin = [];
           // convert some RGB color values to hex and to hex
-          RGBarr.forEach((rgb) => {
+          RGBarr.forEach(rgb => {
             bin.push(bitwise_rgb_hex_binary.RGBToHex(rgb[0], rgb[1], rgb[2]));
           });
           // black
@@ -138,14 +143,14 @@ describe('Bitwise', () => {
         HexArr = [
           '000000', // black
           '00FF00', // green
-          'FFFFFF' // white
+          'FFFFFF', // white
         ];
       });
       describe('To RGB', () => {
         it('should convert a HEX value to RGB', () => {
           const rgb = [];
           // convert a hexidecimal color string to 0..255 R,G,B
-          HexArr.forEach((hex) => {
+          HexArr.forEach(hex => {
             rgb.push(bitwise_rgb_hex_binary.hexToRGB(parseInt(hex, 16)));
           });
           // black
@@ -164,14 +169,14 @@ describe('Bitwise', () => {
         binArr = [
           '000000000000000000000000', // black
           '000000001111111100000000', // green
-          '111111111111111111111111' // white
+          '111111111111111111111111', // white
         ];
       });
       describe('To RGB', () => {
         it('should convert a binary value to RGB', () => {
           const rgb = [];
           // convert a hexidecimal color string to 0..255 R,G,B
-          binArr.forEach((bin) => {
+          binArr.forEach(bin => {
             rgb.push(bitwise_rgb_hex_binary.binToRGB(bin));
           });
           // black
@@ -180,7 +185,6 @@ describe('Bitwise', () => {
           expect(rgb[1]).to.deep.equal([0, 255, 0]);
           // white
           expect(rgb[2]).to.deep.equal([255, 255, 255]);
-
         });
       });
     });

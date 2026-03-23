@@ -4,7 +4,7 @@ class LinearSearch {
   }
 
   search(element) {
-    for ( let i = 0; i < this.arr.length; i++) {
+    for (let i = 0; i < this.arr.length; i++) {
       if (element === this.arr[i]) {
         return i;
       }
@@ -13,4 +13,4 @@ class LinearSearch {
   }
 }
 
-module.exports = LinearSearch;
+export default LinearSearch;

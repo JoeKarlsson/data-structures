@@ -19,9 +19,7 @@ class ComplexArray {
     const components = [];
 
     this.forEach((value, i) => {
-      components.push(
-        `(${value.real.toFixed(2)}, ${value.imag.toFixed(2)})`,
-      );
+      components.push(`(${value.real.toFixed(2)}, ${value.imag.toFixed(2)})`);
     });
 
     return `[${components.join(', ')}]`;
@@ -30,9 +28,15 @@ class ComplexArray {
   forEach(iterator) {
     const n = this.length;
     // For gc efficiency, re-use a single object in the iterator.
-    const value = Object.seal(Object.defineProperties({}, {
-      real: { writable: true }, imag: { writable: true },
-    }));
+    const value = Object.seal(
+      Object.defineProperties(
+        {},
+        {
+          real: { writable: true },
+          imag: { writable: true },
+        }
+      )
+    );
 
     for (let i = 0; i < n; i++) {
       value.real = this.real[i];
@@ -53,7 +57,7 @@ class ComplexArray {
   }
 
   conjugate() {
-    return new ComplexArray(this).map((value) => {
+    return new ComplexArray(this).map(value => {
       value.imag *= -1;
     });
   }
@@ -69,4 +73,4 @@ class ComplexArray {
   }
 }
 
-module.exports = ComplexArray;
+export default ComplexArray;

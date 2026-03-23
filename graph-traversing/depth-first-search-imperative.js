@@ -1,16 +1,15 @@
 const DFS = (start, searchFor) => {
   const stack = [start];
   const visited = [];
-  let currNode = start;
 
-  while ( stack.length !== 0) {
-    currNode = stack.pop();
+  while (stack.length !== 0) {
+    const currNode = stack.pop();
     if (currNode.value === searchFor) {
       return currNode;
     }
     if (visited.indexOf(currNode) === -1) {
       visited.push(currNode);
-      currNode.neighbors.forEach((w) => {
+      currNode.neighbors.forEach(w => {
         stack.push(w);
       });
     }
@@ -21,4 +20,4 @@ const DFS = (start, searchFor) => {
   }
 };
 
-module.exports = DFS;
+export default DFS;

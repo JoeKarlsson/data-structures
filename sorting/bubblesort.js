@@ -1,5 +1,5 @@
-const bubbleModule = (() => {
-  const swap = ( arr, i1, i2) => {
+const bubbleModule = () => {
+  const swap = (arr, i1, i2) => {
     const tmp = arr[i1];
     arr[i1] = arr[i2];
     arr[i2] = tmp;
@@ -7,30 +7,30 @@ const bubbleModule = (() => {
   };
 
   /*
-  * Bubble sort works in a nature similar to its name,
-  *   the lesser - or lighter - values
-  *   will 'bubble' to the beginning of the array,
-  *   and the heavier values will 'sink'
-  *   to the bottom.
-  */
+   * Bubble sort works in a nature similar to its name,
+   *   the lesser - or lighter - values
+   *   will 'bubble' to the beginning of the array,
+   *   and the heavier values will 'sink'
+   *   to the bottom.
+   */
   return {
-    bubbleSort: ( array ) => {
+    bubbleSort: array => {
       // create variables for swapping and our while loop condition
       let swapped = true;
 
       // Continue making passes until we have a clean pass with no swaps.
-      while ( swapped ) {
+      while (swapped) {
         // init swapped to false at the top of the while loop
         swapped = false;
 
         // loop through our array
-        for ( let i = 0; i < array.length; i++ ) {
+        for (let i = 0; i < array.length; i++) {
           // at each position, compare this element with the previous
           //  if this one is greater than our previous one swap it and
           //  flag our conditional to loop through our array again
-          if ( array[i - 1] > array[i] ) {
+          if (array[i - 1] > array[i]) {
             // swap the two numbers
-            swap( array, i - 1, i );
+            swap(array, i - 1, i);
 
             // flag our conditional to continue looping
             swapped = true;
@@ -41,6 +41,6 @@ const bubbleModule = (() => {
       return array;
     },
   };
-});
+};
 
-module.exports = bubbleModule;
+export default bubbleModule;

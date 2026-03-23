@@ -1,11 +1,9 @@
-const chai = require('chai');
-const LinearSearch = require('../search/linearSearch');
-const BinarySearchTree = require('../search/binary-search-tree');
+import { expect } from 'chai';
+import LinearSearch from '../search/linearSearch.js';
+import BinarySearchTree from '../search/binary-search-tree.js';
 
-const { expect } = chai;
-
-describe( 'Search', () => {
-  describe( 'Binary Search', () => {
+describe('Search', () => {
+  describe('Binary Search', () => {
     let bst1;
     let bst2;
 
@@ -13,8 +11,8 @@ describe( 'Search', () => {
       bst1 = new BinarySearchTree();
       bst2 = new BinarySearchTree();
     });
-    describe( '`add` method', () => {
-      it( 'should add a new node to the tree', () => {
+    describe('`add` method', () => {
+      it('should add a new node to the tree', () => {
         expect(bst1.add(40)).to.deep.equal({
           value: 40,
           left: null,
@@ -49,8 +47,8 @@ describe( 'Search', () => {
       });
     });
 
-    describe( '`get` method', () => {
-      it( 'should find and return the node based on it\'s value', () => {
+    describe('`get` method', () => {
+      it("should find and return the node based on it's value", () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -79,7 +77,7 @@ describe( 'Search', () => {
           isLeft: true,
         });
       });
-      it( 'should should return null if the value is not found', () => {
+      it('should should return null if the value is not found', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -88,13 +86,13 @@ describe( 'Search', () => {
         const result = bst1.get(bst1.root, 1000000);
         expect(result).to.equal(null);
       });
-      it( 'should should return null if the BST is empty', () => {
+      it('should should return null if the BST is empty', () => {
         const result = bst1.get(bst1.root, 1000000);
         expect(result).to.equal(null);
       });
     });
-    describe( '`remove` method', () => {
-      it( 'should remove a leaf node from the tree', () => {
+    describe('`remove` method', () => {
+      it('should remove a leaf node from the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -120,7 +118,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a root node with zero children and left of parent', () => {
+      it('should remove a root node with zero children and left of parent', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -146,7 +144,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a root node with zero children and right of parent', () => {
+      it('should remove a root node with zero children and right of parent', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -172,7 +170,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a node with two children when the replacement node is on the left', () => {
+      it('should remove a node with two children when the replacement node is on the left', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -225,7 +223,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a node with one left child from the tree', () => {
+      it('should remove a node with one left child from the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -256,7 +254,7 @@ describe( 'Search', () => {
         });
       });
 
-      it( 'should remove a node with one right child from the tree', () => {
+      it('should remove a node with one right child from the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -283,8 +281,8 @@ describe( 'Search', () => {
         });
       });
     });
-    describe( '`contains` method', () => {
-      it( 'should return true if the node is in the tree', () => {
+    describe('`contains` method', () => {
+      it('should return true if the node is in the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -296,7 +294,7 @@ describe( 'Search', () => {
         expect(bst1.contains(10)).to.equal(true);
         expect(bst1.contains(32)).to.equal(true);
       });
-      it( 'should return false if the node is not in the tree', () => {
+      it('should return false if the node is not in the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -311,8 +309,8 @@ describe( 'Search', () => {
         expect(bst1.contains(6969)).to.equal(false);
       });
     });
-    describe( '`findMin` method', () => {
-      it( 'should return smallest node in the tree', () => {
+    describe('`findMin` method', () => {
+      it('should return smallest node in the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -321,8 +319,8 @@ describe( 'Search', () => {
         expect(bst1.findMin()).to.equal(10);
       });
     });
-    describe( '`findMax` method', () => {
-      it( 'should return largest node in the tree', () => {
+    describe('`findMax` method', () => {
+      it('should return largest node in the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -331,8 +329,8 @@ describe( 'Search', () => {
         expect(bst1.findMax()).to.equal(78);
       });
     });
-    describe( '`getDepth` method', () => {
-      it( 'should return largest node in the tree', () => {
+    describe('`getDepth` method', () => {
+      it('should return largest node in the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -353,8 +351,8 @@ describe( 'Search', () => {
         expect(bst2.getDepth()).to.equal(3);
       });
     });
-    describe( '`countLeaves` method', () => {
-      it( 'should return number of leaves in the tree', () => {
+    describe('`countLeaves` method', () => {
+      it('should return number of leaves in the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -375,8 +373,8 @@ describe( 'Search', () => {
         expect(bst2.countLeaves()).to.equal(5);
       });
     });
-    describe( '`nodeAverages` method', () => {
-      it( 'should return array of the averages for of all nodes at the same depth', () => {
+    describe('`nodeAverages` method', () => {
+      it('should return array of the averages for of all nodes at the same depth', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -385,32 +383,36 @@ describe( 'Search', () => {
         expect(bst1.nodeAverages()).to.deep.equal([40, 51.5, 21]);
       });
     });
-    describe( 'Breadth First Search', () => {
-      describe( '`breadthFirstLTR` method', () => {
-        it( 'should return traversal path', () => {
+    describe('Breadth First Search', () => {
+      describe('`breadthFirstLTR` method', () => {
+        it('should return traversal path', () => {
           bst1.add(40);
           bst1.add(25);
           bst1.add(78);
           bst1.add(10);
           bst1.add(32);
-          expect(bst1.breadthFirstLTR()).to.deep.equal([40, 40, 25, 78, 25, 78, 10, 32, 10, 32]);
+          expect(bst1.breadthFirstLTR()).to.deep.equal([
+            40, 40, 25, 78, 25, 78, 10, 32, 10, 32,
+          ]);
         });
       });
-      describe( '`breadthFirstRTL` method', () => {
-        it( 'should return traversal path', () => {
+      describe('`breadthFirstRTL` method', () => {
+        it('should return traversal path', () => {
           bst1.add(40);
           bst1.add(25);
           bst1.add(78);
           bst1.add(10);
           bst1.add(32);
-          expect(bst1.breadthFirstRTL()).to.deep.equal([40, 40, 78, 25, 78, 25, 32, 10, 32, 10]);
+          expect(bst1.breadthFirstRTL()).to.deep.equal([
+            40, 40, 78, 25, 78, 25, 32, 10, 32, 10,
+          ]);
         });
       });
     });
 
-    describe( 'Depth First Search', () => {
-      describe( '`preOrder` method', () => {
-        it( 'should return traversal path', () => {
+    describe('Depth First Search', () => {
+      describe('`preOrder` method', () => {
+        it('should return traversal path', () => {
           bst1.add(40);
           bst1.add(25);
           bst1.add(78);
@@ -419,8 +421,8 @@ describe( 'Search', () => {
           expect(bst1.preOrder()).to.deep.equal([40, 25, 10, 32, 78]);
         });
       });
-      describe( '`inOrder` method', () => {
-        it( 'should return traversal path', () => {
+      describe('`inOrder` method', () => {
+        it('should return traversal path', () => {
           bst1.add(40);
           bst1.add(25);
           bst1.add(78);
@@ -429,8 +431,8 @@ describe( 'Search', () => {
           expect(bst1.preOrder()).to.deep.equal([40, 25, 10, 32, 78]);
         });
       });
-      describe( '`postOrder` method', () => {
-        it( 'should return traversal path', () => {
+      describe('`postOrder` method', () => {
+        it('should return traversal path', () => {
           bst1.add(40);
           bst1.add(25);
           bst1.add(78);
@@ -440,8 +442,8 @@ describe( 'Search', () => {
         });
       });
     });
-    describe( '`convertToLinkedList` method', () => {
-      it( 'should return a linked list of the tree', () => {
+    describe('`convertToLinkedList` method', () => {
+      it('should return a linked list of the tree', () => {
         bst1.add(40);
         bst1.add(25);
         bst1.add(78);
@@ -473,7 +475,7 @@ describe( 'Search', () => {
     });
   });
 
-  describe( 'Linear Search', () => {
+  describe('Linear Search', () => {
     let linearSearch;
 
     beforeEach(() => {
@@ -481,17 +483,17 @@ describe( 'Search', () => {
       linearSearch = new LinearSearch(arr);
     });
 
-    describe( '`search` method', () => {
-      it( 'should return `-1` if empty', () => {
+    describe('`search` method', () => {
+      it('should return `-1` if empty', () => {
         const newLinearSearch = new LinearSearch([]);
         expect(newLinearSearch.search()).to.be.equal(-1);
       });
 
-      it( 'should return `-1` if the element is not found', () => {
+      it('should return `-1` if the element is not found', () => {
         expect(linearSearch.search('pig')).to.be.equal(-1);
       });
 
-      it( 'should return the index of the element if it\'s found', () => {
+      it("should return the index of the element if it's found", () => {
         expect(linearSearch.search('cat')).to.be.equal(0);
         expect(linearSearch.search('dog')).to.be.equal(1);
         expect(linearSearch.search('mouse')).to.be.equal(2);

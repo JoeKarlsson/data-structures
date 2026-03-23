@@ -1,4 +1,4 @@
-const PriorityQueue = require('../queue/priority-queue');
+import PriorityQueue from '../queue/priority-queue.js';
 
 /**
  * Pathfinding starts here
@@ -63,7 +63,6 @@ class Graph {
       // For the current node, consider all of its unvisited
       // neighbors and calculate their tentative distances.
       for (neighbor in this.vertices[smallest]) {
-
         // Compare the newly calculated tentative distance to the
         // current assigned value and assign the smaller one.
         // For example, if the current node A is marked with a
@@ -90,4 +89,4 @@ class Graph {
 
 // Source: https://github.com/mburst/dijkstras-algorithm
 
-module.exports = Graph;
+export default Graph;

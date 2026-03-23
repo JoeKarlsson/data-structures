@@ -1,7 +1,7 @@
 /**
  Basic priority queue implementation.
   If a better priority queue is wanted/needed,
-*/
+ */
 
 class PriorityQueue {
   constructor() {
@@ -32,4 +32,4 @@ class PriorityQueue {
   }
 }
 
-module.exports = PriorityQueue;
+export default PriorityQueue;

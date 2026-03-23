@@ -1,8 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-
-const ComplexArray = require('../complex-array/complex-array');
+import { expect } from 'chai';
+import ComplexArray from '../complex-array/complex-array.js';
 
 /**
  * Asserts that two arrays are equal
@@ -123,5 +120,4 @@ describe('Complex Array', () => {
       expect(sum).to.equal(3);
     });
   });
-
 });
