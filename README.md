@@ -121,8 +121,8 @@ Don't hesitate to create a pull request. Every contribution is appreciated. In d
 
 #### [MIT](./LICENSE)
 
-[tests]: https://travis-ci.org/JoeKarlsson/data-structures.svg?branch=master
-[tests-url]: https://travis-ci.org/JoeKarlsson/data-structures
+[tests]: https://github.com/JoeKarlsson/data-structures/actions/workflows/test.yml/badge.svg
+[tests-url]: https://github.com/JoeKarlsson/data-structures/actions/workflows/test.yml
 
 [maintainability]: https://api.codeclimate.com/v1/badges/462bdda833cde7f72e01/maintainability
 [maintainability-url]: https://codeclimate.com/github/JoeKarlsson/data-structures/maintainability

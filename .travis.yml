@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - "18"
-  - "20"
-notifications:
-  email: false
-script: npm test
