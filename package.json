@@ -24,7 +24,7 @@
     "glob": "^14.0.2"
   },
   "author": "Joe Karlsson",
-  "license": "ISC",
+  "license": "MIT",
   "lint-staged": {
     "*.js": [
       "eslint --fix",
