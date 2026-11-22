@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "JavaScript Data Structures and Algorithms"
+abstract: "Common data structures and algorithms implemented in JavaScript."
+authors:
+  - family-names: Karlsson
+    given-names: Joe
+    website: "https://www.joekarlsson.com"
+repository-code: "https://github.com/JoeKarlsson/data-structures"
+license: MIT
+keywords:
+  - data structures
+  - algorithms
+  - JavaScript
