@@ -1,0 +1,16 @@
+{
+	"title": "JavaScript Data Structures and Algorithms",
+	"description": "Common data structures and algorithms implemented in JavaScript.",
+	"upload_type": "software",
+	"creators": [
+		{
+			"name": "Karlsson, Joe"
+		}
+	],
+	"license": "MIT",
+	"keywords": [
+		"data structures",
+		"algorithms",
+		"JavaScript"
+	]
+}
