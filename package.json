@@ -19,7 +19,7 @@
     "prepare": "husky"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.4"
+    "serialize-javascript": "^7.1.4"
   },
   "author": "Joe Karlsson",
   "license": "ISC",
