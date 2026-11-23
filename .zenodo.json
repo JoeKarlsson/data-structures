@@ -4,7 +4,8 @@
 	"upload_type": "software",
 	"creators": [
 		{
-			"name": "Karlsson, Joe"
+			"name": "Karlsson, Joe",
+			"orcid": "0009-0005-8048-9559"
 		}
 	],
 	"license": "MIT",
